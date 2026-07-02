@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Star, Zap, Shield, RefreshCw, Smartphone, Check, ArrowRight, ChevronDown } from "lucide-react";
 import { NfcReviewCard } from "@/app/components/nfc/NfcReviewCard";
 import { NfcTapDemo } from "@/app/components/nfc/NfcTapDemo";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { PAGES } from "@/lib/seo/siteConfig";
 import "@/app/components/nfc/nfc-animations.css";
 
 const FEATURES = [
@@ -106,6 +108,12 @@ export default function GoogleNFC() {
 
   return (
     <div className="min-h-screen bg-[#06091a] text-white overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
+      <SeoHead
+        title={PAGES.googleNfc.title}
+        description={PAGES.googleNfc.description}
+        path={PAGES.googleNfc.path}
+        keywords="Google NFC review card, NFC review card, get more Google reviews, local business reviews, QR review card"
+      />
 
       {/* ── Nav ── */}
       <nav className="border-b border-violet-900/20 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">

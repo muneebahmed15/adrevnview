@@ -1,0 +1,40 @@
+# https://adrevnview.com/robots.txt
+
+# COMPONENT A: TRADITIONAL WEB INDEXERS
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# COMPONENT B: LEGITIMATE AI DISCOVERY AND CITATION AGENTS
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# COMPONENT C: AGGRESSIVE DATA SCRAPERS AND IP STEALERS
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# COMPONENT D: CANONICAL SITEMAP LINKING
+Sitemap: https://adrevnview.com/sitemap.xml

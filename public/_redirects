@@ -1,0 +1,6 @@
+# Netlify-style SPA fallback (prerendered routes served as folders)
+/googlenfc   /googlenfc/index.html   200
+/about       /about/index.html       200
+/privacy     /privacy/index.html     200
+/accessibility /accessibility/index.html 200
+/geo-report  /geo-report/index.html   200

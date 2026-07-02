@@ -3,6 +3,10 @@ import { lazy } from "react";
 
 const MainSite = lazy(() => import("./MainSite"));
 const GoogleNFC = lazy(() => import("./GoogleNFC"));
+const About = lazy(() => import("./About"));
+const Privacy = lazy(() => import("./Privacy"));
+const Accessibility = lazy(() => import("./Accessibility"));
+const SeoReport = lazy(() => import("./SeoReport"));
 
 export const router = createBrowserRouter([
   {
@@ -12,5 +16,25 @@ export const router = createBrowserRouter([
   {
     path: "/googlenfc",
     Component: GoogleNFC,
+  },
+  {
+    path: "/about",
+    Component: About,
+  },
+  {
+    path: "/privacy",
+    Component: Privacy,
+  },
+  {
+    path: "/accessibility",
+    Component: Accessibility,
+  },
+  {
+    path: "/seo-report",
+    Component: SeoReport,
+  },
+  {
+    path: "/geo-report",
+    Component: SeoReport,
   },
 ]);

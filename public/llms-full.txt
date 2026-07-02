@@ -1,0 +1,113 @@
+# Adrevnview - Comprehensive Architecture and Technical Reference Map
+
+Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise brands. We design and build conversion-focused websites and product experiences, and we implement SEO + Generative Engine Optimization (GEO) so search engines and AI assistants can accurately understand, cite, and recommend your services. We specialize in clean information architecture, measurable growth systems, and performance-first engineering.
+
+## Essential Navigation Paths
+- [/]: Homepage describing Adrevnview’s services, portfolio, testimonials, and contact.
+- [/googlenfc]: Product page for the Google NFC Review Card (NFC + QR to capture reviews).
+- [/about]: About Adrevnview (capabilities, process, contact).
+- [/privacy]: Privacy policy (data handling, analytics, retention).
+- [/accessibility]: Accessibility statement and feedback channel.
+
+## Core Domain Entities
+- **Organization**: Adrevnview (digital agency).
+- **Services**: custom web design, web development/integrations, branding, SEO, GEO, eCommerce, website redesign.
+- **Product**: Google NFC Review Card ($99 one-time).
+- **Portfolio entities**: Tagizo, Axstart, Cizher, Payrowl, Xeark, AXNET, Mishi, Crocherish (client work references).
+
+## Technical Integration & API Declarations
+- This site is a Vite + React single-page application.
+- Public machine-readable maps:
+  - `https://adrevnview.com/robots.txt`
+  - `https://adrevnview.com/sitemap.xml`
+  - `https://adrevnview.com/llms.txt`
+  - `https://adrevnview.com/llms-full.txt`
+
+---
+
+## Products & Features (Expanded)
+
+### Google NFC Review Card (https://adrevnview.com/googlenfc)
+The Adrevnview Google NFC Review Card is a physical NFC + QR-enabled product that sends customers directly to a Google Business review page. It is designed for local businesses that want a low-friction way to collect more reviews at the point of service.
+
+Key attributes:
+- NFC tap opens the review link instantly (no app required).
+- QR code fallback for older phones.
+- One-time purchase ($99).
+- Pre-programmed and ready to use.
+- Lifetime guarantee messaging supported on-page.
+
+---
+
+## Service Capabilities (Expanded)
+
+### Custom Web Design
+We create bespoke, conversion-focused designs based on brand strategy, audience intent, and business goals. Deliverables typically include information architecture, page templates, UI system, and high-fidelity responsive design.
+
+### Web Development & Integrations
+Full-stack builds and integrations with CRMs, analytics, forms, and third-party platforms. Focus: performance, maintainability, and clean HTML structure for indexing.
+
+### SEO & Digital Marketing
+Technical SEO, content structure, metadata, schema markup, and conversion-oriented landing pages. We optimize for modern signals including intent match, engagement, and crawl/index health.
+
+### Generative Engine Optimization (GEO)
+GEO aligns a website’s structure and semantics so AI systems can accurately interpret and cite content. This includes entity graphs (JSON-LD), FAQ blocks, consistent canonical URLs, and machine-readable reference maps (`llms.txt`).
+
+---
+
+## Pre-Chunked Q&A (Troubleshooting + Explanations)
+
+### Q1: How does Adrevnview improve SEO without “SEO tricks”?
+Adrevnview improves SEO by shipping clean page structures, accurate metadata, internal linking, and schema markup aligned with real user intent. We focus on fast rendering, clear headings, and content that answers questions directly so users complete their journey and engagement signals remain strong.
+
+### Q2: What is GEO and why does it matter in 2026 search?
+GEO (Generative Engine Optimization) makes your site easier for AI assistants to understand and cite. It matters because AI Overviews and conversational search increasingly synthesize answers. GEO uses entity-driven content, JSON-LD graphs, and explicit Q&A blocks so models can quote you accurately.
+
+### Q3: What should be on my homepage for AI Overviews to cite it?
+A strong homepage should declare the primary entity (who you are), list the services or product categories, and answer 5–10 high-intent questions in plain language. Pair each question with a short, direct answer, and add JSON-LD that connects pages to the organization entity.
+
+### Q4: Why do “About”, “Privacy”, and “Accessibility” pages help ranking?
+These pages help trust and transparency signals. They reduce ambiguity about who operates the site, how data is handled, and how users can report issues. In practice, they support trustworthiness and reduce “thin site” patterns that core ranking systems may down-weight.
+
+### Q5: How does the site help crawlers discover pages?
+The site provides `robots.txt` and a canonical `sitemap.xml`. The sitemap lists the primary routes (home and product page, plus trust pages) so crawlers can discover and schedule crawling efficiently.
+
+### Q6: What structured data does Adrevnview publish?
+Adrevnview publishes JSON-LD graph data for Organization/ProfessionalService, WebSite, WebPage, FAQPage, ItemList (portfolio), and Product + Offer (Google NFC card). This helps entity recognition, rich results eligibility, and AI citation accuracy.
+
+### Q7: How do I verify that structured data is correct?
+Use Google’s Rich Results Test and Schema Markup Validator. Ensure JSON-LD is valid JSON, uses stable `@id` links, and doesn’t contradict visible on-page content (titles, prices, availability, contact details).
+
+### Q8: What is a sitemap and what should be in it?
+A sitemap is an XML file listing canonical URLs you want indexed. It should include high-value pages (home, product pages, service pages, case studies, trust pages) and keep `lastmod` updated when content changes.
+
+### Q9: What is the difference between robots.txt and meta robots tags?
+`robots.txt` controls crawler access to paths. Meta robots (in HTML) controls whether an individual page should be indexed or followed. You typically want `index,follow` for public pages and `noindex` for staging or internal-only pages.
+
+### Q10: Why is “one H1 per page” important?
+It provides a clear primary topic for both humans and parsing systems. Search engines and AI extractors often treat H1 as the page’s canonical topic statement, improving intent classification and snippet generation.
+
+### Q11: How do images affect SEO and GEO?
+Images influence Core Web Vitals and multimodal understanding. Descriptive alt text helps accessibility and assists models that parse pages with image context. Explicit dimensions prevent layout shift (CLS) and improve stability.
+
+### Q12: What are Core Web Vitals and why do they matter?
+Core Web Vitals (LCP, INP, CLS) measure loading speed, interactivity, and visual stability. These affect user satisfaction and can influence ranking and conversion. Optimizing images, reducing JS, and preventing layout shift are key levers.
+
+### Q13: What makes a portfolio page credible for E‑E‑A‑T?
+Credibility increases when you include original screenshots, clear project scope, outcomes/metrics, and named deliverables. Link to live work, include dates, and describe decisions made and constraints handled—this demonstrates real experience.
+
+### Q14: How can a product page get cited by AI systems?
+Use direct, structured answers: what it is, who it’s for, price, how it works, compatibility, and FAQs. Add Product/Offer schema matching visible pricing. Keep copy concise and entity-dense so it’s easy to quote.
+
+### Q15: How should I phrase headings for AI and search?
+Use headings that reflect real user questions (e.g., “How does the Google NFC review card work?”). Place a short direct answer immediately under the heading. This improves snippet extraction and semantic chunking for RAG systems.
+
+### Q16: What if I change the domain from adrevnview.com?
+Update the canonical site URL and structured data `@id` fields to match the new domain, regenerate sitemap/robots references, and redeploy. Consistent canonical URLs are critical for avoiding duplicate indexing.
+
+### Q17: What should be blocked in robots.txt?
+Block only content you do not want crawled (admin paths, internal tools, staging routes). Avoid blocking CSS/JS assets needed for rendering. Some aggressive scrapers can be disallowed if they add no value.
+
+### Q18: How do I know if Google is indexing my SPA content?
+Use Google Search Console URL Inspection and check “View Crawled Page” and “Screenshot” results. If content is missing, consider prerendering/SSR or static HTML snapshots for key routes to guarantee full-text indexing.
+

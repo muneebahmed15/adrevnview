@@ -1,6 +1,10 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, ChevronDown, ArrowRight, Star, MapPin, Phone, Mail, Play, Check, Dumbbell, Sparkles } from "lucide-react";
+import { Link } from "react-router";
+import { Menu, X, ChevronDown, ArrowRight, Star, MapPin, Phone, Mail, Play, Check, Dumbbell, Sparkles, Search, Globe } from "lucide-react";
 import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
+import { SeoHead } from "@/components/seo/SeoHead";
+import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
+import { VISIBLE_HOME_FAQ } from "@/lib/seo/structuredData";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
@@ -370,7 +374,7 @@ function Hero() {
           <Star className="w-3.5 h-3.5 fill-violet-400 text-violet-400" />
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <h1 data-speakable="true" className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Premium{" "}
           <GradientText>Web Design</GradientText>
           <br />
@@ -454,6 +458,44 @@ function StatsBar() {
             <div className="text-sm text-slate-400" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function GeoReportPromo() {
+  return (
+    <section className="px-6 py-6">
+      <div className="max-w-7xl mx-auto">
+        <Link
+          to="/geo-report"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-500/25 bg-gradient-to-r from-violet-950/50 to-indigo-950/40 px-6 py-5 hover:border-violet-400/40 transition-all"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-11 h-11 rounded-xl bg-violet-600/25 border border-violet-500/30 flex items-center justify-center shrink-0">
+              <Globe className="w-5 h-5 text-violet-300" />
+            </div>
+            <div>
+              <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
+                Free Tool
+              </p>
+              <h2 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
+                SEO & GEO Report Generator
+              </h2>
+              <p className="text-slate-400 text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
+                Analyze any URL with 45+ checks — Google, ChatGPT, Perplexity, Claude & Gemini readiness. Semrush-grade audit, instant results.
+              </p>
+            </div>
+          </div>
+          <span
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold shrink-0 group-hover:from-violet-500 group-hover:to-indigo-500 transition-all"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            <Search className="w-4 h-4" />
+            Run Free Scan
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+          </span>
+        </Link>
       </div>
     </section>
   );
@@ -779,6 +821,48 @@ function LocationsSection() {
   );
 }
 
+function HomeFaqSection() {
+  return (
+    <section className="py-28 px-6 bg-[#0d1128] border-y border-violet-900/20">
+      <div className="max-w-4xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
+            FAQ
+          </p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+            Answers, upfront
+          </h2>
+          <p className="text-slate-400 text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
+            Clear, direct answers so Google and humans can understand what we do.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {VISIBLE_HOME_FAQ.map((item) => (
+            <details
+              key={item.question}
+              className="group rounded-xl border border-violet-900/20 bg-[#06091a] hover:border-violet-600/30 transition-all"
+            >
+              <summary
+                className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4"
+                style={{ fontFamily: "Manrope, sans-serif" }}
+              >
+                <span className="text-white font-semibold">{item.question}</span>
+                <span className="text-violet-400 group-open:rotate-180 transition-transform">⌄</span>
+              </summary>
+              <div className="px-6 pb-5 -mt-1">
+                <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+                  {item.answer}
+                </p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", message: "" });
 
@@ -871,7 +955,7 @@ function Footer() {
     },
     {
       title: "Marketing",
-      links: ["SEO Services", "PPC Advertising", "Social Media Marketing", "Email Marketing", "Content Strategy"],
+      links: ["SEO Services", "PPC Advertising", "Social Media Marketing", "Email Marketing", "Content Strategy", "Free GEO Report →"],
     },
     {
       title: "Branding",
@@ -911,7 +995,13 @@ function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link}>
-                    <button className="text-slate-500 text-sm hover:text-slate-300 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{link}</button>
+                    {link.startsWith("Free GEO Report") ? (
+                      <Link to="/geo-report" className="text-violet-400 text-sm hover:text-violet-300 transition-colors font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
+                        {link}
+                      </Link>
+                    ) : (
+                      <button className="text-slate-500 text-sm hover:text-slate-300 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{link}</button>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -925,9 +1015,10 @@ function Footer() {
             © {new Date().getFullYear()} Adrevnview. All rights reserved.
           </p>
           <div className="flex gap-6">
-            {["Privacy Policy", "Accessibility", "Sitemap"].map((l) => (
-              <button key={l} className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{l}</button>
-            ))}
+            <a href="/privacy" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Privacy Policy</a>
+            <a href="/accessibility" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Accessibility</a>
+            <a href="/geo-report" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>GEO Report</a>
+            <a href="/sitemap.xml" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Sitemap</a>
           </div>
         </div>
       </div>
@@ -952,12 +1043,19 @@ const marqueeStyle = `
 export default function App() {
   return (
     <>
+      <SeoHead
+        title={PAGES.home.title}
+        description={PAGES.home.description}
+        path={PAGES.home.path}
+        keywords={DEFAULT_SEO.keywords}
+      />
       <style>{marqueeStyle}</style>
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
         <Nav />
         <Hero />
         <MarqueeLogos />
         <StatsBar />
+        <GeoReportPromo />
         <ServicesSection />
         <GoogleNfcSection />
         <PortfolioSection />
@@ -965,6 +1063,7 @@ export default function App() {
         <TestimonialsSection />
         <AwardsSection />
         <LocationsSection />
+        <HomeFaqSection />
         <ContactSection />
         <Footer />
       </div>

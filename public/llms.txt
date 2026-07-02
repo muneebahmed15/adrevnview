@@ -1,0 +1,44 @@
+# Adrevnview — LLM / GEO reference
+# https://adrevnview.com
+
+> Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise brands.
+
+## About
+- Name: Adrevnview
+- Website: https://adrevnview.com
+- Email: hello@adrevnview.com
+- Phone: (512) 555-0147
+- Location: Austin, TX, USA
+
+## Services
+- Custom web design
+- Web development and integrations
+- eCommerce design and development
+- Branding and brand identity
+- SEO and digital marketing
+- Generative Engine Optimization (GEO)
+- Website redesign
+
+## Products
+- Google NFC Review Card ($99): https://adrevnview.com/googlenfc
+  - NFC + QR card that sends customers to Google review page
+  - No app required, pre-programmed, lifetime guarantee
+
+## Client Work
+- Tagizo (video intelligence SaaS): https://tagizo.com
+- Axstart (innovation lab): https://axstart.com
+- Cizher (AI workspace): https://cizher.com
+- Payrowl (operations platform): https://payrowl.com
+- Xeark (knowledge engine): https://www.xeark.com
+- AXNET (mesh network): https://axearth.com
+- Mishi (artisan eCommerce): https://mishi.es
+- Crocherish (handmade crafts): https://crocherish.com
+
+## Partner Product (Gym Owners)
+- MatFlow gym management: https://mymatflow.com
+
+## Key Pages
+- Home: https://adrevnview.com/
+- Google NFC product: https://adrevnview.com/googlenfc
+- Free SEO & GEO Report Generator: https://adrevnview.com/geo-report
+- Sitemap: https://adrevnview.com/sitemap.xml
