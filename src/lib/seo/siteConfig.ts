@@ -80,4 +80,10 @@ export const PAGES = {
     description:
       "Analyze any URL for SEO and Generative Engine Optimization. 45+ checks for Google, ChatGPT, Perplexity, Claude, and Gemini AI visibility.",
   },
+  work: {
+    path: "/work",
+    title: "Client Case Studies & Portfolio | Adrevnview",
+    description:
+      "Explore Adrevnview client projects — B2B SaaS platforms, eCommerce storefronts, and enterprise websites designed with SEO and GEO built in.",
+  },
 } as const;

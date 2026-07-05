@@ -1,3 +1,4 @@
+import { CLIENTS } from "@/lib/content/clients";
 import { ORG, SITE_URL } from "./siteConfig";
 
 type FaqItem = { question: string; answer: string };
@@ -12,16 +13,12 @@ const SERVICES = [
   "Website Redesign",
 ];
 
-const CLIENT_PROJECTS = [
-  { name: "Tagizo", url: "https://tagizo.com", description: "AI video intelligence SaaS platform" },
-  { name: "Axstart", url: "https://axstart.com", description: "Innovation lab and product ecosystem" },
-  { name: "Cizher", url: "https://cizher.com", description: "Multi-agent AI workspace for engineers" },
-  { name: "Payrowl", url: "https://payrowl.com", description: "Malaysia payroll and operations platform" },
-  { name: "Xeark", url: "https://www.xeark.com", description: "Knowledge exploration engine" },
-  { name: "AXNET", url: "https://axearth.com", description: "Mesh network command center" },
-  { name: "Mishi", url: "https://mishi.es", description: "Artisan apparel and decor eCommerce" },
-  { name: "Crocherish", url: "https://crocherish.com", description: "Handmade crochet retail storefront" },
-];
+const CLIENT_PROJECTS = CLIENTS.map((client) => ({
+  name: client.name,
+  url: client.url,
+  description: client.shortDescription,
+  caseStudyUrl: `${SITE_URL}/work/${client.slug}`,
+}));
 
 const HOME_FAQ: FaqItem[] = [
   {
@@ -184,11 +181,39 @@ function portfolioSchema() {
       item: {
         "@type": "CreativeWork",
         name: project.name,
-        url: project.url,
+        url: project.caseStudyUrl,
+        sameAs: project.url,
         description: project.description,
         creator: { "@id": `${SITE_URL}/#organization` },
       },
     })),
+  };
+}
+
+function caseStudySchema(slug: string) {
+  const client = CLIENTS.find((c) => c.slug === slug);
+  if (!client) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${SITE_URL}/work/${slug}#article`,
+    headline: client.seoTitle,
+    description: client.seoDescription,
+    url: `${SITE_URL}/work/${slug}`,
+    author: { "@id": `${SITE_URL}/#organization` },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    about: {
+      "@type": "Organization",
+      name: client.name,
+      url: client.url,
+    },
+    mentions: {
+      "@type": "WebSite",
+      name: client.name,
+      url: client.url,
+    },
+    inLanguage: "en-US",
   };
 }
 
@@ -227,6 +252,12 @@ export function getStructuredData(path: string, title: string, description: stri
   if (path === "/googlenfc") {
     graphs.push(faqSchema(NFC_FAQ));
     graphs.push(productSchema());
+  }
+
+  if (path.startsWith("/work/")) {
+    const slug = path.replace("/work/", "");
+    const caseStudy = caseStudySchema(slug);
+    if (caseStudy) graphs.push(caseStudy);
   }
 
   return {

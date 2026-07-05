@@ -25,20 +25,21 @@
   - No app required, pre-programmed, lifetime guarantee
 
 ## Client Work
-- Tagizo (video intelligence SaaS): https://tagizo.com
-- Axstart (innovation lab): https://axstart.com
-- Cizher (AI workspace): https://cizher.com
-- Payrowl (operations platform): https://payrowl.com
-- Xeark (knowledge engine): https://www.xeark.com
-- AXNET (mesh network): https://axearth.com
-- Mishi (artisan eCommerce): https://mishi.es
-- Crocherish (handmade crafts): https://crocherish.com
+- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://adrevnview.com/work/tagizo
+- Axstart (innovation lab): https://axstart.com — case study: https://adrevnview.com/work/axstart
+- Cizher (AI workspace): https://cizher.com — case study: https://adrevnview.com/work/cizher
+- Payrowl (operations platform): https://payrowl.com — case study: https://adrevnview.com/work/payrowl
+- Xeark (knowledge engine): https://www.xeark.com — case study: https://adrevnview.com/work/xeark
+- AXNET (mesh network): https://axearth.com — case study: https://adrevnview.com/work/axnet
+- Mishi (artisan eCommerce): https://mishi.es — case study: https://adrevnview.com/work/mishi
+- Crocherish (handmade crafts): https://crocherish.com — case study: https://adrevnview.com/work/crocherish
 
 ## Partner Product (Gym Owners)
 - MatFlow gym management: https://mymatflow.com
 
 ## Key Pages
 - Home: https://adrevnview.com/
+- Client case studies: https://adrevnview.com/work
 - Google NFC product: https://adrevnview.com/googlenfc
 - Free SEO & GEO Report Generator: https://adrevnview.com/geo-report
 - Sitemap: https://adrevnview.com/sitemap.xml

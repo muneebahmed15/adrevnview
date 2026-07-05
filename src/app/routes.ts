@@ -7,6 +7,8 @@ const About = lazy(() => import("./About"));
 const Privacy = lazy(() => import("./Privacy"));
 const Accessibility = lazy(() => import("./Accessibility"));
 const SeoReport = lazy(() => import("./SeoReport"));
+const Work = lazy(() => import("./Work"));
+const ClientDetail = lazy(() => import("./ClientDetail"));
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ export const router = createBrowserRouter([
   {
     path: "/about",
     Component: About,
+  },
+  {
+    path: "/work",
+    Component: Work,
+  },
+  {
+    path: "/work/:slug",
+    Component: ClientDetail,
   },
   {
     path: "/privacy",

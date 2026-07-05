@@ -5,22 +5,28 @@ import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
 import { VISIBLE_HOME_FAQ } from "@/lib/seo/structuredData";
+import { CLIENTS, getPortfolioByCategory, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
 const NAV_LINKS = [
   { label: "Services", sub: ["Custom Web Design", "Web Development", "eCommerce Design", "Branding & Identity", "SEO & Marketing", "Website Redesign"] },
-  { label: "Work", sub: ["Case Studies", "B2B Projects", "B2C Projects", "eCommerce Projects"] },
+  {
+    label: "Work",
+    sub: [
+      { label: "Case Studies", href: "/work" },
+      { label: "B2B Projects", href: "/work#b2b" },
+      { label: "B2C Projects", href: "/work#b2c" },
+      { label: "eCommerce Projects", href: "/work#ecommerce" },
+    ],
+  },
   { label: "Industries", sub: ["Healthcare", "eCommerce/Retail", "Manufacturing", "Real Estate", "Legal", "Financial Services", "Technology/SaaS"] },
-  { label: "About", sub: [] },
+  { label: "About", href: "/about" },
   { label: "Blog", sub: [] },
   { label: "Contact", sub: [] },
 ];
 
-const CLIENTS = [
-  "Tagizo", "Axstart", "Cizher", "Xeark", "AXNET", "Payrowl", "Mishi", "Crocherish",
-  "Tagizo", "Axstart", "Cizher", "Xeark", "AXNET", "Payrowl", "Mishi", "Crocherish",
-];
+const MARQUEE_CLIENTS = [...CLIENTS.map((c) => c.name), ...CLIENTS.map((c) => c.name)];
 
 const SERVICES = [
   {
@@ -55,82 +61,7 @@ const SERVICES = [
   },
 ];
 
-const PORTFOLIO_TABS = ["Featured", "B2B", "B2C", "eCommerce"];
-
-const PORTFOLIO = {
-  Featured: [
-    {
-      client: "Tagizo",
-      tag: "Video Intelligence",
-      desc: "AI-powered video intelligence SaaS with interactive shoppable players, GEO optimization, and LLM-discoverable video experiences.",
-      metric: "Full SaaS platform launch",
-      url: "https://tagizo.com",
-      img: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=520&fit=crop&auto=format",
-    },
-    {
-      client: "Axstart",
-      tag: "Innovation Lab",
-      desc: "Brand ecosystem and product hub for an innovation lab building SaaS tools, AI products, and digital platforms at scale.",
-      metric: "150+ products delivered",
-      url: "https://axstart.com",
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=520&fit=crop&auto=format",
-    },
-  ],
-  B2B: [
-    {
-      client: "Cizher",
-      tag: "AI / SaaS",
-      desc: "Multi-agent AI workspace with voice bot builders, Pipecat export, and self-hosted LLM orchestration for engineering teams.",
-      metric: "Live in under 15 minutes",
-      url: "https://cizher.com",
-      img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=520&fit=crop&auto=format",
-    },
-    {
-      client: "Payrowl",
-      tag: "Operations",
-      desc: "Malaysia payroll, MDEC visa, and managed-inhouse operations platform for international ventures scaling in APAC.",
-      metric: "100% compliance backbone",
-      url: "https://payrowl.com",
-      img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=520&fit=crop&auto=format",
-    },
-  ],
-  B2C: [
-    {
-      client: "Xeark",
-      tag: "Knowledge Tech",
-      desc: "Intelligent knowledge exploration engine — a scalable digital ecosystem for modern research and discovery workflows.",
-      metric: "Knowledge at scale",
-      url: "https://www.xeark.com",
-      img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&h=520&fit=crop&auto=format",
-    },
-    {
-      client: "AXNET",
-      tag: "Mesh Network",
-      desc: "Unified command center for the Axstart mesh network — node monitoring, secure messaging, and decentralized infrastructure.",
-      metric: "99.9% network uptime",
-      url: "https://axearth.com",
-      img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=520&fit=crop&auto=format",
-    },
-  ],
-  eCommerce: [
-    {
-      client: "Mishi",
-      tag: "Artisan Retail",
-      desc: "Heritage-meets-artistry eCommerce for kaftans, Pakistani kurtis, resin art, and artisanal home decor with bespoke custom design.",
-      metric: "Apparel & decor storefront",
-      url: "https://mishi.es",
-      img: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&h=520&fit=crop&auto=format",
-    },
-    {
-      client: "Crocherish",
-      tag: "Handmade Crafts",
-      desc: "Boutique online shop for handmade crochet wearables, home decor, and plushies — artisanal collections with a warm brand story.",
-      metric: "Hand-stitched collections",
-      url: "https://crocherish.com",
-      img: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=800&h=520&fit=crop&auto=format",
-    },
-  ],
-};
+const PORTFOLIO = getPortfolioByCategory();
 
 const PROCESS = [
   { n: "01", title: "Web Strategy", desc: "We align on goals, audience, and KPIs before any pixel is placed — strategy first, always." },
@@ -273,27 +204,48 @@ function Nav() {
             <div
               key={link.label}
               className="relative"
-              onMouseEnter={() => link.sub.length ? setActiveDropdown(link.label) : undefined}
+              onMouseEnter={() => link.sub?.length ? setActiveDropdown(link.label) : undefined}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button
-                className="flex items-center gap-1 px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/5"
-                style={{ fontFamily: "Inter, sans-serif" }}
-              >
-                {link.label}
-                {link.sub.length > 0 && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
-              </button>
-              {link.sub.length > 0 && activeDropdown === link.label && (
+              {"href" in link && link.href ? (
+                <Link
+                  to={link.href}
+                  className="flex items-center gap-1 px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/5"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <button
+                  className="flex items-center gap-1 px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/5"
+                  style={{ fontFamily: "Inter, sans-serif" }}
+                >
+                  {link.label}
+                  {link.sub && link.sub.length > 0 && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
+                </button>
+              )}
+              {link.sub && link.sub.length > 0 && activeDropdown === link.label && (
                 <div className="absolute top-full left-0 mt-1 w-52 bg-[#0d1128] border border-violet-900/30 rounded-xl shadow-2xl shadow-black/60 overflow-hidden">
-                  {link.sub.map((s) => (
-                    <button
-                      key={s}
-                      className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-violet-900/30 transition-colors"
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      {s}
-                    </button>
-                  ))}
+                  {link.sub.map((s) =>
+                    typeof s === "string" ? (
+                      <button
+                        key={s}
+                        className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-violet-900/30 transition-colors"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        {s}
+                      </button>
+                    ) : (
+                      <Link
+                        key={s.label}
+                        to={s.href}
+                        className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-violet-900/30 transition-colors"
+                        style={{ fontFamily: "Inter, sans-serif" }}
+                      >
+                        {s.label}
+                      </Link>
+                    ),
+                  )}
                 </div>
               )}
             </div>
@@ -337,7 +289,7 @@ function MarqueeLogos() {
   return (
     <div className="relative overflow-hidden py-8 border-y border-violet-900/20">
       <div className="flex animate-marquee whitespace-nowrap">
-        {CLIENTS.map((c, i) => (
+        {MARQUEE_CLIENTS.map((c, i) => (
           <span
             key={i}
             className="mx-10 text-slate-500 font-bold text-lg tracking-widest uppercase hover:text-slate-300 transition-colors cursor-default"
@@ -533,7 +485,7 @@ function ServicesSection() {
 }
 
 function PortfolioSection() {
-  const [activeTab, setActiveTab] = useState<keyof typeof PORTFOLIO>("Featured");
+  const [activeTab, setActiveTab] = useState<ClientCategory>("Featured");
 
   return (
     <section className="py-28 px-6 bg-[#0d1128]">
@@ -545,12 +497,11 @@ function PortfolioSection() {
               <GradientText>Award-Winning</GradientText><br />Case Studies
             </h2>
           </div>
-          {/* Tabs */}
           <div className="flex gap-1 p-1 rounded-full border border-violet-900/30 bg-[#06091a]">
             {PORTFOLIO_TABS.map((tab) => (
               <button
                 key={tab}
-                onClick={() => setActiveTab(tab as keyof typeof PORTFOLIO)}
+                onClick={() => setActiveTab(tab)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeTab === tab
                     ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-900/40"
@@ -566,11 +517,11 @@ function PortfolioSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PORTFOLIO[activeTab].map((item) => (
-            <div key={item.client} className="group rounded-2xl overflow-hidden border border-violet-900/20 hover:border-violet-600/40 transition-all bg-[#06091a]">
+            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-violet-900/20 hover:border-violet-600/40 transition-all bg-[#06091a]">
               <div className="relative overflow-hidden h-64">
                 <img
-                  src={item.img}
-                  alt={item.client}
+                  src={item.image}
+                  alt={item.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-80" />
@@ -582,25 +533,39 @@ function PortfolioSection() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.client}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.desc}</p>
+                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.name}</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
                 <div className="flex gap-3">
+                  <Link
+                    to={`/work/${item.slug}`}
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+                    style={{ fontFamily: "Manrope, sans-serif" }}
+                  >
+                    View Case Study
+                  </Link>
                   <a
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+                    className="px-5 py-2 rounded-full border border-violet-500/30 text-slate-300 text-sm font-semibold hover:bg-violet-900/20 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Launch Website
                   </a>
-                  <button className="px-5 py-2 rounded-full border border-violet-500/30 text-slate-300 text-sm font-semibold hover:bg-violet-900/20 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
-                    Request a Quote
-                  </button>
                 </div>
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            to="/work"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-violet-500/30 text-violet-300 font-semibold hover:bg-violet-900/20 transition-all"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            View All Case Studies <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
@@ -1015,6 +980,7 @@ function Footer() {
             © {new Date().getFullYear()} Adrevnview. All rights reserved.
           </p>
           <div className="flex gap-6">
+            <a href="/work" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Case Studies</a>
             <a href="/privacy" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Privacy Policy</a>
             <a href="/accessibility" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Accessibility</a>
             <a href="/geo-report" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>GEO Report</a>
