@@ -11,8 +11,8 @@ import {
   Sparkles,
   XCircle,
 } from "lucide-react";
-import type { AuditCheck, CheckCategory, IssueSeverity, SiteAuditReport } from "@/lib/seo/report";
-import { CATEGORY_LABELS } from "@/lib/seo/report";
+import type { AuditCheck, CheckCategory, IssueSeverity, SiteAuditReport } from "@/lib/seo/report/types";
+import { CATEGORY_LABELS } from "@/lib/seo/report/checks";
 
 const SEVERITY_STYLES: Record<IssueSeverity, string> = {
   critical: "bg-red-500/15 text-red-300 border-red-500/40",

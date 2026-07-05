@@ -49,6 +49,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   try {
     const report = await runFullAudit(url, { maxPages: MAX_PAGES });
+    res.setHeader("Cache-Control", "no-store");
     return res.status(200).json(report);
   } catch (err) {
     const message = err instanceof Error ? err.message : "Audit failed";

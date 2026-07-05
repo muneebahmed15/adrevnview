@@ -5,7 +5,9 @@
   "framework": "vite",
   "functions": {
     "api/seo-audit.ts": {
-      "maxDuration": 30
+      "maxDuration": 60,
+      "memory": 1024,
+      "includeFiles": "node_modules/@sparticuz/chromium/**"
     }
   },
   "rewrites": [
