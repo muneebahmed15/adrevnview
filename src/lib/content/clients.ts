@@ -301,6 +301,15 @@ export const CLIENTS: Client[] = [
 
 export const CLIENT_SLUGS = CLIENTS.map((c) => c.slug);
 
+export function getClientPath(slug: string): string {
+  return `/${slug}`;
+}
+
+export function isClientPath(path: string): boolean {
+  const slug = path.replace(/^\//, "");
+  return CLIENT_SLUGS.includes(slug);
+}
+
 export function getClientBySlug(slug: string): Client | undefined {
   return CLIENTS.find((c) => c.slug === slug);
 }

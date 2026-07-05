@@ -1,4 +1,4 @@
-import { CLIENTS } from "@/lib/content/clients";
+import { CLIENTS, getClientPath, isClientPath } from "@/lib/content/clients";
 import { ORG, SITE_URL } from "./siteConfig";
 
 type FaqItem = { question: string; answer: string };
@@ -17,7 +17,7 @@ const CLIENT_PROJECTS = CLIENTS.map((client) => ({
   name: client.name,
   url: client.url,
   description: client.shortDescription,
-  caseStudyUrl: `${SITE_URL}/work/${client.slug}`,
+  caseStudyUrl: `${SITE_URL}${getClientPath(client.slug)}`,
 }));
 
 const HOME_FAQ: FaqItem[] = [
@@ -197,10 +197,10 @@ function caseStudySchema(slug: string) {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `${SITE_URL}/work/${slug}#article`,
+    "@id": `${SITE_URL}${getClientPath(slug)}#article`,
     headline: client.seoTitle,
     description: client.seoDescription,
-    url: `${SITE_URL}/work/${slug}`,
+    url: `${SITE_URL}${getClientPath(slug)}`,
     author: { "@id": `${SITE_URL}/#organization` },
     publisher: { "@id": `${SITE_URL}/#organization` },
     about: {
@@ -254,8 +254,8 @@ export function getStructuredData(path: string, title: string, description: stri
     graphs.push(productSchema());
   }
 
-  if (path.startsWith("/work/")) {
-    const slug = path.replace("/work/", "");
+  if (isClientPath(path)) {
+    const slug = path.replace(/^\//, "");
     const caseStudy = caseStudySchema(slug);
     if (caseStudy) graphs.push(caseStudy);
   }

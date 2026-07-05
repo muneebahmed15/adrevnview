@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router";
 import { ArrowLeft, ArrowRight, ExternalLink, Check } from "lucide-react";
 import { SeoHead } from "@/components/seo/SeoHead";
-import { CLIENTS, getClientBySlug } from "@/lib/content/clients";
+import { CLIENTS, getClientBySlug, getClientPath } from "@/lib/content/clients";
 
 export default function ClientDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -22,7 +22,7 @@ export default function ClientDetail() {
     );
   }
 
-  const path = `/work/${client.slug}`;
+  const path = getClientPath(client.slug);
   const relatedClients = CLIENTS.filter((c) => c.slug !== client.slug && c.category === client.category).slice(0, 2);
 
   return (
@@ -205,7 +205,7 @@ export default function ClientDetail() {
               {relatedClients.map((related) => (
                 <Link
                   key={related.slug}
-                  to={`/work/${related.slug}`}
+                  to={getClientPath(related.slug)}
                   className="group rounded-xl border border-violet-900/20 bg-[#0d1128] p-5 hover:border-violet-600/40 transition-all"
                 >
                   <span className="text-violet-400 text-xs font-semibold">{related.tag}</span>

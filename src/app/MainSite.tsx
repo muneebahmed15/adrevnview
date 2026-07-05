@@ -5,7 +5,7 @@ import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
 import { VISIBLE_HOME_FAQ } from "@/lib/seo/structuredData";
-import { CLIENTS, getPortfolioByCategory, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
+import { CLIENTS, getClientPath, getPortfolioByCategory, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
@@ -537,7 +537,7 @@ function PortfolioSection() {
                 <p className="text-slate-400 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
                 <div className="flex gap-3">
                   <Link
-                    to={`/work/${item.slug}`}
+                    to={getClientPath(item.slug)}
                     className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >

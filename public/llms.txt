@@ -25,14 +25,14 @@
   - No app required, pre-programmed, lifetime guarantee
 
 ## Client Work
-- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://adrevnview.com/work/tagizo
-- Axstart (innovation lab): https://axstart.com — case study: https://adrevnview.com/work/axstart
-- Cizher (AI workspace): https://cizher.com — case study: https://adrevnview.com/work/cizher
-- Payrowl (operations platform): https://payrowl.com — case study: https://adrevnview.com/work/payrowl
-- Xeark (knowledge engine): https://www.xeark.com — case study: https://adrevnview.com/work/xeark
-- AXNET (mesh network): https://axearth.com — case study: https://adrevnview.com/work/axnet
-- Mishi (artisan eCommerce): https://mishi.es — case study: https://adrevnview.com/work/mishi
-- Crocherish (handmade crafts): https://crocherish.com — case study: https://adrevnview.com/work/crocherish
+- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://adrevnview.com/tagizo
+- Axstart (innovation lab): https://axstart.com — case study: https://adrevnview.com/axstart
+- Cizher (AI workspace): https://cizher.com — case study: https://adrevnview.com/cizher
+- Payrowl (operations platform): https://payrowl.com — case study: https://adrevnview.com/payrowl
+- Xeark (knowledge engine): https://www.xeark.com — case study: https://adrevnview.com/xeark
+- AXNET (mesh network): https://axearth.com — case study: https://adrevnview.com/axnet
+- Mishi (artisan eCommerce): https://mishi.es — case study: https://adrevnview.com/mishi
+- Crocherish (handmade crafts): https://crocherish.com — case study: https://adrevnview.com/crocherish
 
 ## Partner Product (Gym Owners)
 - MatFlow gym management: https://mymatflow.com

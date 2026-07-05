@@ -17,14 +17,14 @@ const ROUTES = [
   { path: "/privacy", waitFor: "h1" },
   { path: "/accessibility", waitFor: "h1" },
   { path: "/geo-report", waitFor: "h1" },
-  { path: "/work/tagizo", waitFor: "h1" },
-  { path: "/work/axstart", waitFor: "h1" },
-  { path: "/work/cizher", waitFor: "h1" },
-  { path: "/work/payrowl", waitFor: "h1" },
-  { path: "/work/xeark", waitFor: "h1" },
-  { path: "/work/axnet", waitFor: "h1" },
-  { path: "/work/mishi", waitFor: "h1" },
-  { path: "/work/crocherish", waitFor: "h1" },
+  { path: "/tagizo", waitFor: "h1" },
+  { path: "/axstart", waitFor: "h1" },
+  { path: "/cizher", waitFor: "h1" },
+  { path: "/payrowl", waitFor: "h1" },
+  { path: "/xeark", waitFor: "h1" },
+  { path: "/axnet", waitFor: "h1" },
+  { path: "/mishi", waitFor: "h1" },
+  { path: "/crocherish", waitFor: "h1" },
 ];
 
 async function getFreePort() {

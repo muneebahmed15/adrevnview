@@ -28,10 +28,6 @@ export const router = createBrowserRouter([
     Component: Work,
   },
   {
-    path: "/work/:slug",
-    Component: ClientDetail,
-  },
-  {
     path: "/privacy",
     Component: Privacy,
   },
@@ -46,5 +42,9 @@ export const router = createBrowserRouter([
   {
     path: "/geo-report",
     Component: SeoReport,
+  },
+  {
+    path: "/:slug",
+    Component: ClientDetail,
   },
 ]);

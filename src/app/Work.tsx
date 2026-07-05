@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { PAGES } from "@/lib/seo/siteConfig";
-import { CLIENTS, PORTFOLIO_TABS } from "@/lib/content/clients";
+import { CLIENTS, getClientPath, PORTFOLIO_TABS } from "@/lib/content/clients";
 
 export default function Work() {
   return (
@@ -90,7 +90,7 @@ export default function Work() {
                       </div>
                       <div className="flex gap-3">
                         <Link
-                          to={`/work/${client.slug}`}
+                          to={getClientPath(client.slug)}
                           className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
                           style={{ fontFamily: "Manrope, sans-serif" }}
                         >
