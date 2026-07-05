@@ -25,6 +25,8 @@ const ROUTES = [
   { path: "/axnet", waitFor: "h1" },
   { path: "/mishi", waitFor: "h1" },
   { path: "/crocherish", waitFor: "h1" },
+  { path: "/ecmmaandfitness", waitFor: "h1" },
+  { path: "/kfc-ny", waitFor: "h1" },
 ];
 
 async function getFreePort() {

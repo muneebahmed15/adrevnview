@@ -33,6 +33,8 @@
 - AXNET (mesh network): https://axearth.com — case study: https://adrevnview.com/axnet
 - Mishi (artisan eCommerce): https://mishi.es — case study: https://adrevnview.com/mishi
 - Crocherish (handmade crafts): https://crocherish.com — case study: https://adrevnview.com/crocherish
+- East Coast MMA & Fitness (martial arts): https://ecmmaandfitness.com — case study: https://adrevnview.com/ecmmaandfitness
+- Kennedy Fried Chicken (halal restaurant): https://kfc-ny.com — case study: https://adrevnview.com/kfc-ny
 
 ## Partner Product (Gym Owners)
 - MatFlow gym management: https://mymatflow.com

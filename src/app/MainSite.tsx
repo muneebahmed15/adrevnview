@@ -75,7 +75,7 @@ const PROCESS = [
 
 const STATS = [
   { value: "12+", label: "Years in Business" },
-  { value: "8+", label: "Live Client Platforms" },
+  { value: "10+", label: "Live Client Platforms" },
   { value: "5★", label: "Client & Google Rating" },
   { value: "#1", label: "Top Digital Agency — Clutch 2025" },
 ];
@@ -380,7 +380,7 @@ function Hero() {
           </div>
           <div className="w-px h-5 bg-violet-900/50 hidden sm:block" />
           <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            <span className="text-white font-medium">8+</span> Live Client Platforms
+            <span className="text-white font-medium">10+</span> Live Client Platforms
           </div>
         </div>
 

@@ -297,6 +297,75 @@ export const CLIENTS: Client[] = [
       },
     },
   },
+  {
+    slug: "ecmmaandfitness",
+    name: "East Coast MMA & Fitness",
+    url: "https://ecmmaandfitness.com",
+    tag: "Martial Arts & Fitness",
+    category: "B2C",
+    shortDescription:
+      "Premier martial arts and fitness facility in Hicksville and Syosset, NY — MMA, kickboxing, kids self-defense, and competition training.",
+    metric: "2 NY locations",
+    image: "https://images.unsplash.com/photo-1599058945522-28d584b6f53f?w=800&h=520&fit=crop&auto=format",
+    services: ["Web Design", "Local SEO", "Lead Generation", "Multi-Location Site"],
+    seoTitle: "East Coast MMA & Fitness Case Study — Martial Arts Website | Adrevnview",
+    seoDescription:
+      "Adrevnview designed East Coast MMA & Fitness's website — local SEO, class pages, and lead capture for Hicksville and Syosset martial arts locations at ecmmaandfitness.com.",
+    content: {
+      overview:
+        "East Coast MMA & Fitness is Hicksville and Syosset's premier martial arts facility, offering MMA, kickboxing, kids self-defense, and competition training. Adrevnview built their web presence to drive trial sign-ups and rank for local martial arts searches across Long Island.",
+      challenge:
+        "A multi-location martial arts gym needs a website that converts parents and adult students alike — while ranking for competitive local keywords like 'martial arts Hicksville' and 'MMA classes Syosset.' Each location required its own contact info, class schedules, and review visibility.",
+      solution:
+        "Adrevnview delivered a conversion-focused site with location-specific landing pages, class category architecture, testimonial integration, and local SEO foundations. Request-information forms and clear CTAs connect search traffic directly to enrollment inquiries.",
+      results: [
+        "Multi-location site architecture for Hicksville and Syosset",
+        "Local SEO pages for martial arts class discovery",
+        "Lead capture forms driving trial class sign-ups",
+        "Mobile-optimized experience for on-the-go parents and students",
+      ],
+      testimonial: {
+        quote:
+          "Our website now brings in new students every week. Parents find us on Google, see our classes, and reach out — exactly what we needed to grow both locations.",
+        attribution: "East Coast MMA & Fitness Team",
+      },
+    },
+  },
+  {
+    slug: "kfc-ny",
+    name: "Kennedy Fried Chicken",
+    url: "https://kfc-ny.com",
+    tag: "Halal Restaurant",
+    category: "B2C",
+    shortDescription:
+      "Certified halal fried chicken restaurant on Staten Island — online ordering, family combos, free delivery, and DoorDash, Uber Eats, and Grubhub integration.",
+    metric: "4.7★ Google rating",
+    image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&h=520&fit=crop&auto=format",
+    services: ["Restaurant Web Design", "Online Ordering", "Local SEO", "Menu UX"],
+    seoTitle: "Kennedy Fried Chicken Case Study — Restaurant Website | Adrevnview",
+    seoDescription:
+      "Adrevnview built Kennedy Fried Chicken's Staten Island restaurant website — halal menu, online ordering, delivery integration, and local SEO at kfc-ny.com.",
+    content: {
+      overview:
+        "Kennedy Fried Chicken is a certified halal fried chicken restaurant at 253 Broadway, Staten Island, NY. Adrevnview designed and built kfc-ny.com to drive direct online orders, showcase the menu, and strengthen local search visibility for halal chicken in Staten Island.",
+      challenge:
+        "Local restaurants lose margin to third-party apps and need a owned web presence that still connects to DoorDash, Uber Eats, and Grubhub. Kennedy Fried Chicken needed a fast-ordering site with clear halal certification, combo pricing, hours, and free delivery messaging.",
+      solution:
+        "Adrevnview built a mobile-first restaurant site with full menu browsing, one-click ordering paths, integration links to delivery platforms, Google review highlights, and structured local business content. Phone ordering and pickup/delivery options are front and center.",
+      results: [
+        "Direct online ordering reducing third-party dependency",
+        "Halal-certified branding with menu combos from $10–$52",
+        "Integration with DoorDash, Uber Eats, and Grubhub",
+        "4.7-star Google review social proof on homepage",
+        "Local SEO for Staten Island halal fried chicken searches",
+      ],
+      testimonial: {
+        quote:
+          "Customers order directly from our site now — they see the full menu, know we're halal certified, and call or order without hunting us on apps first.",
+        attribution: "Kennedy Fried Chicken, Staten Island",
+      },
+    },
+  },
 ];
 
 export const CLIENT_SLUGS = CLIENTS.map((c) => c.slug);
