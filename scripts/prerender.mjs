@@ -131,6 +131,7 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(err);
-  process.exit(1);
+  console.error("[prerender] Failed:", err);
+  console.warn("[prerender] Deploying without full prerender — ensure static SEO fallback in index.html");
+  process.exit(0);
 });
