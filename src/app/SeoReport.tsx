@@ -1,8 +1,7 @@
 import { useCallback, useState } from "react";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { Logo } from "@/components/Logo";
-import type { IssueSeverity, SiteAuditReport } from "@/lib/seo/report";
-import { runFullAudit } from "@/lib/seo/report";
+import type { IssueSeverity, SiteAuditReport } from "@/lib/seo/report/types";
 import { downloadText, formatReportHtml, formatReportJson, formatReportMarkdown } from "@/lib/seo/report/formatReport";
 import {
   ActionPlanList,
@@ -20,43 +19,56 @@ import {
 type Tab = "overview" | "issues" | "pages" | "platforms" | "actions";
 
 async function auditViaApi(url: string): Promise<SiteAuditReport> {
-  const res = await fetch("/api/seo-audit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url }),
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: res.statusText }));
-    throw new Error(err.error ?? "Audit API failed");
+  let res: Response;
+  try {
+    res = await fetch("/api/seo-audit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+  } catch {
+    throw new Error("Network error — could not reach the audit API. Check your connection and try again.");
   }
-  return res.json();
+
+  const text = await res.text();
+  let payload: { error?: string } & Partial<SiteAuditReport> = {};
+  try {
+    payload = JSON.parse(text) as typeof payload;
+  } catch {
+    if (text.includes("FUNCTION_INVOCATION_FAILED")) {
+      throw new Error("Audit server failed to start. The API function may need redeploying on Vercel.");
+    }
+    throw new Error(res.ok ? "Invalid response from audit API." : `Audit API error (${res.status}): ${text.slice(0, 120)}`);
+  }
+
+  if (!res.ok) {
+    throw new Error(payload.error ?? `Audit API failed (${res.status})`);
+  }
+  return payload as SiteAuditReport;
 }
 
 async function runAuditWithProgress(
   url: string,
   onProgress: (step: number, pct: number) => void,
 ): Promise<SiteAuditReport> {
-  const tick = async (step: number, pct: number, delay = 400) => {
-    onProgress(step, pct);
-    await new Promise((r) => setTimeout(r, delay));
-  };
-
-  await tick(0, 8, 200);
-  await tick(1, 22, 300);
-  await tick(2, 40, 200);
-
   const normalized = url.startsWith("http") ? url : `https://${url}`;
-  let report: SiteAuditReport;
-  try {
-    report = await auditViaApi(normalized);
-  } catch {
-    report = await runFullAudit(normalized);
-  }
+  let step = 0;
+  let pct = 5;
+  onProgress(step, pct);
 
-  await tick(3, 72, 300);
-  await tick(4, 88, 200);
-  await tick(5, 100, 150);
-  return report;
+  const progressTimer = window.setInterval(() => {
+    step = Math.min(step + 1, SCAN_STEPS.length - 2);
+    pct = Math.min(pct + 8, 92);
+    onProgress(step, pct);
+  }, 1500);
+
+  try {
+    const report = await auditViaApi(normalized);
+    onProgress(SCAN_STEPS.length - 1, 100);
+    return report;
+  } finally {
+    window.clearInterval(progressTimer);
+  }
 }
 
 export default function SeoReport() {
@@ -86,7 +98,7 @@ export default function SeoReport() {
     } catch (e) {
       setError(
         e instanceof Error
-          ? `${e.message} — If the API is unavailable, ensure Vercel functions are deployed.`
+          ? `${e.message} — The audit runs on our server. Check that /api/seo-audit is deployed and reachable.`
           : "Scan failed.",
       );
     } finally {
