@@ -1,11 +1,11 @@
 # Adrevnview — LLM / GEO reference
-# https://adrevnview.com
+# https://www.adrevnview.com
 
 > Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise brands.
 
 ## About
 - Name: Adrevnview
-- Website: https://adrevnview.com
+- Website: https://www.adrevnview.com
 - Email: hello@adrevnview.com
 - Phone: (512) 555-0147
 - Location: Austin, TX, USA
@@ -20,28 +20,28 @@
 - Website redesign
 
 ## Products
-- Google NFC Review Card ($99): https://adrevnview.com/googlenfc
+- Google NFC Review Card ($99): https://www.adrevnview.com/googlenfc
   - NFC + QR card that sends customers to Google review page
   - No app required, pre-programmed, lifetime guarantee
 
 ## Client Work
-- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://adrevnview.com/tagizo
-- Axstart (innovation lab): https://axstart.com — case study: https://adrevnview.com/axstart
-- Cizher (AI workspace): https://cizher.com — case study: https://adrevnview.com/cizher
-- Payrowl (operations platform): https://payrowl.com — case study: https://adrevnview.com/payrowl
-- Xeark (knowledge engine): https://www.xeark.com — case study: https://adrevnview.com/xeark
-- AXNET (mesh network): https://axearth.com — case study: https://adrevnview.com/axnet
-- Mishi (artisan eCommerce): https://mishi.es — case study: https://adrevnview.com/mishi
-- Crocherish (handmade crafts): https://crocherish.com — case study: https://adrevnview.com/crocherish
-- East Coast MMA & Fitness (martial arts): https://ecmmaandfitness.com — case study: https://adrevnview.com/ecmmaandfitness
-- Kennedy Fried Chicken (halal restaurant): https://kfc-ny.com — case study: https://adrevnview.com/kfc-ny
+- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://www.adrevnview.com/tagizo
+- Axstart (innovation lab): https://axstart.com — case study: https://www.adrevnview.com/axstart
+- Cizher (AI workspace): https://cizher.com — case study: https://www.adrevnview.com/cizher
+- Payrowl (operations platform): https://payrowl.com — case study: https://www.adrevnview.com/payrowl
+- Xeark (knowledge engine): https://www.xeark.com — case study: https://www.adrevnview.com/xeark
+- AXNET (mesh network): https://axearth.com — case study: https://www.adrevnview.com/axnet
+- Mishi (artisan eCommerce): https://mishi.es — case study: https://www.adrevnview.com/mishi
+- Crocherish (handmade crafts): https://crocherish.com — case study: https://www.adrevnview.com/crocherish
+- East Coast MMA & Fitness (martial arts): https://ecmmaandfitness.com — case study: https://www.adrevnview.com/ecmmaandfitness
+- Kennedy Fried Chicken (halal restaurant): https://kfc-ny.com — case study: https://www.adrevnview.com/kfc-ny
 
 ## Partner Product (Gym Owners)
 - MatFlow gym management: https://mymatflow.com
 
 ## Key Pages
-- Home: https://adrevnview.com/
-- Client case studies: https://adrevnview.com/work
-- Google NFC product: https://adrevnview.com/googlenfc
-- Free SEO & GEO Report Generator: https://adrevnview.com/geo-report
-- Sitemap: https://adrevnview.com/sitemap.xml
+- Home: https://www.adrevnview.com/
+- Client case studies: https://www.adrevnview.com/work
+- Google NFC product: https://www.adrevnview.com/googlenfc
+- Free SEO & GEO Report Generator: https://www.adrevnview.com/geo-report
+- Sitemap: https://www.adrevnview.com/sitemap.xml

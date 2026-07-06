@@ -18,16 +18,16 @@ Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise
 ## Technical Integration & API Declarations
 - This site is a Vite + React single-page application.
 - Public machine-readable maps:
-  - `https://adrevnview.com/robots.txt`
-  - `https://adrevnview.com/sitemap.xml`
-  - `https://adrevnview.com/llms.txt`
-  - `https://adrevnview.com/llms-full.txt`
+  - `https://www.adrevnview.com/robots.txt`
+  - `https://www.adrevnview.com/sitemap.xml`
+  - `https://www.adrevnview.com/llms.txt`
+  - `https://www.adrevnview.com/llms-full.txt`
 
 ---
 
 ## Products & Features (Expanded)
 
-### Google NFC Review Card (https://adrevnview.com/googlenfc)
+### Google NFC Review Card (https://www.adrevnview.com/googlenfc)
 The Adrevnview Google NFC Review Card is a physical NFC + QR-enabled product that sends customers directly to a Google Business review page. It is designed for local businesses that want a low-friction way to collect more reviews at the point of service.
 
 Key attributes:

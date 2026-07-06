@@ -50,8 +50,12 @@ export function SeoHead({ title, description, path, keywords, noindex = false }:
     upsertMeta("og:type", "website", "property");
     upsertMeta("og:site_name", "Adrevnview", "property");
     upsertMeta("og:locale", "en_US", "property");
+    upsertMeta("og:image", `${SITE_URL}/og-cover.svg`, "property");
+    upsertMeta("og:image:width", "1200", "property");
+    upsertMeta("og:image:height", "630", "property");
 
     upsertMeta("twitter:card", "summary_large_image");
+    upsertMeta("twitter:image", `${SITE_URL}/og-cover.svg`);
     upsertMeta("twitter:title", title);
     upsertMeta("twitter:description", description);
 

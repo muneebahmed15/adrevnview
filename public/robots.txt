@@ -1,4 +1,4 @@
-# https://adrevnview.com/robots.txt
+# https://www.adrevnview.com/robots.txt
 
 # COMPONENT A: TRADITIONAL WEB INDEXERS
 User-agent: Googlebot
@@ -37,4 +37,4 @@ User-agent: GPTBot
 Disallow: /
 
 # COMPONENT D: CANONICAL SITEMAP LINKING
-Sitemap: https://adrevnview.com/sitemap.xml
+Sitemap: https://www.adrevnview.com/sitemap.xml

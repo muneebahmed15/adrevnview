@@ -8,6 +8,9 @@ const Privacy = lazy(() => import("./Privacy"));
 const Accessibility = lazy(() => import("./Accessibility"));
 const SeoReport = lazy(() => import("./SeoReport"));
 const Work = lazy(() => import("./Work"));
+const ServicePage = lazy(() => import("./ServicePage"));
+const Contact = lazy(() => import("./Contact"));
+const IndustryPage = lazy(() => import("./IndustryPage"));
 const ClientDetail = lazy(() => import("./ClientDetail"));
 
 const AdminLayout = lazy(() => import("./admin/AdminLayout"));
@@ -72,6 +75,18 @@ export const router = createBrowserRouter([
   {
     path: "/geo-report",
     Component: SeoReport,
+  },
+  {
+    path: "/contact",
+    Component: Contact,
+  },
+  {
+    path: "/services/:slug",
+    Component: ServicePage,
+  },
+  {
+    path: "/industries/:slug",
+    Component: IndustryPage,
   },
   {
     path: "/:slug",
