@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { runFullAudit } from "../src/lib/seo/report/runAudit";
+import { runFullAudit } from "./_lib/audit/runAudit.js";
 
 const MAX_PAGES = 8;
 
