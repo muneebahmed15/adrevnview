@@ -19,16 +19,32 @@ import {
 type Tab = "overview" | "issues" | "pages" | "platforms" | "actions";
 
 async function auditViaApi(url: string): Promise<SiteAuditReport> {
-  const res = await fetch("/api/seo-audit", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ url }),
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: res.statusText }));
-    throw new Error(err.error ?? "Audit API failed");
+  let res: Response;
+  try {
+    res = await fetch("/api/seo-audit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url }),
+    });
+  } catch {
+    throw new Error("Network error — could not reach the audit API. Check your connection and try again.");
   }
-  return res.json();
+
+  const text = await res.text();
+  let payload: { error?: string } & Partial<SiteAuditReport> = {};
+  try {
+    payload = JSON.parse(text) as typeof payload;
+  } catch {
+    if (text.includes("FUNCTION_INVOCATION_FAILED")) {
+      throw new Error("Audit server failed to start. The API function may need redeploying on Vercel.");
+    }
+    throw new Error(res.ok ? "Invalid response from audit API." : `Audit API error (${res.status}): ${text.slice(0, 120)}`);
+  }
+
+  if (!res.ok) {
+    throw new Error(payload.error ?? `Audit API failed (${res.status})`);
+  }
+  return payload as SiteAuditReport;
 }
 
 async function runAuditWithProgress(

@@ -12,8 +12,11 @@ async function fetchText(url: string, signal?: AbortSignal): Promise<string | nu
   try {
     const res = await fetch(url, {
       redirect: "follow",
-      signal,
-      headers: { "User-Agent": "Adrevnview-SEO-GEO-Audit/1.0" },
+      signal: signal ?? AbortSignal.timeout(20_000),
+      headers: {
+        "User-Agent": "Adrevnview-SEO-GEO-Audit/1.0",
+        Accept: "text/html,application/xhtml+xml,text/plain,application/xml;q=0.9,*/*;q=0.8",
+      },
     });
     if (!res.ok) return null;
     return await res.text();
@@ -97,7 +100,9 @@ export async function runFullAudit(targetInput: string, options: AuditOptions = 
     }
 
     if (pageResults.length === 0) {
-      throw new Error("Could not fetch or render any pages from the target URL.");
+      throw new Error(
+        "Could not fetch any pages from the target URL. The site may be blocking our crawler, require JavaScript rendering, or be temporarily unavailable.",
+      );
     }
 
     const scanDurationMs = Math.round(performance.now() - start);
