@@ -1,4 +1,4 @@
-export const SITE_URL = "https://adrevnview.com";
+export const SITE_URL = "https://www.adrevnview.com";
 
 export const ORG = {
   name: "Adrevnview",
@@ -17,6 +17,8 @@ export const ORG = {
   },
   sameAs: [
     "https://github.com/muneebahmed15/adrevnview",
+    "https://www.linkedin.com/company/adrevnview",
+    "https://twitter.com/adrevnview",
     "https://tagizo.com",
     "https://axstart.com",
     "https://cizher.com",
@@ -85,5 +87,11 @@ export const PAGES = {
     title: "Client Case Studies & Portfolio | Adrevnview",
     description:
       "Explore Adrevnview client projects — B2B SaaS platforms, eCommerce storefronts, and enterprise websites designed with SEO and GEO built in.",
+  },
+  contact: {
+    path: "/contact",
+    title: "Contact Adrevnview — Request a Quote",
+    description:
+      "Contact Adrevnview for custom web design, development, SEO, and branding. Email hello@adrevnview.com or request a free consultation.",
   },
 } as const;

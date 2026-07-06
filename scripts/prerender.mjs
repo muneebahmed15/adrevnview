@@ -6,28 +6,10 @@ import net from "node:net";
 
 import { chromium } from "playwright";
 
+import { ROUTES } from "./prerender-routes.mjs";
+
 const PROJECT_ROOT = process.cwd();
 const DIST_DIR = path.join(PROJECT_ROOT, "dist");
-
-const ROUTES = [
-  { path: "/", waitFor: "h1" },
-  { path: "/googlenfc", waitFor: "h1" },
-  { path: "/about", waitFor: "h1" },
-  { path: "/work", waitFor: "h1" },
-  { path: "/privacy", waitFor: "h1" },
-  { path: "/accessibility", waitFor: "h1" },
-  { path: "/geo-report", waitFor: "h1" },
-  { path: "/tagizo", waitFor: "h1" },
-  { path: "/axstart", waitFor: "h1" },
-  { path: "/cizher", waitFor: "h1" },
-  { path: "/payrowl", waitFor: "h1" },
-  { path: "/xeark", waitFor: "h1" },
-  { path: "/axnet", waitFor: "h1" },
-  { path: "/mishi", waitFor: "h1" },
-  { path: "/crocherish", waitFor: "h1" },
-  { path: "/ecmmaandfitness", waitFor: "h1" },
-  { path: "/kfc-ny", waitFor: "h1" },
-];
 
 async function getFreePort() {
   return await new Promise((resolve, reject) => {

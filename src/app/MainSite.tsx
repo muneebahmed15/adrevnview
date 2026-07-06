@@ -5,13 +5,27 @@ import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
 import { Logo } from "@/components/Logo";
+import { FOOTER_LINKS, getServicePath, NAV_SERVICE_LINKS } from "@/lib/content/services";
 import { VISIBLE_HOME_FAQ } from "@/lib/seo/structuredData";
 import { CLIENTS, getClientPath, getPortfolioByCategory, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
+const INDUSTRY_SLUGS: Record<string, string> = {
+  Healthcare: "healthcare",
+  "eCommerce/Retail": "ecommerce",
+  Manufacturing: "manufacturing",
+  "Real Estate": "real-estate",
+  Legal: "legal",
+  "Financial Services": "financial",
+  "Technology/SaaS": "technology",
+};
+
 const NAV_LINKS = [
-  { label: "Services", sub: ["Custom Web Design", "Web Development", "eCommerce Design", "Branding & Identity", "SEO & Marketing", "Website Redesign"] },
+  {
+    label: "Services",
+    sub: NAV_SERVICE_LINKS.map((s) => ({ label: s.label, href: getServicePath(s.slug) })),
+  },
   {
     label: "Work",
     sub: [
@@ -21,13 +35,25 @@ const NAV_LINKS = [
       { label: "eCommerce Projects", href: "/work#ecommerce" },
     ],
   },
-  { label: "Industries", sub: ["Healthcare", "eCommerce/Retail", "Manufacturing", "Real Estate", "Legal", "Financial Services", "Technology/SaaS"] },
+  {
+    label: "Industries",
+    sub: Object.entries(INDUSTRY_SLUGS).map(([label, slug]) => ({ label, href: `/industries/${slug}` })),
+  },
   { label: "About", href: "/about" },
-  { label: "Blog", sub: [] },
-  { label: "Contact", sub: [] },
+  { label: "Blog", href: "/work" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const MARQUEE_CLIENTS = [...CLIENTS.map((c) => c.name), ...CLIENTS.map((c) => c.name)];
+
+const HOME_SERVICE_LINKS: Record<string, string> = {
+  "Custom Web Design": "custom-web-design",
+  "Web Development & Integrations": "react-development",
+  "eCommerce Design & Dev": "shopify-development",
+  "Branding & Brand Identity": "brand-identity",
+  "SEO & Digital Marketing": "seo-services",
+  "Website Redesign": "website-redesign",
+};
 
 const SERVICES = [
   {
@@ -219,16 +245,7 @@ function Nav() {
               )}
               {link.sub && link.sub.length > 0 && activeDropdown === link.label && (
                 <div className="absolute top-full left-0 mt-1 w-52 bg-[#0d1128] border border-violet-900/30 rounded-xl shadow-2xl shadow-black/60 overflow-hidden">
-                  {link.sub.map((s) =>
-                    typeof s === "string" ? (
-                      <button
-                        key={s}
-                        className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-violet-900/30 transition-colors"
-                        style={{ fontFamily: "Inter, sans-serif" }}
-                      >
-                        {s}
-                      </button>
-                    ) : (
+                  {link.sub.map((s) => (
                       <Link
                         key={s.label}
                         to={s.href}
@@ -237,8 +254,7 @@ function Nav() {
                       >
                         {s.label}
                       </Link>
-                    ),
-                  )}
+                    ))}
                 </div>
               )}
             </div>
@@ -250,9 +266,9 @@ function Nav() {
           <a href="tel:5125550147" className="text-sm text-slate-400 hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
             (512) 555-0147
           </a>
-          <button className="px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <Link to="/contact" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote
-          </button>
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -264,14 +280,18 @@ function Nav() {
       {/* Mobile menu */}
       {open && (
         <div className="lg:hidden bg-[#0d1128] border-t border-violet-900/20 px-6 py-6 space-y-4">
-          {NAV_LINKS.map((link) => (
-            <button key={link.label} className="block text-slate-300 hover:text-white text-base py-1 w-full text-left" style={{ fontFamily: "Inter, sans-serif" }}>
-              {link.label}
-            </button>
-          ))}
-          <button className="mt-4 w-full px-5 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
+          {NAV_LINKS.map((link) =>
+            "href" in link && link.href ? (
+              <Link key={link.label} to={link.href} className="block text-slate-300 hover:text-white text-base py-1" style={{ fontFamily: "Inter, sans-serif" }}>
+                {link.label}
+              </Link>
+            ) : (
+              <p key={link.label} className="text-slate-500 text-xs uppercase tracking-wider pt-2">{link.label}</p>
+            ),
+          )}
+          <Link to="/contact" className="mt-4 block w-full text-center px-5 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote
-          </button>
+          </Link>
         </div>
       )}
     </nav>
@@ -329,7 +349,7 @@ function Hero() {
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
           For <span className="text-white font-medium">B2B, B2C & Enterprise Brands</span>
         </p>
-        <p className="text-base text-slate-500 max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
+        <p data-geo-chunk="summary" className="text-base text-slate-500 max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
           We craft brand strategy, custom websites, and performance digital marketing that drive measurable growth.
         </p>
 
@@ -379,12 +399,12 @@ function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <Link to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote <ArrowRight className="w-4 h-4" />
-          </button>
-          <button className="px-8 py-4 rounded-full border border-violet-500/30 text-white font-semibold text-base hover:bg-violet-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+          </Link>
+          <Link to="/work" className="px-8 py-4 rounded-full border border-violet-500/30 text-white font-semibold text-base hover:bg-violet-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             <Play className="w-4 h-4 fill-white" /> See Our Work
-          </button>
+          </Link>
         </div>
       </div>
     </section>
@@ -459,17 +479,18 @@ function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((svc) => (
-            <div
+            <Link
               key={svc.title}
-              className="group p-8 rounded-2xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/40 transition-all duration-300 hover:bg-[#10163a] cursor-pointer"
+              to={getServicePath(HOME_SERVICE_LINKS[svc.title] ?? "custom-web-design")}
+              className="group p-8 rounded-2xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/40 transition-all duration-300 hover:bg-[#10163a] block"
             >
               <div className="text-3xl text-violet-400 mb-5 group-hover:text-violet-300 transition-colors">{svc.icon}</div>
               <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
-              <button className="flex items-center gap-2 text-violet-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <span className="flex items-center gap-2 text-violet-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Learn More <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
       </div>
@@ -788,7 +809,7 @@ function HomeFaqSection() {
             FAQ
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
-            Answers, upfront
+            Frequently asked questions
           </h2>
           <p className="text-slate-400 text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
             Clear, direct answers so Google and humans can understand what we do.
@@ -805,7 +826,7 @@ function HomeFaqSection() {
                 className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
-                <span className="text-white font-semibold">{item.question}</span>
+                <h2 className="text-white font-semibold text-base m-0">{item.question}</h2>
                 <span className="text-violet-400 group-open:rotate-180 transition-transform">⌄</span>
               </summary>
               <div className="px-6 pb-5 -mt-1">
@@ -902,59 +923,35 @@ function ContactSection() {
 }
 
 function Footer() {
-  const cols = [
-    {
-      title: "Web Design",
-      links: ["Custom Web Design", "Landing Page Design", "UI/UX Design", "Website Redesign", "Responsive Design"],
-    },
-    {
-      title: "Development",
-      links: ["React Development", "WordPress Development", "Shopify Development", "Webflow Development", "API Integrations"],
-    },
-    {
-      title: "Marketing",
-      links: ["SEO Services", "PPC Advertising", "Social Media Marketing", "Email Marketing", "Content Strategy", "Free GEO Report →"],
-    },
-    {
-      title: "Branding",
-      links: ["Logo Design", "Brand Identity", "Brand Strategy", "Visual Design Systems", "Brand Guidelines"],
-    },
-  ];
-
   return (
     <footer className="bg-[#040712] border-t border-violet-900/20 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
-          {/* Brand */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Logo className="mb-4" iconClassName="h-8 w-7" textClassName="h-5 w-auto" />
             <p className="text-slate-500 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>
               Premium web design agency for B2B, B2C & enterprise brands.
             </p>
-            <div className="flex gap-3">
-              {["in", "ig"].map((s) => (
-                <button key={s} className="w-9 h-9 rounded-lg bg-violet-900/30 text-violet-400 text-xs font-bold hover:bg-violet-700/30 transition-colors uppercase" style={{ fontFamily: "Manrope, sans-serif" }}>
-                  {s}
-                </button>
-              ))}
-            </div>
           </div>
 
-          {cols.map((col) => (
-            <div key={col.title}>
-              <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif" }}>{col.title}</h4>
+          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
+            <div key={title}>
+              <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif" }}>{title}</h4>
               <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link}>
-                    {link.startsWith("Free GEO Report") ? (
-                      <Link to="/geo-report" className="text-violet-400 text-sm hover:text-violet-300 transition-colors font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
-                        {link}
-                      </Link>
-                    ) : (
-                      <button className="text-slate-500 text-sm hover:text-slate-300 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{link}</button>
-                    )}
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <Link to={getServicePath(link.slug)} className="text-slate-500 text-sm hover:text-slate-300 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
+                {title === "Marketing" && (
+                  <li>
+                    <Link to="/geo-report" className="text-violet-400 text-sm hover:text-violet-300 transition-colors font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
+                      Free GEO Report →
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
           ))}
@@ -969,6 +966,7 @@ function Footer() {
             <a href="/work" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Case Studies</a>
             <a href="/privacy" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Privacy Policy</a>
             <a href="/accessibility" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Accessibility</a>
+            <a href="/contact" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Contact</a>
             <a href="/geo-report" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>GEO Report</a>
             <a href="/sitemap.xml" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Sitemap</a>
           </div>
