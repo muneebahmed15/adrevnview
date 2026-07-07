@@ -203,7 +203,7 @@ function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         {/* Award badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary text-secondary-foreground text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
           <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
           Top Digital Agency 2025 — Clutch
           <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
@@ -607,7 +607,7 @@ function AwardsSection() {
         {tab === "Expertise" && (
           <div className="flex flex-wrap justify-center gap-3">
             {["Custom Web Design", "UX/UI Design", "Web Development", "React Development", "eCommerce", "Shopify", "WordPress", "Webflow", "SEO", "PPC", "Social Media Marketing", "Brand Identity", "Logo Design", "Content Strategy", "Email Marketing", "Conversion Optimization", "Analytics & Reporting", "ADA Compliance", "Web Accessibility", "CRO"].map((tag) => (
-              <span key={tag} className="px-4 py-2 rounded-full border border-sky-700/30 bg-sky-900/20 text-sky-300 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
+              <span key={tag} className="px-4 py-2 rounded-full border border-border bg-secondary text-secondary-foreground text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
             ))}
           </div>
         )}

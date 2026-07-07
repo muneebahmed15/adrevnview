@@ -66,7 +66,7 @@ export default function Work() {
                         {client.services.slice(0, 3).map((service) => (
                           <span
                             key={service}
-                            className="px-2.5 py-1 rounded-full bg-sky-900/30 text-sky-300 text-xs"
+                            className="px-2.5 py-1 rounded-full bg-secondary text-secondary-foreground text-xs border border-border"
                           >
                             {service}
                           </span>

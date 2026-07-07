@@ -13,7 +13,7 @@ export function GoogleNfcSection() {
       <div className="max-w-7xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary text-secondary-foreground text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
               <Zap className="w-3.5 h-3.5" /> New Product · $99 one-time
             </div>
 

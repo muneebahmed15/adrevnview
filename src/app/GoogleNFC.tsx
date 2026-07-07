@@ -131,7 +131,7 @@ export default function GoogleNFC() {
       {/* ── Hero ── */}
       <section className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary text-secondary-foreground text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
             <Zap className="w-3.5 h-3.5" /> NFC + QR · Works instantly · No app needed
           </div>
 

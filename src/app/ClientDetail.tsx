@@ -32,7 +32,7 @@ export default function ClientDetail() {
 
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <span className="px-3 py-1 rounded-full bg-sky-600/30 text-sky-300 text-xs font-semibold">
+          <span className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-semibold border border-border">
             {client.tag}
           </span>
         </div>
@@ -142,7 +142,7 @@ export default function ClientDetail() {
             </h2>
             <div className="flex flex-wrap gap-2">
               {client.services.map((service) => (
-                <span key={service} className="px-4 py-2 rounded-full bg-sky-900/30 text-sky-200 text-sm">
+                <span key={service} className="px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm border border-border">
                   {service}
                 </span>
               ))}
