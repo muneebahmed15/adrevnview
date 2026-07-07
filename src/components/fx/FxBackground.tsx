@@ -1,6 +1,6 @@
 import { Suspense, lazy } from "react";
 import { StaticBackground } from "@/components/fx/StaticBackground";
-import { StreetViewBackground } from "@/components/fx/StreetViewBackground";
+import { VideoStreetBackground } from "@/components/fx/VideoStreetBackground";
 import { usePerformanceTier } from "@/lib/performance";
 
 const GpuFxLayer = lazy(() =>
@@ -13,14 +13,13 @@ type FxBackgroundProps = {
 };
 
 export function FxBackground({ className = "", variant = "hero" }: FxBackgroundProps) {
-  const { gpuFx, ready, tier } = usePerformanceTier();
+  const { gpuFx, ready, tier, cssMotion } = usePerformanceTier();
 
   if (variant === "streetview") {
-    const quality = tier === "full" ? "full" : tier === "reduced" ? "reduced" : "static";
+    const autoplay = tier !== "basic" && cssMotion;
     return (
       <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
-        <StreetViewBackground quality={quality} />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/90" />
+        <VideoStreetBackground autoplay={autoplay} />
       </div>
     );
   }
