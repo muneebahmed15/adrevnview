@@ -1,17 +1,18 @@
+import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { PAGES } from "@/lib/seo/siteConfig";
 
 export default function Accessibility() {
   return (
-    <div className="min-h-screen bg-[#06091a] text-white px-6 py-20" style={{ fontFamily: "Inter, sans-serif" }}>
+    <SiteLayout mainClassName="px-6 py-12">
       <SeoHead title={PAGES.accessibility.title} description={PAGES.accessibility.description} path={PAGES.accessibility.path} />
       <div className="max-w-3xl mx-auto">
         <h1 className="text-5xl font-extrabold tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Accessibility Statement
         </h1>
-        <p className="text-slate-400 text-sm mb-10">Last updated: 2026-07-02</p>
+        <p className="text-muted-foreground text-sm mb-10">Last updated: 2026-07-02</p>
 
-        <div className="space-y-8 text-slate-300 leading-relaxed">
+        <div className="space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Our commitment</h2>
             <p>
@@ -34,7 +35,7 @@ export default function Accessibility() {
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Feedback</h2>
             <p>
               If you experience any accessibility issues on this site, please contact us at{" "}
-              <a className="text-violet-300 hover:text-violet-200" href="mailto:hello@adrevnview.com">
+              <a className="text-sky-300 hover:text-sky-200" href="mailto:hello@adrevnview.com">
                 hello@adrevnview.com
               </a>{" "}
               and we’ll work to address the issue.
@@ -42,7 +43,6 @@ export default function Accessibility() {
           </section>
         </div>
       </div>
-    </div>
+    </SiteLayout>
   );
 }
-

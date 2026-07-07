@@ -15,7 +15,7 @@ export default function AdminLayout() {
 
   return (
     <RequireAuth>
-      <div className="min-h-screen bg-[#06091a] text-white flex" style={{ fontFamily: "Inter, sans-serif" }}>
+      <div className="min-h-screen bg-background text-foreground flex" style={{ fontFamily: "Inter, sans-serif" }}>
         <AdminSidebar />
         <main className="flex-1 overflow-auto">
           <Outlet />

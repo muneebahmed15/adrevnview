@@ -11,6 +11,7 @@ import {
   Sparkles,
   XCircle,
 } from "lucide-react";
+import { SpringPressable } from "@/components/SpringButton";
 import type { AuditCheck, CheckCategory, IssueSeverity, SiteAuditReport } from "@/lib/seo/report/types";
 import { CATEGORY_LABELS } from "@/lib/seo/report/checks";
 
@@ -38,7 +39,7 @@ export function ScoreGauge({ score, label, sub }: { score: number; label: string
     <div className="flex flex-col items-center">
       <div className="relative w-36 h-36">
         <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r={r} fill="none" stroke="#1e1b4b" strokeWidth="10" />
+          <circle cx="60" cy="60" r={r} fill="none" stroke="var(--muted)" strokeWidth="10" />
           <circle
             cx="60"
             cy="60"
@@ -56,11 +57,11 @@ export function ScoreGauge({ score, label, sub }: { score: number; label: string
           <span className="text-3xl font-extrabold tabular-nums" style={{ fontFamily: "Manrope, sans-serif" }}>
             {score}
           </span>
-          <span className="text-xs text-slate-500">/ 100</span>
+          <span className="text-xs text-muted-foreground">/ 100</span>
         </div>
       </div>
-      <p className="text-sm font-semibold mt-2 text-slate-200">{label}</p>
-      {sub && <p className="text-xs text-slate-500">{sub}</p>}
+      <p className="text-sm font-semibold mt-2 text-foreground/90">{label}</p>
+      {sub && <p className="text-xs text-muted-foreground">{sub}</p>}
     </div>
   );
 }
@@ -76,9 +77,9 @@ export function MetricsBar({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
       {items.map((item) => (
-        <div key={item.label} className="rounded-xl border border-violet-900/20 bg-[#0a0e22] px-4 py-3 text-center">
-          <p className="text-lg font-bold text-white">{item.value}</p>
-          <p className="text-xs text-slate-500 mt-0.5">{item.label}</p>
+        <div key={item.label} className="rounded-xl border border-sky-900/20 bg-secondary px-4 py-3 text-center">
+          <p className="text-lg font-bold text-foreground">{item.value}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">{item.label}</p>
         </div>
       ))}
     </div>
@@ -89,23 +90,23 @@ export function PlatformCards({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {report.platformScores.map((p) => (
-        <div key={p.platform} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5">
+        <div key={p.platform} className="rounded-xl border border-sky-900/20 bg-card p-5">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-lg bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-sm font-bold text-violet-300">
+            <div className="w-10 h-10 rounded-lg bg-sky-600/20 border border-sky-500/30 flex items-center justify-center text-sm font-bold text-sky-300">
               {PLATFORM_ICONS[p.platform]}
             </div>
             <div>
               <p className="font-semibold text-sm">{p.label}</p>
-              <p className="text-2xl font-bold">{p.score}<span className="text-sm text-slate-500 font-normal">/100</span></p>
+              <p className="text-2xl font-bold">{p.score}<span className="text-sm text-muted-foreground font-normal">/100</span></p>
             </div>
           </div>
-          <div className="h-1.5 rounded-full bg-[#06091a] overflow-hidden">
+          <div className="h-1.5 rounded-full bg-background overflow-hidden">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-violet-600 to-indigo-500 transition-all duration-700"
+              className="h-full rounded-full bg-gradient-to-r from-sky-600 to-cyan-500 transition-all duration-700"
               style={{ width: `${p.score}%` }}
             />
           </div>
-          <p className="text-xs text-slate-500 mt-2 leading-relaxed">{p.summary}</p>
+          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{p.summary}</p>
         </div>
       ))}
     </div>
@@ -116,13 +117,13 @@ export function PillarGrid({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
       {(Object.entries(report.categoryScores) as [CheckCategory, number][]).map(([cat, score]) => (
-        <div key={cat} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-4">
+        <div key={cat} className="rounded-xl border border-sky-900/20 bg-card p-4">
           <div className="flex justify-between items-start mb-2">
-            <p className="text-xs text-slate-400 leading-snug pr-2">{CATEGORY_LABELS[cat]}</p>
+            <p className="text-xs text-muted-foreground leading-snug pr-2">{CATEGORY_LABELS[cat]}</p>
             <span className="text-lg font-bold tabular-nums shrink-0">{score}</span>
           </div>
-          <div className="h-1 rounded-full bg-[#06091a]">
-            <div className="h-full rounded-full bg-violet-500" style={{ width: `${score}%` }} />
+          <div className="h-1 rounded-full bg-background">
+            <div className="h-full rounded-full bg-sky-500" style={{ width: `${score}%` }} />
           </div>
         </div>
       ))}
@@ -135,7 +136,7 @@ export function IssueTable({ issues, filter }: { issues: AuditCheck[]; filter: "
     () => (filter === "all" ? issues : issues.filter((i) => i.severity === filter)),
     [issues, filter],
   );
-  if (filtered.length === 0) return <p className="text-slate-500 text-sm py-8 text-center">No issues in this category.</p>;
+  if (filtered.length === 0) return <p className="text-muted-foreground text-sm py-8 text-center">No issues in this category.</p>;
   return (
     <div className="space-y-2">
       {filtered.map((issue) => (
@@ -176,7 +177,7 @@ export function IssueTable({ issues, filter }: { issues: AuditCheck[]; filter: "
 export function ActionPlanList({ report }: { report: SiteAuditReport }) {
   if (report.actionPlan.length === 0) {
     return (
-      <div className="text-center py-12 text-slate-400">
+      <div className="text-center py-12 text-muted-foreground">
         <Sparkles className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
         <p>No critical fixes needed — strong SEO/GEO foundation.</p>
       </div>
@@ -185,9 +186,9 @@ export function ActionPlanList({ report }: { report: SiteAuditReport }) {
   return (
     <ol className="space-y-4">
       {report.actionPlan.map((item) => (
-        <li key={item.priority} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5">
+        <li key={item.priority} className="rounded-xl border border-sky-900/20 bg-card p-5">
           <div className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center text-sm font-bold shrink-0">
+            <span className="w-8 h-8 rounded-full bg-sky-600/30 border border-sky-500/40 flex items-center justify-center text-sm font-bold shrink-0">
               {item.priority}
             </span>
             <div>
@@ -195,13 +196,13 @@ export function ActionPlanList({ report }: { report: SiteAuditReport }) {
                 <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${SEVERITY_STYLES[item.severity]}`}>
                   {item.severity}
                 </span>
-                <span className="text-[10px] text-slate-500 uppercase">Impact: {item.impact}</span>
-                {item.pagePath && <span className="text-[10px] font-mono text-slate-500">{item.pagePath}</span>}
+                <span className="text-[10px] text-muted-foreground uppercase">Impact: {item.impact}</span>
+                {item.pagePath && <span className="text-[10px] font-mono text-muted-foreground">{item.pagePath}</span>}
               </div>
               <h3 className="font-semibold">{item.title}</h3>
-              <p className="text-sm text-slate-400 mt-1 leading-relaxed">{item.recommendation}</p>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{item.recommendation}</p>
               {item.fixSnippet && (
-                <pre className="text-xs mt-3 p-3 rounded-lg bg-[#06091a] border border-violet-900/20 font-mono text-violet-200 overflow-x-auto">
+                <pre className="text-xs mt-3 p-3 rounded-lg bg-background border border-sky-900/20 font-mono text-sky-200 overflow-x-auto">
                   {item.fixSnippet}
                 </pre>
               )}
@@ -220,23 +221,23 @@ export function PageCards({ report }: { report: SiteAuditReport }) {
         const fails = page.checks.filter((c) => c.status === "fail").length;
         const warns = page.checks.filter((c) => c.status === "warn").length;
         return (
-          <details key={page.snapshot.path} className="rounded-xl border border-violet-900/20 bg-[#0d1128] group">
+          <details key={page.snapshot.path} className="rounded-xl border border-sky-900/20 bg-card group">
             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
               <div className="flex items-center gap-3 min-w-0">
-                <ChevronDown className="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform shrink-0" />
+                <ChevronDown className="w-4 h-4 text-muted-foreground group-open:rotate-180 transition-transform shrink-0" />
                 <div className="min-w-0">
                   <p className="font-semibold font-mono text-sm">{page.snapshot.path}</p>
-                  <p className="text-xs text-slate-500 truncate">{page.snapshot.title}</p>
+                  <p className="text-xs text-muted-foreground truncate">{page.snapshot.title}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 shrink-0 ml-4">
-                <span className="text-xs text-slate-500">{page.snapshot.wordCount} words</span>
+                <span className="text-xs text-muted-foreground">{page.snapshot.wordCount} words</span>
                 {fails > 0 && <span className="text-xs text-red-400">{fails} critical</span>}
                 {warns > 0 && <span className="text-xs text-amber-400">{warns} warnings</span>}
                 <span className="text-lg font-bold">{page.score}</span>
               </div>
             </summary>
-            <div className="px-5 pb-5 border-t border-violet-900/15 pt-4 space-y-2">
+            <div className="px-5 pb-5 border-t border-sky-900/15 pt-4 space-y-2">
               {page.checks
                 .filter((c) => c.status !== "pass")
                 .map((c) => (
@@ -269,18 +270,18 @@ export const SCAN_STEPS = [
 
 export function ScanProgress({ step, progress }: { step: number; progress: number }) {
   return (
-    <div className="rounded-2xl border border-violet-900/25 bg-[#0d1128] p-6">
+    <div className="rounded-2xl border border-sky-900/25 bg-card p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-5 h-5 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
-        <p className="text-sm text-violet-300">{SCAN_STEPS[step] ?? "Finalizing…"}</p>
+        <div className="w-5 h-5 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
+        <p className="text-sm text-sky-300">{SCAN_STEPS[step] ?? "Finalizing…"}</p>
       </div>
-      <div className="h-2 rounded-full bg-[#06091a] overflow-hidden">
+      <div className="h-2 rounded-full bg-background overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-violet-600 to-indigo-500 transition-all duration-500"
+          className="h-full bg-gradient-to-r from-sky-600 to-cyan-500 transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
-      <p className="text-xs text-slate-600 mt-2">{progress}% complete</p>
+      <p className="text-xs text-muted-foreground mt-2">{progress}% complete</p>
     </div>
   );
 }
@@ -298,15 +299,15 @@ export function ExportBar({
 }) {
   return (
     <div className="flex flex-wrap gap-2">
-      <button onClick={onExportMd} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      <SpringPressable onClick={onExportMd} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <Download className="w-4 h-4" /> Markdown Report
-      </button>
-      <button onClick={onExportJson} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      </SpringPressable>
+      <SpringPressable onClick={onExportJson} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <FileJson className="w-4 h-4" /> JSON Data
-      </button>
-      <button onClick={onPrint} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      </SpringPressable>
+      <SpringPressable onClick={onPrint} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <Printer className="w-4 h-4" /> Print / PDF
-      </button>
+      </SpringPressable>
     </div>
   );
 }
@@ -327,40 +328,40 @@ export function ScannerHero({
   scanProgress: number;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-violet-900/30 bg-gradient-to-br from-[#0d1128] to-[#06091a] p-8 mb-8">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+    <div className="relative overflow-hidden rounded-2xl border border-sky-900/30 bg-gradient-to-br from-card to-background p-8 mb-8">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-sky-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="relative">
-        <div className="flex items-center gap-2 text-violet-400 text-sm font-medium mb-3">
+        <div className="flex items-center gap-2 text-sky-400 text-sm font-medium mb-3">
           <Globe className="w-4 h-4" />
           45+ checks · Google · ChatGPT · Perplexity · Claude · Gemini
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
           SEO & GEO Report Generator
         </h1>
-        <p className="text-slate-400 mb-6 max-w-xl text-sm leading-relaxed">
+        <p className="text-muted-foreground mb-6 max-w-xl text-sm leading-relaxed">
           Semrush-grade site audit for search engines and AI assistants. Analyze any public URL for metadata, schema,
           llms.txt, crawler access, content citability, and E-E-A-T signals.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-2xl">
           <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               value={url}
               onChange={(e) => onUrlChange(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && !loading && onScan()}
               placeholder="Enter any URL (e.g. https://example.com)"
-              className="w-full rounded-xl bg-[#06091a] border border-violet-900/40 pl-11 pr-4 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-violet-500/60"
+              className="w-full rounded-xl bg-background border border-sky-900/40 pl-11 pr-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-500/60"
             />
           </div>
-          <button
+          <SpringPressable
             onClick={onScan}
             disabled={loading || !url.trim()}
-            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold hover:from-violet-500 hover:to-indigo-500 disabled:opacity-50 transition-all shrink-0"
+            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 disabled:opacity-50 transition-all shrink-0"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             {loading ? "Scanning…" : "Run Scan"}
-          </button>
+          </SpringPressable>
         </div>
         {loading && <div className="mt-6"><ScanProgress step={scanStep} progress={scanProgress} /></div>}
       </div>

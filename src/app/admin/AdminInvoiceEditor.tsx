@@ -71,34 +71,34 @@ export default function AdminInvoiceEditor() {
   return (
     <div className="p-8 max-w-5xl">
       <div className="flex items-center gap-4 mb-8">
-        <Link to="/admin/invoices" className="text-slate-400 hover:text-white transition-colors">
+        <Link to="/admin/invoices" className="text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="w-5 h-5" />
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             {isNew ? "New Invoice" : `Edit ${invoice.number}`}
           </h1>
         </div>
       </div>
 
       <div className="space-y-6">
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6 space-y-4">
-          <h2 className="text-sm font-semibold text-slate-300">Invoice Details</h2>
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6 space-y-4">
+          <h2 className="text-sm font-semibold text-foreground/80">Invoice Details</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Invoice Number</label>
+              <label className="block text-xs text-muted-foreground mb-1">Invoice Number</label>
               <input
                 value={invoice.number}
                 onChange={(e) => update("number", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Status</label>
+              <label className="block text-xs text-muted-foreground mb-1">Status</label>
               <select
                 value={invoice.status}
                 onChange={(e) => update("status", e.target.value as InvoiceStatus)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               >
                 {statuses.map((s) => (
                   <option key={s} value={s}>
@@ -108,33 +108,33 @@ export default function AdminInvoiceEditor() {
               </select>
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Issue Date</label>
+              <label className="block text-xs text-muted-foreground mb-1">Issue Date</label>
               <input
                 type="date"
                 value={invoice.issueDate}
                 onChange={(e) => update("issueDate", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Due Date</label>
+              <label className="block text-xs text-muted-foreground mb-1">Due Date</label>
               <input
                 type="date"
                 value={invoice.dueDate}
                 onChange={(e) => update("dueDate", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
           </div>
         </section>
 
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6 space-y-4">
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6 space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold text-slate-300">Client</h2>
+            <h2 className="text-sm font-semibold text-foreground/80">Client</h2>
             <select
               onChange={(e) => loadClient(e.target.value)}
               defaultValue=""
-              className="px-3 py-1.5 rounded-lg bg-[#06091a] border border-violet-900/30 text-slate-400 text-xs"
+              className="px-3 py-1.5 rounded-lg bg-background border border-sky-900/30 text-muted-foreground text-xs"
             >
               <option value="" disabled>
                 Load from portfolio…
@@ -148,41 +148,41 @@ export default function AdminInvoiceEditor() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Client Name</label>
+              <label className="block text-xs text-muted-foreground mb-1">Client Name</label>
               <input
                 value={invoice.clientName}
                 onChange={(e) => update("clientName", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Client Email</label>
+              <label className="block text-xs text-muted-foreground mb-1">Client Email</label>
               <input
                 type="email"
                 value={invoice.clientEmail}
                 onChange={(e) => update("clientEmail", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs text-slate-500 mb-1">Client Address</label>
+              <label className="block text-xs text-muted-foreground mb-1">Client Address</label>
               <textarea
                 value={invoice.clientAddress}
                 onChange={(e) => update("clientAddress", e.target.value)}
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm resize-none"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm resize-none"
               />
             </div>
           </div>
         </section>
 
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-semibold text-slate-300">Line Items</h2>
+            <h2 className="text-sm font-semibold text-foreground/80">Line Items</h2>
             <button
               type="button"
               onClick={addItem}
-              className="inline-flex items-center gap-1.5 text-violet-400 hover:text-violet-300 text-xs font-medium"
+              className="inline-flex items-center gap-1.5 text-sky-400 hover:text-sky-300 text-xs font-medium"
             >
               <Plus className="w-3.5 h-3.5" />
               Add Item
@@ -197,7 +197,7 @@ export default function AdminInvoiceEditor() {
                     value={item.description}
                     onChange={(e) => updateItem(item.id, "description", e.target.value)}
                     placeholder="Description"
-                    className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                   />
                 </div>
                 <div className="col-span-4 sm:col-span-2">
@@ -206,7 +206,7 @@ export default function AdminInvoiceEditor() {
                     min={0}
                     value={item.quantity}
                     onChange={(e) => updateItem(item.id, "quantity", Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                   />
                 </div>
                 <div className="col-span-4 sm:col-span-2">
@@ -216,17 +216,17 @@ export default function AdminInvoiceEditor() {
                     step={0.01}
                     value={item.rate}
                     onChange={(e) => updateItem(item.id, "rate", Number(e.target.value))}
-                    className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                   />
                 </div>
-                <div className="col-span-3 sm:col-span-2 flex items-center py-2 text-sm text-slate-300">
+                <div className="col-span-3 sm:col-span-2 flex items-center py-2 text-sm text-foreground/80">
                   {formatCurrency(lineItemTotal(item))}
                 </div>
                 <div className="col-span-1 flex justify-end">
                   <button
                     type="button"
                     onClick={() => removeItem(item.id)}
-                    className="p-2 text-slate-500 hover:text-red-400"
+                    className="p-2 text-muted-foreground hover:text-red-400"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -235,35 +235,35 @@ export default function AdminInvoiceEditor() {
             ))}
           </div>
 
-          <div className="mt-6 pt-4 border-t border-violet-900/20 flex flex-col items-end gap-1 text-sm">
-            <p className="text-slate-400">
-              Subtotal: <span className="text-white">{formatCurrency(invoiceSubtotal(invoice))}</span>
+          <div className="mt-6 pt-4 border-t border-sky-900/20 flex flex-col items-end gap-1 text-sm">
+            <p className="text-muted-foreground">
+              Subtotal: <span className="text-foreground">{formatCurrency(invoiceSubtotal(invoice))}</span>
             </p>
             <div className="flex items-center gap-2">
-              <label className="text-slate-400">Tax %</label>
+              <label className="text-muted-foreground">Tax %</label>
               <input
                 type="number"
                 min={0}
                 step={0.1}
                 value={invoice.taxRate}
                 onChange={(e) => update("taxRate", Number(e.target.value))}
-                className="w-20 px-2 py-1 rounded bg-[#06091a] border border-violet-900/30 text-white text-sm text-right"
+                className="w-20 px-2 py-1 rounded bg-background border border-sky-900/30 text-foreground text-sm text-right"
               />
-              <span className="text-slate-400">{formatCurrency(invoiceTax(invoice))}</span>
+              <span className="text-muted-foreground">{formatCurrency(invoiceTax(invoice))}</span>
             </div>
-            <p className="text-lg font-bold text-white">
+            <p className="text-lg font-bold text-foreground">
               Total: {formatCurrency(invoiceTotal(invoice))}
             </p>
           </div>
         </section>
 
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
-          <label className="block text-xs text-slate-500 mb-1">Notes</label>
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
+          <label className="block text-xs text-muted-foreground mb-1">Notes</label>
           <textarea
             value={invoice.notes}
             onChange={(e) => update("notes", e.target.value)}
             rows={3}
-            className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm resize-none"
+            className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm resize-none"
             placeholder="Additional notes for the client…"
           />
         </section>
@@ -272,14 +272,14 @@ export default function AdminInvoiceEditor() {
           <button
             type="button"
             onClick={handleSave}
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
           >
             <Save className="w-4 h-4" />
             Save Invoice
           </button>
           <Link
             to="/admin/invoices"
-            className="px-6 py-2.5 rounded-lg border border-violet-500/30 text-slate-300 hover:bg-violet-900/20 transition-colors"
+            className="px-6 py-2.5 rounded-lg border border-sky-500/30 text-foreground/80 hover:bg-sky-900/20 transition-colors"
           >
             Cancel
           </Link>

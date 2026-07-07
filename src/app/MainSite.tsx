@@ -1,48 +1,19 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
-import { Menu, X, ChevronDown, ArrowRight, Star, MapPin, Phone, Mail, Play, Check, Dumbbell, Sparkles, Search, Globe } from "lucide-react";
+import { ArrowRight, Star, MapPin, Phone, Mail, Play, Check, ChevronDown, Dumbbell, Sparkles, Search, Globe } from "lucide-react";
 import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
+import { SiteFooter } from "@/app/components/SiteFooter";
+import { SiteHeader } from "@/app/components/SiteHeader";
+import { FxBackground } from "@/components/fx/FxBackground";
+import { SpringAnchor, SpringLink, SpringPressable } from "@/components/SpringButton";
+import { SpringCard, SpringCardLink } from "@/components/SpringCard";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
-import { Logo } from "@/components/Logo";
-import { FOOTER_LINKS, getServicePath, NAV_SERVICE_LINKS } from "@/lib/content/services";
+import { getServicePath } from "@/lib/content/services";
 import { VISIBLE_HOME_FAQ } from "@/lib/seo/structuredData";
 import { CLIENTS, getClientPath, getPortfolioByCategory, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
-
-const INDUSTRY_SLUGS: Record<string, string> = {
-  Healthcare: "healthcare",
-  "eCommerce/Retail": "ecommerce",
-  Manufacturing: "manufacturing",
-  "Real Estate": "real-estate",
-  Legal: "legal",
-  "Financial Services": "financial",
-  "Technology/SaaS": "technology",
-};
-
-const NAV_LINKS = [
-  {
-    label: "Services",
-    sub: NAV_SERVICE_LINKS.map((s) => ({ label: s.label, href: getServicePath(s.slug) })),
-  },
-  {
-    label: "Work",
-    sub: [
-      { label: "Case Studies", href: "/work" },
-      { label: "B2B Projects", href: "/work#b2b" },
-      { label: "B2C Projects", href: "/work#b2c" },
-      { label: "eCommerce Projects", href: "/work#ecommerce" },
-    ],
-  },
-  {
-    label: "Industries",
-    sub: Object.entries(INDUSTRY_SLUGS).map(([label, slug]) => ({ label, href: `/industries/${slug}` })),
-  },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/work" },
-  { label: "Contact", href: "/contact" },
-];
 
 const MARQUEE_CLIENTS = [...CLIENTS.map((c) => c.name), ...CLIENTS.map((c) => c.name)];
 
@@ -191,129 +162,28 @@ const LOCATIONS = [
 
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent ${className}`}>
+    <span className={`bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent ${className}`}>
       {children}
     </span>
   );
 }
 
-function Nav() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#06091a]/95 backdrop-blur-md border-b border-violet-900/30 py-3" : "bg-transparent py-5"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Logo />
-
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-1">
-          {NAV_LINKS.map((link) => (
-            <div
-              key={link.label}
-              className="relative"
-              onMouseEnter={() => link.sub?.length ? setActiveDropdown(link.label) : undefined}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              {"href" in link && link.href ? (
-                <Link
-                  to={link.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/5"
-                  style={{ fontFamily: "Inter, sans-serif" }}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <button
-                  className="flex items-center gap-1 px-4 py-2 text-sm text-slate-300 hover:text-white transition-colors rounded-md hover:bg-white/5"
-                  style={{ fontFamily: "Inter, sans-serif" }}
-                >
-                  {link.label}
-                  {link.sub && link.sub.length > 0 && <ChevronDown className="w-3.5 h-3.5 opacity-60" />}
-                </button>
-              )}
-              {link.sub && link.sub.length > 0 && activeDropdown === link.label && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-[#0d1128] border border-violet-900/30 rounded-xl shadow-2xl shadow-black/60 overflow-hidden">
-                  {link.sub.map((s) => (
-                      <Link
-                        key={s.label}
-                        to={s.href}
-                        className="block w-full text-left px-4 py-2.5 text-sm text-slate-300 hover:text-white hover:bg-violet-900/30 transition-colors"
-                        style={{ fontFamily: "Inter, sans-serif" }}
-                      >
-                        {s.label}
-                      </Link>
-                    ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* CTA */}
-        <div className="hidden lg:flex items-center gap-3">
-          <a href="tel:5125550147" className="text-sm text-slate-400 hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
-            (512) 555-0147
-          </a>
-          <Link to="/contact" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all shadow-lg shadow-violet-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
-            Request a Quote
-          </Link>
-        </div>
-
-        {/* Mobile toggle */}
-        <button className="lg:hidden text-white" onClick={() => setOpen(!open)}>
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile menu */}
-      {open && (
-        <div className="lg:hidden bg-[#0d1128] border-t border-violet-900/20 px-6 py-6 space-y-4">
-          {NAV_LINKS.map((link) =>
-            "href" in link && link.href ? (
-              <Link key={link.label} to={link.href} className="block text-slate-300 hover:text-white text-base py-1" style={{ fontFamily: "Inter, sans-serif" }}>
-                {link.label}
-              </Link>
-            ) : (
-              <p key={link.label} className="text-slate-500 text-xs uppercase tracking-wider pt-2">{link.label}</p>
-            ),
-          )}
-          <Link to="/contact" className="mt-4 block w-full text-center px-5 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
-            Request a Quote
-          </Link>
-        </div>
-      )}
-    </nav>
-  );
-}
-
 function MarqueeLogos() {
   return (
-    <div className="relative overflow-hidden py-8 border-y border-violet-900/20">
+    <div className="relative overflow-hidden py-8 border-y border-sky-900/20">
       <div className="flex animate-marquee whitespace-nowrap">
         {MARQUEE_CLIENTS.map((c, i) => (
           <span
             key={i}
-            className="mx-10 text-slate-500 font-bold text-lg tracking-widest uppercase hover:text-slate-300 transition-colors cursor-default"
+            className="mx-10 text-muted-foreground font-bold text-lg tracking-widest uppercase hover:text-foreground/80 transition-colors cursor-default"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             {c}
           </span>
         ))}
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#06091a] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#06091a] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
     </div>
   );
 }
@@ -321,65 +191,59 @@ function MarqueeLogos() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
-      {/* Background glow */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-violet-700/10 blur-[120px]" />
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-600/8 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-purple-600/8 blur-[80px]" />
-      </div>
-
-      {/* Grid lines */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(124,92,252,1) 1px, transparent 1px), linear-gradient(90deg, rgba(124,92,252,1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <FxBackground variant="streetview" />
+      {/* Soft vignette so hero text stays readable */}
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-background/20 via-transparent to-background/80" />
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         {/* Award badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-900/20 text-violet-300 text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
-          <Star className="w-3.5 h-3.5 fill-violet-400 text-violet-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary text-secondary-foreground text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
           Top Digital Agency 2025 — Clutch
-          <Star className="w-3.5 h-3.5 fill-violet-400 text-violet-400" />
+          <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
         </div>
 
-        <h1 data-speakable="true" className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <h1 data-speakable="true" className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Premium{" "}
           <GradientText>Web Design</GradientText>
           <br />
           Agency
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-          For <span className="text-white font-medium">B2B, B2C & Enterprise Brands</span>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+          For <span className="text-foreground font-medium">B2B, B2C & Enterprise Brands</span>
         </p>
-        <p data-geo-chunk="summary" className="text-base text-slate-500 max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
+        <p data-geo-chunk="summary" className="text-base text-muted-foreground max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
           We craft brand strategy, custom websites, and performance digital marketing that drive measurable growth.
         </p>
 
         {/* Gym owners promo */}
         <div className="max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/25 bg-[#0d1128]/60 text-slate-200 text-sm font-semibold backdrop-blur-sm">
-            <Dumbbell className="w-4 h-4 text-violet-300" />
-            Gym owners: automate ops + lead gen with <span className="text-white">Matflow</span>
-            <Sparkles className="w-4 h-4 text-indigo-300" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-foreground/90 text-sm font-semibold backdrop-blur-sm">
+            <Dumbbell className="w-4 h-4 text-sky-300" />
+            Gym owners: automate ops + lead gen with <span className="text-foreground">Matflow</span>
+            <Sparkles className="w-4 h-4 text-cyan-300" />
           </div>
-          <p className="text-slate-400 text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Member portal + backend processing + gym ops management, plus lead generation and SEO tools — built to help gyms grow and retain members.
           </p>
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
+            <SpringAnchor
               href="https://mymatflow.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm hover:from-emerald-400 hover:to-teal-400 transition-all shadow-xl shadow-emerald-900/30 inline-flex items-center gap-2"
+              className="px-7 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm hover:from-emerald-400 hover:to-teal-400 transition-all shadow-xl shadow-emerald-900/30 gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               See Matflow <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
+            </SpringAnchor>
+            <SpringAnchor
               href="#contact"
-              className="px-7 py-3 rounded-full border border-violet-500/30 text-white font-semibold text-sm hover:bg-violet-900/20 transition-all inline-flex items-center gap-2"
+              className="px-7 py-3 rounded-full border border-sky-500/30 text-foreground font-semibold text-sm hover:bg-sky-900/20 transition-all gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               Get a Demo
-            </a>
+            </SpringAnchor>
           </div>
         </div>
 
@@ -389,22 +253,22 @@ function Hero() {
             {[1, 2, 3, 4, 5].map((i) => (
               <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
-            <span className="text-slate-400 text-sm ml-1" style={{ fontFamily: "Inter, sans-serif" }}>5 Star Client & Google Reviews</span>
+            <span className="text-muted-foreground text-sm ml-1" style={{ fontFamily: "Inter, sans-serif" }}>5 Star Client & Google Reviews</span>
           </div>
-          <div className="w-px h-5 bg-violet-900/50 hidden sm:block" />
-          <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            <span className="text-white font-medium">10+</span> Live Client Platforms
+          <div className="w-px h-5 bg-sky-900/50 hidden sm:block" />
+          <div className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
+            <span className="text-foreground font-medium">10+</span> Live Client Platforms
           </div>
         </div>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <SpringLink to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50 gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote <ArrowRight className="w-4 h-4" />
-          </Link>
-          <Link to="/work" className="px-8 py-4 rounded-full border border-violet-500/30 text-white font-semibold text-base hover:bg-violet-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
-            <Play className="w-4 h-4 fill-white" /> See Our Work
-          </Link>
+          </SpringLink>
+          <SpringLink to="/work" className="px-8 py-4 rounded-full border border-sky-500/30 text-foreground font-semibold text-base hover:bg-sky-900/20 transition-all gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <Play className="w-4 h-4 fill-current" /> See Our Work
+          </SpringLink>
         </div>
       </div>
     </section>
@@ -413,14 +277,14 @@ function Hero() {
 
 function StatsBar() {
   return (
-    <section className="bg-[#0d1128] border-y border-violet-900/20 py-12">
+    <section className="bg-card border-y border-sky-900/20 py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
         {STATS.map((s) => (
           <div key={s.label} className="text-center">
-            <div className="text-4xl font-extrabold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <div className="text-4xl font-extrabold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
               <GradientText>{s.value}</GradientText>
             </div>
-            <div className="text-sm text-slate-400" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
+            <div className="text-sm text-muted-foreground" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -432,35 +296,35 @@ function GeoReportPromo() {
   return (
     <section className="px-6 py-6">
       <div className="max-w-7xl mx-auto">
-        <Link
+        <SpringCardLink
           to="/geo-report"
-          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-500/25 bg-gradient-to-r from-violet-950/50 to-indigo-950/40 px-6 py-5 hover:border-violet-400/40 transition-all"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 hover:border-sky-500/40 hover:bg-secondary/60 transition-all"
         >
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-violet-600/25 border border-violet-500/30 flex items-center justify-center shrink-0">
-              <Globe className="w-5 h-5 text-violet-300" />
+            <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+              <Globe className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
                 Free Tool
               </p>
-              <h2 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <h2 className="text-lg font-bold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
                 SEO & GEO Report Generator
               </h2>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
                 Analyze any URL with 45+ checks — Google, ChatGPT, Perplexity, Claude & Gemini readiness. Semrush-grade audit, instant results.
               </p>
             </div>
           </div>
           <span
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold shrink-0 group-hover:from-violet-500 group-hover:to-indigo-500 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold shrink-0 group-hover:from-sky-500 group-hover:to-cyan-500 transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             <Search className="w-4 h-4" />
             Run Free Scan
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </span>
-        </Link>
+        </SpringCardLink>
       </div>
     </section>
   );
@@ -471,26 +335,26 @@ function ServicesSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-2xl">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>What We Do</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>What We Do</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
             Full-Service Digital<br /><GradientText>Agency Solutions</GradientText>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((svc) => (
-            <Link
+            <SpringCardLink
               key={svc.title}
               to={getServicePath(HOME_SERVICE_LINKS[svc.title] ?? "custom-web-design")}
-              className="group p-8 rounded-2xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/40 transition-all duration-300 hover:bg-[#10163a] block"
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block"
             >
-              <div className="text-3xl text-violet-400 mb-5 group-hover:text-violet-300 transition-colors">{svc.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
-              <span className="flex items-center gap-2 text-violet-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <div className="text-3xl text-sky-400 mb-5 group-hover:text-sky-300 transition-colors">{svc.icon}</div>
+              <h3 className="text-xl font-bold text-foreground mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
+              <span className="flex items-center gap-2 text-sky-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Learn More <ArrowRight className="w-4 h-4" />
               </span>
-            </Link>
+            </SpringCardLink>
           ))}
         </div>
       </div>
@@ -502,57 +366,60 @@ function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<ClientCategory>("Featured");
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Our Work</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Our Work</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
               <GradientText>Award-Winning</GradientText><br />Case Studies
             </h2>
           </div>
-          <div className="flex gap-1 p-1 rounded-full border border-violet-900/30 bg-[#06091a]">
+          <div className="flex gap-1 p-1 rounded-full border border-sky-900/30 bg-background">
             {PORTFOLIO_TABS.map((tab) => (
-              <button
+              <SpringPressable
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeTab === tab
-                    ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-900/40"
-                    : "text-slate-400 hover:text-white"
+                    ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white shadow-lg shadow-sky-900/40"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
                 {tab}
-              </button>
+              </SpringPressable>
             ))}
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PORTFOLIO[activeTab].map((item) => (
-            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-violet-900/20 hover:border-violet-600/40 transition-all bg-[#06091a]">
+            <SpringCard
+              key={item.slug}
+              className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card"
+            >
               <div className="relative overflow-hidden h-64">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-violet-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.tag}</span>
+                  <span className="px-3 py-1 rounded-full bg-sky-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.tag}</span>
                 </div>
                 <div className="absolute bottom-4 right-4">
                   <span className="px-3 py-1 rounded-full bg-emerald-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.metric}</span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.name}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.name}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
                 <div className="flex gap-3">
                   <Link
                     to={getClientPath(item.slug)}
-                    className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     View Case Study
@@ -561,21 +428,21 @@ function PortfolioSection() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full border border-violet-500/30 text-slate-300 text-sm font-semibold hover:bg-violet-900/20 transition-all"
+                    className="px-5 py-2 rounded-full border border-sky-500/30 text-foreground/80 text-sm font-semibold hover:bg-sky-900/20 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Launch Website
                   </a>
                 </div>
               </div>
-            </div>
+            </SpringCard>
           ))}
         </div>
 
         <div className="text-center mt-12">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-violet-500/30 text-violet-300 font-semibold hover:bg-violet-900/20 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-sky-500/30 text-foreground font-semibold hover:bg-secondary transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             View All Case Studies <ArrowRight className="w-4 h-4" />
@@ -593,37 +460,45 @@ function ProcessSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our 7-Step <GradientText>Design Process</GradientText>
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-base leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Every project follows a rigorous, battle-tested process that eliminates guesswork and guarantees results from strategy through launch and beyond.
           </p>
         </div>
 
         <div className="space-y-3">
           {PROCESS.map((step, i) => (
-            <div
+            <SpringCard
               key={step.n}
               className={`rounded-xl border transition-all duration-300 cursor-pointer ${
                 expanded === i
-                  ? "border-violet-600/50 bg-[#10163a]"
-                  : "border-violet-900/20 bg-[#0d1128] hover:border-violet-800/30"
+                  ? "border-sky-600/50 bg-secondary"
+                  : "border-sky-900/20 bg-card hover:border-sky-800/30"
               }`}
               onClick={() => setExpanded(expanded === i ? null : i)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setExpanded(expanded === i ? null : i);
+                }
+              }}
             >
               <div className="flex items-center gap-4 px-6 py-4">
-                <span className="text-violet-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
-                <span className="text-white font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
-                <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${expanded === i ? "rotate-180" : ""}`} />
+                <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
+                <span className="text-foreground font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
+                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${expanded === i ? "rotate-180" : ""}`} />
               </div>
               {expanded === i && (
                 <div className="px-6 pb-5 pl-[4.5rem]">
-                  <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{step.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{step.desc}</p>
                 </div>
               )}
-            </div>
+            </SpringCard>
           ))}
         </div>
       </div>
@@ -636,34 +511,34 @@ function TestimonialsSection() {
   const t = TESTIMONIALS[active];
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Client Stories</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Client Stories</p>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-16" style={{ fontFamily: "Manrope, sans-serif" }}>
           What Our <GradientText>Clients Say</GradientText>
         </h2>
 
         <div className="relative">
-          <div className="text-[8rem] leading-none text-violet-900/30 font-serif absolute -top-4 left-0 select-none">"</div>
-          <blockquote className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-10 relative z-10" style={{ fontFamily: "Inter, sans-serif" }}>
+          <div className="text-[8rem] leading-none text-sky-900/30 font-serif absolute -top-4 left-0 select-none">"</div>
+          <blockquote className="text-xl md:text-2xl text-foreground/90 leading-relaxed font-light mb-10 relative z-10" style={{ fontFamily: "Inter, sans-serif" }}>
             "{t.quote}"
           </blockquote>
           <div className="flex items-center justify-center gap-4">
-            <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-violet-600/50" />
+            <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-sky-600/50" />
             <div className="text-left">
-              <div className="text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{t.name}</div>
+              <div className="text-foreground font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{t.name}</div>
               {t.url ? (
                 <a
                   href={t.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-violet-400 text-sm hover:text-violet-300 transition-colors"
+                  className="text-sky-400 text-sm hover:text-sky-300 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   {t.title}
                 </a>
               ) : (
-                <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{t.title}</div>
+                <div className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{t.title}</div>
               )}
             </div>
           </div>
@@ -671,10 +546,11 @@ function TestimonialsSection() {
 
         <div className="flex justify-center gap-3 mt-10">
           {TESTIMONIALS.map((_, i) => (
-            <button
+            <SpringPressable
               key={i}
               onClick={() => setActive(i)}
-              className={`transition-all rounded-full ${i === active ? "w-8 h-2 bg-violet-500" : "w-2 h-2 bg-violet-900/60 hover:bg-violet-700/60"}`}
+              className={`transition-all rounded-full ${i === active ? "w-8 h-2 bg-sky-500" : "w-2 h-2 bg-sky-900/60 hover:bg-sky-700/60"}`}
+              aria-label={`Show testimonial ${i + 1}`}
             />
           ))}
         </div>
@@ -690,36 +566,36 @@ function AwardsSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Recognition</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Recognition</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Industry <GradientText>Awards & Recognition</GradientText>
           </h2>
         </div>
 
-        <div className="flex justify-center gap-1 p-1 rounded-full border border-violet-900/30 bg-[#0d1128] w-fit mx-auto mb-12">
+        <div className="flex justify-center gap-1 p-1 rounded-full border border-sky-900/30 bg-card w-fit mx-auto mb-12">
           {(["Awards", "Media", "Expertise"] as const).map((t) => (
-            <button
+            <SpringPressable
               key={t}
               onClick={() => setTab(t)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                tab === t ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" : "text-slate-400 hover:text-white"
+                tab === t ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-muted-foreground hover:text-foreground"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               {t}
-            </button>
+            </SpringPressable>
           ))}
         </div>
 
         {tab === "Awards" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {AWARDS.map((award) => (
-              <div key={award} className="flex items-center gap-3 p-5 rounded-xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4 text-white" />
+              <SpringCard key={award} className="flex items-center gap-3 p-5 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-600 to-cyan-600 flex items-center justify-center shrink-0">
+                  <Check className="w-4 h-4 text-foreground" />
                 </div>
-                <span className="text-slate-200 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
-              </div>
+                <span className="text-foreground/90 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
+              </SpringCard>
             ))}
           </div>
         )}
@@ -727,9 +603,9 @@ function AwardsSection() {
         {tab === "Media" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {MEDIA.map((m) => (
-              <div key={m} className="flex items-center justify-center p-8 rounded-xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/30 transition-all">
-                <span className="text-slate-200 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
-              </div>
+              <SpringCard key={m} className="flex items-center justify-center p-8 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
+                <span className="text-foreground/90 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
+              </SpringCard>
             ))}
           </div>
         )}
@@ -737,7 +613,7 @@ function AwardsSection() {
         {tab === "Expertise" && (
           <div className="flex flex-wrap justify-center gap-3">
             {["Custom Web Design", "UX/UI Design", "Web Development", "React Development", "eCommerce", "Shopify", "WordPress", "Webflow", "SEO", "PPC", "Social Media Marketing", "Brand Identity", "Logo Design", "Content Strategy", "Email Marketing", "Conversion Optimization", "Analytics & Reporting", "ADA Compliance", "Web Accessibility", "CRO"].map((tag) => (
-              <span key={tag} className="px-4 py-2 rounded-full border border-violet-700/30 bg-violet-900/20 text-violet-300 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
+              <span key={tag} className="px-4 py-2 rounded-full border border-border bg-secondary text-secondary-foreground text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
             ))}
           </div>
         )}
@@ -751,48 +627,48 @@ function LocationsSection() {
   const loc = LOCATIONS[activeCity];
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Where We Are</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Where We Are</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our <GradientText>Office Locations</GradientText>
           </h2>
         </div>
 
-        <div className="flex justify-center gap-1 p-1 rounded-full border border-violet-900/30 bg-[#06091a] w-fit mx-auto mb-10">
+        <div className="flex justify-center gap-1 p-1 rounded-full border border-sky-900/30 bg-background w-fit mx-auto mb-10">
           {LOCATIONS.map((l, i) => (
-            <button
+            <SpringPressable
               key={l.city}
               onClick={() => setActiveCity(i)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeCity === i ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" : "text-slate-400 hover:text-white"
+                activeCity === i ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-muted-foreground hover:text-foreground"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               {l.city}
-              {l.tag && <span className="ml-1 text-xs text-violet-300">{l.tag}</span>}
-            </button>
+              {l.tag && <span className="ml-1 text-xs text-sky-300">{l.tag}</span>}
+            </SpringPressable>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl overflow-hidden h-72 bg-violet-900/20">
+          <div className="rounded-2xl overflow-hidden h-72 bg-sky-900/20">
             <img src={loc.img} alt={loc.city} className="w-full h-full object-cover" />
           </div>
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>{loc.city} Office</h3>
+            <h3 className="text-3xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>{loc.city} Office</h3>
             <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-violet-400 mt-0.5 shrink-0" />
-              <span className="text-slate-300 text-base" style={{ fontFamily: "Inter, sans-serif" }}>{loc.address}</span>
+              <MapPin className="w-5 h-5 text-sky-400 mt-0.5 shrink-0" />
+              <span className="text-foreground/80 text-base" style={{ fontFamily: "Inter, sans-serif" }}>{loc.address}</span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-violet-400 shrink-0" />
-              <a href={`tel:${loc.phone}`} className="text-slate-300 text-base hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
+              <Phone className="w-5 h-5 text-sky-400 shrink-0" />
+              <a href={`tel:${loc.phone}`} className="text-foreground/80 text-base hover:text-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
             </div>
-            <button className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <SpringPressable className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
               Get Directions
-            </button>
+            </SpringPressable>
           </div>
         </div>
       </div>
@@ -802,16 +678,16 @@ function LocationsSection() {
 
 function HomeFaqSection() {
   return (
-    <section className="py-28 px-6 bg-[#0d1128] border-y border-violet-900/20">
+    <section className="py-28 px-6 bg-card border-y border-sky-900/20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
             FAQ
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Frequently asked questions
           </h2>
-          <p className="text-slate-400 text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
             Clear, direct answers so Google and humans can understand what we do.
           </p>
         </div>
@@ -820,17 +696,17 @@ function HomeFaqSection() {
           {VISIBLE_HOME_FAQ.map((item) => (
             <details
               key={item.question}
-              className="group rounded-xl border border-violet-900/20 bg-[#06091a] hover:border-violet-600/30 transition-all"
+              className="group rounded-xl border border-sky-900/20 bg-background hover:border-sky-600/30 transition-all"
             >
               <summary
                 className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
-                <h2 className="text-white font-semibold text-base m-0">{item.question}</h2>
-                <span className="text-violet-400 group-open:rotate-180 transition-transform">⌄</span>
+                <h2 className="text-foreground font-semibold text-base m-0">{item.question}</h2>
+                <span className="text-sky-400 group-open:rotate-180 transition-transform">⌄</span>
               </summary>
               <div className="px-6 pb-5 -mt-1">
-                <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+                <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
                   {item.answer}
                 </p>
               </div>
@@ -849,11 +725,11 @@ function ContactSection() {
     <section id="contact" className="py-28 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Get Started</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Get Started</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Ready to Grow <br /><GradientText>Your Business?</GradientText>
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
             Tell us about your project. Our team will review your inquiry and schedule a discovery call within one business day.
           </p>
           <div className="space-y-4">
@@ -862,26 +738,26 @@ function ContactSection() {
               { icon: Mail, text: "hello@adrevnview.com" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-violet-900/40 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-violet-400" />
+                <div className="w-10 h-10 rounded-full bg-sky-900/40 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-sky-400" />
                 </div>
-                <span className="text-slate-300" style={{ fontFamily: "Inter, sans-serif" }}>{text}</span>
+                <span className="text-foreground/80" style={{ fontFamily: "Inter, sans-serif" }}>{text}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-[#0d1128] border border-violet-900/20 rounded-2xl p-8">
+        <div className="bg-card border border-sky-900/20 rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {(["name", "company"] as const).map((field) => (
               <div key={field}>
-                <label className="block text-sm text-slate-400 mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
+                <label className="block text-sm text-muted-foreground mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
                 <input
                   type="text"
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "name" ? "Alex Chen" : "Northgate Labs"}
-                  className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
@@ -890,89 +766,35 @@ function ContactSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {(["email", "phone"] as const).map((field) => (
               <div key={field}>
-                <label className="block text-sm text-slate-400 mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
+                <label className="block text-sm text-muted-foreground mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
                 <input
                   type={field === "email" ? "email" : "tel"}
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "email" ? "alex@northgatelabs.com" : "(555) 000-0000"}
-                  className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
             ))}
           </div>
           <div className="mb-6">
-            <label className="block text-sm text-slate-400 mb-2" style={{ fontFamily: "Inter, sans-serif" }}>Project Details</label>
+            <label className="block text-sm text-muted-foreground mb-2" style={{ fontFamily: "Inter, sans-serif" }}>Project Details</label>
             <textarea
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder="Tell us about your project goals, timeline, and budget..."
-              className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors resize-none"
               style={{ fontFamily: "Inter, sans-serif" }}
             />
           </div>
-          <button className="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <SpringPressable className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote — Free Consultation
-          </button>
+          </SpringPressable>
         </div>
       </div>
     </section>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="bg-[#040712] border-t border-violet-900/20 pt-20 pb-10 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 mb-16">
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <Logo className="mb-4" iconClassName="h-8 w-7" textClassName="h-5 w-auto" />
-            <p className="text-slate-500 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>
-              Premium web design agency for B2B, B2C & enterprise brands.
-            </p>
-          </div>
-
-          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-white font-bold text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif" }}>{title}</h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link to={getServicePath(link.slug)} className="text-slate-500 text-sm hover:text-slate-300 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                {title === "Marketing" && (
-                  <li>
-                    <Link to="/geo-report" className="text-violet-400 text-sm hover:text-violet-300 transition-colors font-medium" style={{ fontFamily: "Inter, sans-serif" }}>
-                      Free GEO Report →
-                    </Link>
-                  </li>
-                )}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom bar */}
-        <div className="border-t border-violet-900/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-600 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            © {new Date().getFullYear()} Adrevnview. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <a href="/work" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Case Studies</a>
-            <a href="/privacy" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Privacy Policy</a>
-            <a href="/accessibility" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Accessibility</a>
-            <a href="/contact" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Contact</a>
-            <a href="/geo-report" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>GEO Report</a>
-            <a href="/sitemap.xml" className="text-slate-600 text-sm hover:text-slate-400 transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>Sitemap</a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }
 
@@ -1000,8 +822,8 @@ export default function App() {
         keywords={DEFAULT_SEO.keywords}
       />
       <style>{marqueeStyle}</style>
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
-        <Nav />
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative" style={{ fontFamily: "Inter, sans-serif" }}>
+        <SiteHeader />
         <Hero />
         <MarqueeLogos />
         <StatsBar />
@@ -1015,7 +837,7 @@ export default function App() {
         <LocationsSection />
         <HomeFaqSection />
         <ContactSection />
-        <Footer />
+        <SiteFooter />
       </div>
     </>
   );

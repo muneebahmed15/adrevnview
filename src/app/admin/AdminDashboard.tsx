@@ -24,14 +24,14 @@ export default function AdminDashboard() {
     <div className="p-8 max-w-6xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Dashboard
           </h1>
-          <p className="text-slate-400 text-sm mt-1">Overview of clients, invoices, and revenue</p>
+          <p className="text-muted-foreground text-sm mt-1">Overview of clients, invoices, and revenue</p>
         </div>
         <Link
           to="/admin/invoices/new"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
         >
           <Plus className="w-4 h-4" />
           New Invoice
@@ -43,13 +43,13 @@ export default function AdminDashboard() {
           <Link
             key={label}
             to={href}
-            className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5 hover:border-violet-600/30 transition-colors"
+            className="rounded-xl border border-sky-900/20 bg-card p-5 hover:border-sky-600/30 transition-colors"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="text-slate-400 text-sm">{label}</span>
-              <Icon className="w-4 h-4 text-violet-400" />
+              <span className="text-muted-foreground text-sm">{label}</span>
+              <Icon className="w-4 h-4 text-sky-400" />
             </div>
-            <p className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <p className="text-2xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
               {value}
             </p>
           </Link>
@@ -57,27 +57,27 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
-          <h2 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
+          <h2 className="text-lg font-semibold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
             Recent Invoices
           </h2>
           {invoices.length === 0 ? (
-            <p className="text-slate-500 text-sm">No invoices yet. Create your first invoice.</p>
+            <p className="text-muted-foreground text-sm">No invoices yet. Create your first invoice.</p>
           ) : (
             <ul className="space-y-3">
               {invoices.slice(0, 5).map((inv) => (
                 <li key={inv.id}>
                   <Link
                     to={`/admin/invoices/${inv.id}`}
-                    className="flex items-center justify-between py-2 border-b border-violet-900/10 last:border-0 hover:text-violet-300 transition-colors"
+                    className="flex items-center justify-between py-2 border-b border-sky-900/10 last:border-0 hover:text-sky-300 transition-colors"
                   >
                     <div>
-                      <p className="text-sm font-medium text-white">{inv.number}</p>
-                      <p className="text-xs text-slate-500">{inv.clientName || "No client"}</p>
+                      <p className="text-sm font-medium text-foreground">{inv.number}</p>
+                      <p className="text-xs text-muted-foreground">{inv.clientName || "No client"}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm font-medium text-white">{formatCurrency(invoiceTotal(inv))}</p>
-                      <p className="text-xs text-slate-500 capitalize">{inv.status}</p>
+                      <p className="text-sm font-medium text-foreground">{formatCurrency(invoiceTotal(inv))}</p>
+                      <p className="text-xs text-muted-foreground capitalize">{inv.status}</p>
                     </div>
                   </Link>
                 </li>
@@ -86,26 +86,26 @@ export default function AdminDashboard() {
           )}
         </section>
 
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
-          <h2 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
+          <h2 className="text-lg font-semibold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
             Quick Stats
           </h2>
           <dl className="space-y-3 text-sm">
             <div className="flex justify-between">
-              <dt className="text-slate-400">Draft invoices</dt>
-              <dd className="text-white font-medium">{drafts.length}</dd>
+              <dt className="text-muted-foreground">Draft invoices</dt>
+              <dd className="text-foreground font-medium">{drafts.length}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-400">Paid invoices</dt>
-              <dd className="text-white font-medium">{paid.length}</dd>
+              <dt className="text-muted-foreground">Paid invoices</dt>
+              <dd className="text-foreground font-medium">{paid.length}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-400">Awaiting payment</dt>
-              <dd className="text-white font-medium">{outstanding.length}</dd>
+              <dt className="text-muted-foreground">Awaiting payment</dt>
+              <dd className="text-foreground font-medium">{outstanding.length}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-slate-400">Portfolio clients</dt>
-              <dd className="text-white font-medium">{CLIENTS.length}</dd>
+              <dt className="text-muted-foreground">Portfolio clients</dt>
+              <dd className="text-foreground font-medium">{CLIENTS.length}</dd>
             </div>
           </dl>
         </section>

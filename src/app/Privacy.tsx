@@ -1,17 +1,18 @@
+import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { PAGES, SITE_URL } from "@/lib/seo/siteConfig";
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-[#06091a] text-white px-6 py-20" style={{ fontFamily: "Inter, sans-serif" }}>
+    <SiteLayout mainClassName="px-6 py-12">
       <SeoHead title={PAGES.privacy.title} description={PAGES.privacy.description} path={PAGES.privacy.path} />
       <div className="max-w-3xl mx-auto">
         <h1 className="text-5xl font-extrabold tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Privacy Policy
         </h1>
-        <p className="text-slate-400 text-sm mb-10">Last updated: 2026-07-02</p>
+        <p className="text-muted-foreground text-sm mb-10">Last updated: 2026-07-02</p>
 
-        <div className="space-y-8 text-slate-300 leading-relaxed">
+        <div className="space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Overview</h2>
             <p>
@@ -48,14 +49,13 @@ export default function Privacy() {
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Contact</h2>
             <p>
               Privacy questions:{" "}
-              <a className="text-violet-300 hover:text-violet-200" href="mailto:hello@adrevnview.com">
+              <a className="text-sky-300 hover:text-sky-200" href="mailto:hello@adrevnview.com">
                 hello@adrevnview.com
               </a>
             </p>
           </section>
         </div>
       </div>
-    </div>
+    </SiteLayout>
   );
 }
-
