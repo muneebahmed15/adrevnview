@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { SpringCard } from "@/components/SpringCard";
 import { SERVICE_BY_SLUG } from "@/lib/content/services";
 import { SITE_URL } from "@/lib/seo/siteConfig";
 
@@ -66,7 +67,7 @@ export default function ServicePage() {
           </section>
         )}
 
-        <div className="rounded-2xl border border-border bg-card p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <SpringCard className="rounded-2xl border border-border bg-card p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Ready to start?</h2>
             <p className="text-muted-foreground text-sm">Request a free consultation for {service.title.toLowerCase()}.</p>
@@ -78,7 +79,7 @@ export default function ServicePage() {
           >
             Get a quote <ArrowRight className="w-4 h-4" />
           </Link>
-        </div>
+        </SpringCard>
 
         <p className="text-muted-foreground text-xs mt-8">
           <Link to="/work" className="hover:text-muted-foreground">View case studies</Link>

@@ -4,6 +4,7 @@ import { NfcReviewCard } from "@/app/components/nfc/NfcReviewCard";
 import { NfcTapDemo } from "@/app/components/nfc/NfcTapDemo";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { Logo } from "@/components/Logo";
+import { SpringCard } from "@/components/SpringCard";
 import { PAGES } from "@/lib/seo/siteConfig";
 import "@/app/components/nfc/nfc-animations.css";
 
@@ -226,13 +227,13 @@ export default function GoogleNFC() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {FEATURES.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="p-7 rounded-2xl bg-card border border-sky-900/20 hover:border-sky-600/40 transition-all">
+            <SpringCard key={title} className="p-7 rounded-2xl bg-card border border-sky-900/20 hover:border-sky-600/40 transition-all">
               <div className="w-11 h-11 rounded-xl bg-sky-900/40 flex items-center justify-center mb-5">
                 <Icon className="w-5 h-5 text-sky-400" />
               </div>
               <h3 className="text-lg font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>
-            </div>
+            </SpringCard>
           ))}
         </div>
       </section>

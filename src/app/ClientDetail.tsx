@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router";
 import { ArrowRight, ExternalLink, Check } from "lucide-react";
 import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { SpringCardLink } from "@/components/SpringCard";
 import { CLIENTS, getClientBySlug, getClientPath } from "@/lib/content/clients";
 
 export default function ClientDetail() {
@@ -187,10 +188,10 @@ export default function ClientDetail() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {relatedClients.map((related) => (
-                <Link
+                <SpringCardLink
                   key={related.slug}
                   to={getClientPath(related.slug)}
-                  className="group rounded-xl border border-sky-900/20 bg-card p-5 hover:border-sky-600/40 transition-all"
+                  className="group rounded-xl border border-sky-900/20 bg-card p-5 hover:border-sky-600/40 transition-all block"
                 >
                   <span className="text-sky-400 text-xs font-semibold">{related.tag}</span>
                   <h3 className="text-lg font-bold text-foreground mt-1 mb-2 group-hover:text-sky-200 transition-colors" style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -200,7 +201,7 @@ export default function ClientDetail() {
                   <span className="inline-flex items-center gap-1 text-sky-400 text-sm font-semibold mt-3 group-hover:gap-2 transition-all">
                     Read case study <ArrowRight className="w-4 h-4" />
                   </span>
-                </Link>
+                </SpringCardLink>
               ))}
             </div>
           </section>

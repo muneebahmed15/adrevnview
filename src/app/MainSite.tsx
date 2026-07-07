@@ -6,6 +6,7 @@ import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { FxBackground } from "@/components/fx/FxBackground";
 import { SpringButton } from "@/components/SpringButton";
+import { SpringCard, SpringCardLink } from "@/components/SpringCard";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
 import { getServicePath } from "@/lib/content/services";
@@ -302,7 +303,7 @@ function GeoReportPromo() {
   return (
     <section className="px-6 py-6">
       <div className="max-w-7xl mx-auto">
-        <Link
+        <SpringCardLink
           to="/geo-report"
           className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 hover:border-sky-500/40 hover:bg-secondary/60 transition-all"
         >
@@ -330,7 +331,7 @@ function GeoReportPromo() {
             Run Free Scan
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </span>
-        </Link>
+        </SpringCardLink>
       </div>
     </section>
   );
@@ -349,7 +350,7 @@ function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((svc) => (
-            <Link
+            <SpringCardLink
               key={svc.title}
               to={getServicePath(HOME_SERVICE_LINKS[svc.title] ?? "custom-web-design")}
               className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block"
@@ -360,7 +361,7 @@ function ServicesSection() {
               <span className="flex items-center gap-2 text-sky-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Learn More <ArrowRight className="w-4 h-4" />
               </span>
-            </Link>
+            </SpringCardLink>
           ))}
         </div>
       </div>
@@ -401,7 +402,10 @@ function PortfolioSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PORTFOLIO[activeTab].map((item) => (
-            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card">
+            <SpringCard
+              key={item.slug}
+              className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card"
+            >
               <div className="relative overflow-hidden h-64">
                 <img
                   src={item.image}
@@ -438,7 +442,7 @@ function PortfolioSection() {
                   </a>
                 </div>
               </div>
-            </div>
+            </SpringCard>
           ))}
         </div>
 
@@ -474,7 +478,7 @@ function ProcessSection() {
 
         <div className="space-y-3">
           {PROCESS.map((step, i) => (
-            <div
+            <SpringCard
               key={step.n}
               className={`rounded-xl border transition-all duration-300 cursor-pointer ${
                 expanded === i
@@ -482,6 +486,14 @@ function ProcessSection() {
                   : "border-sky-900/20 bg-card hover:border-sky-800/30"
               }`}
               onClick={() => setExpanded(expanded === i ? null : i)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setExpanded(expanded === i ? null : i);
+                }
+              }}
             >
               <div className="flex items-center gap-4 px-6 py-4">
                 <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
@@ -493,7 +505,7 @@ function ProcessSection() {
                   <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{step.desc}</p>
                 </div>
               )}
-            </div>
+            </SpringCard>
           ))}
         </div>
       </div>
@@ -584,12 +596,12 @@ function AwardsSection() {
         {tab === "Awards" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {AWARDS.map((award) => (
-              <div key={award} className="flex items-center gap-3 p-5 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
+              <SpringCard key={award} className="flex items-center gap-3 p-5 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-600 to-cyan-600 flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4 text-foreground" />
                 </div>
                 <span className="text-foreground/90 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
-              </div>
+              </SpringCard>
             ))}
           </div>
         )}
@@ -597,9 +609,9 @@ function AwardsSection() {
         {tab === "Media" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {MEDIA.map((m) => (
-              <div key={m} className="flex items-center justify-center p-8 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
+              <SpringCard key={m} className="flex items-center justify-center p-8 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
                 <span className="text-foreground/90 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
-              </div>
+              </SpringCard>
             ))}
           </div>
         )}

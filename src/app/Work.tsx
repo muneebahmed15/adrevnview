@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { SpringCard } from "@/components/SpringCard";
 import { PAGES } from "@/lib/seo/siteConfig";
 import { CLIENTS, getClientPath, PORTFOLIO_TABS } from "@/lib/content/clients";
 
@@ -37,7 +38,7 @@ export default function Work() {
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {clients.map((client) => (
-                  <article
+                  <SpringCard
                     key={client.slug}
                     className="group rounded-2xl overflow-hidden border border-sky-900/20 hover:border-sky-600/40 transition-all bg-card"
                   >
@@ -91,7 +92,7 @@ export default function Work() {
                         </a>
                       </div>
                     </div>
-                  </article>
+                  </SpringCard>
                 ))}
               </div>
             </section>
