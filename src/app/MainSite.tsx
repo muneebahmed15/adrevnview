@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
-import { ArrowRight, Star, MapPin, Phone, Mail, Play, Check, Dumbbell, Sparkles, Search, Globe } from "lucide-react";
+import { ArrowRight, Star, MapPin, Phone, Mail, Play, Check, ChevronDown, Dumbbell, Sparkles, Search, Globe } from "lucide-react";
 import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
