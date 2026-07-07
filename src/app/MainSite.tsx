@@ -304,14 +304,14 @@ function GeoReportPromo() {
       <div className="max-w-7xl mx-auto">
         <Link
           to="/geo-report"
-          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-sky-500/25 bg-gradient-to-r from-sky-950/50 to-cyan-950/40 px-6 py-5 hover:border-sky-400/40 transition-all"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-border bg-card px-6 py-5 hover:border-sky-500/40 hover:bg-secondary/60 transition-all"
         >
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-sky-600/25 border border-sky-500/30 flex items-center justify-center shrink-0">
-              <Globe className="w-5 h-5 text-sky-300" />
+            <div className="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+              <Globe className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <p className="text-sky-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-primary text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
                 Free Tool
               </p>
               <h2 className="text-lg font-bold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>

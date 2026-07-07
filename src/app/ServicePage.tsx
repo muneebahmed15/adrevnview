@@ -66,14 +66,14 @@ export default function ServicePage() {
           </section>
         )}
 
-        <div className="rounded-2xl border border-sky-500/25 bg-gradient-to-r from-sky-950/50 to-cyan-950/40 p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-2xl border border-border bg-card p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Ready to start?</h2>
+            <h2 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Ready to start?</h2>
             <p className="text-muted-foreground text-sm">Request a free consultation for {service.title.toLowerCase()}.</p>
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold shrink-0"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             Get a quote <ArrowRight className="w-4 h-4" />
