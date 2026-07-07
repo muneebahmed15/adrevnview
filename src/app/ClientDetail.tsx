@@ -37,11 +37,11 @@ export default function ClientDetail() {
           </span>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }} data-speakable="true">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }} data-speakable="true">
           {client.name}
         </h1>
 
-        <p className="text-slate-300 text-lg leading-relaxed mb-8" data-speakable="true">
+        <p className="text-foreground/80 text-lg leading-relaxed mb-8" data-speakable="true">
           {client.shortDescription}
         </p>
 
@@ -57,7 +57,7 @@ export default function ClientDetail() {
           </a>
           <Link
             to="/#contact"
-            className="flex items-center gap-2 px-6 py-3 rounded-full border border-sky-500/30 text-slate-300 font-semibold hover:bg-sky-900/20 transition-all"
+            className="flex items-center gap-2 px-6 py-3 rounded-full border border-sky-500/30 text-foreground/80 font-semibold hover:bg-sky-900/20 transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             Start a Similar Project
@@ -71,19 +71,19 @@ export default function ClientDetail() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           <div className="rounded-xl border border-sky-900/20 bg-card p-4">
             <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-1">Client</p>
-            <p className="text-white font-bold" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <p className="text-foreground font-bold" style={{ fontFamily: "Manrope, sans-serif" }}>
               {client.name}
             </p>
           </div>
           <div className="rounded-xl border border-sky-900/20 bg-card p-4">
             <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-1">Category</p>
-            <p className="text-white font-bold" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <p className="text-foreground font-bold" style={{ fontFamily: "Manrope, sans-serif" }}>
               {client.category}
             </p>
           </div>
           <div className="rounded-xl border border-sky-900/20 bg-card p-4">
             <p className="text-sky-400 text-xs font-semibold uppercase tracking-wider mb-1">Highlight</p>
-            <p className="text-white font-bold text-sm" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <p className="text-foreground font-bold text-sm" style={{ fontFamily: "Manrope, sans-serif" }}>
               {client.metric}
             </p>
           </div>
@@ -102,33 +102,33 @@ export default function ClientDetail() {
 
         <article className="prose-custom space-y-10">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
               Overview
             </h2>
-            <p className="text-slate-300 leading-relaxed">{client.content.overview}</p>
+            <p className="text-foreground/80 leading-relaxed">{client.content.overview}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
               The Challenge
             </h2>
-            <p className="text-slate-300 leading-relaxed">{client.content.challenge}</p>
+            <p className="text-foreground/80 leading-relaxed">{client.content.challenge}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
               Our Solution
             </h2>
-            <p className="text-slate-300 leading-relaxed">{client.content.solution}</p>
+            <p className="text-foreground/80 leading-relaxed">{client.content.solution}</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
               Results
             </h2>
             <ul className="space-y-3">
               {client.content.results.map((result) => (
-                <li key={result} className="flex items-start gap-3 text-slate-300">
+                <li key={result} className="flex items-start gap-3 text-foreground/80">
                   <Check className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                   <span>{result}</span>
                 </li>
@@ -137,7 +137,7 @@ export default function ClientDetail() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-2xl font-bold text-foreground mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
               Services Delivered
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -152,7 +152,7 @@ export default function ClientDetail() {
 
         {client.content.testimonial && (
           <blockquote className="mt-12 rounded-2xl border border-sky-900/20 bg-card p-8">
-            <p className="text-slate-200 text-lg leading-relaxed italic mb-4">
+            <p className="text-foreground/90 text-lg leading-relaxed italic mb-4">
               &ldquo;{client.content.testimonial.quote}&rdquo;
             </p>
             <footer className="text-sky-400 text-sm font-semibold">{client.content.testimonial.attribution}</footer>
@@ -160,10 +160,10 @@ export default function ClientDetail() {
         )}
 
         <div className="mt-12 rounded-2xl border border-sky-600/30 bg-gradient-to-r from-sky-900/20 to-cyan-900/20 p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-2xl font-bold text-foreground mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>
             Visit {client.name}
           </h2>
-          <p className="text-slate-300 mb-6">
+          <p className="text-foreground/80 mb-6">
             See the live project Adrevnview designed and built at{" "}
             <a href={client.url} target="_blank" rel="noopener noreferrer" className="text-sky-300 hover:text-sky-200">
               {client.url.replace(/^https?:\/\//, "")}
@@ -182,7 +182,7 @@ export default function ClientDetail() {
 
         {relatedClients.length > 0 && (
           <section className="mt-16 pt-12 border-t border-sky-900/20">
-            <h2 className="text-xl font-bold text-white mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-xl font-bold text-foreground mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
               Related Case Studies
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -193,10 +193,10 @@ export default function ClientDetail() {
                   className="group rounded-xl border border-sky-900/20 bg-card p-5 hover:border-sky-600/40 transition-all"
                 >
                   <span className="text-sky-400 text-xs font-semibold">{related.tag}</span>
-                  <h3 className="text-lg font-bold text-white mt-1 mb-2 group-hover:text-sky-200 transition-colors" style={{ fontFamily: "Manrope, sans-serif" }}>
+                  <h3 className="text-lg font-bold text-foreground mt-1 mb-2 group-hover:text-sky-200 transition-colors" style={{ fontFamily: "Manrope, sans-serif" }}>
                     {related.name}
                   </h3>
-                  <p className="text-slate-400 text-sm line-clamp-2">{related.shortDescription}</p>
+                  <p className="text-muted-foreground text-sm line-clamp-2">{related.shortDescription}</p>
                   <span className="inline-flex items-center gap-1 text-sky-400 text-sm font-semibold mt-3 group-hover:gap-2 transition-all">
                     Read case study <ArrowRight className="w-4 h-4" />
                   </span>

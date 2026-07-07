@@ -21,14 +21,14 @@ export function GoogleNfcSection() {
               Google NFC Review Card
             </p>
 
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
               Turn Every Happy Customer Into a{" "}
               <span className="bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 5-Star Review
               </span>
             </h2>
 
-            <p className="text-slate-400 text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-muted-foreground text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
               One tap on our smart NFC card sends customers straight to your Google review page. No app, no friction — just more reviews on autopilot. Try the interactive demo.
             </p>
 
@@ -39,7 +39,7 @@ export function GoogleNfcSection() {
                 "Works with all modern smartphones",
                 "Lifetime guarantee · Free shipping",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-sm text-slate-300" style={{ fontFamily: "Inter, sans-serif" }}>
+                <li key={item} className="flex items-center gap-3 text-sm text-foreground/80" style={{ fontFamily: "Inter, sans-serif" }}>
                   <Check className="w-4 h-4 text-emerald-400 shrink-0" />
                   {item}
                 </li>
@@ -56,7 +56,7 @@ export function GoogleNfcSection() {
               </a>
               <a
                 href="/googlenfc"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-sky-500/30 text-white font-semibold text-base hover:bg-sky-900/20 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-sky-500/30 text-foreground font-semibold text-base hover:bg-sky-900/20 transition-all"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
                 View Full Product Page

@@ -14,13 +14,13 @@ export default function Work() {
         <div className="mb-14">
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4">Client Work</p>
           <h1
-            className="text-4xl md:text-5xl font-extrabold text-white mb-6"
+            className="text-4xl md:text-5xl font-extrabold text-foreground mb-6"
             style={{ fontFamily: "Manrope, sans-serif" }}
             data-speakable="true"
           >
             Case Studies &amp; Client Projects
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-3xl" data-speakable="true">
+          <p className="text-foreground/80 text-lg leading-relaxed max-w-3xl" data-speakable="true">
             Explore the websites, platforms, and digital experiences Adrevnview has designed and built for B2B SaaS,
             eCommerce, and enterprise brands. Each project ships with SEO and GEO foundations built in from day one.
           </p>
@@ -32,7 +32,7 @@ export default function Work() {
 
           return (
             <section key={category} className="mb-16" id={category.toLowerCase()}>
-              <h2 className="text-2xl font-bold text-white mb-8" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Manrope, sans-serif" }}>
                 {category === "Featured" ? "Featured Projects" : `${category} Projects`}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -58,10 +58,10 @@ export default function Work() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+                      <h3 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
                         {client.name}
                       </h3>
-                      <p className="text-slate-400 text-sm leading-relaxed mb-4">{client.shortDescription}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">{client.shortDescription}</p>
                       <div className="flex flex-wrap gap-2 mb-5">
                         {client.services.slice(0, 3).map((service) => (
                           <span
@@ -84,7 +84,7 @@ export default function Work() {
                           href={client.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-5 py-2 rounded-full border border-sky-500/30 text-slate-300 text-sm font-semibold hover:bg-sky-900/20 transition-all"
+                          className="flex items-center gap-2 px-5 py-2 rounded-full border border-sky-500/30 text-foreground/80 text-sm font-semibold hover:bg-sky-900/20 transition-all"
                           style={{ fontFamily: "Manrope, sans-serif" }}
                         >
                           Visit Site <ExternalLink className="w-3.5 h-3.5" />

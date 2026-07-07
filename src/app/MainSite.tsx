@@ -174,7 +174,7 @@ function MarqueeLogos() {
         {MARQUEE_CLIENTS.map((c, i) => (
           <span
             key={i}
-            className="mx-10 text-slate-500 font-bold text-lg tracking-widest uppercase hover:text-slate-300 transition-colors cursor-default"
+            className="mx-10 text-muted-foreground font-bold text-lg tracking-widest uppercase hover:text-foreground/80 transition-colors cursor-default"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             {c}
@@ -216,21 +216,21 @@ function Hero() {
           Agency
         </h1>
 
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
           For <span className="text-foreground font-medium">B2B, B2C & Enterprise Brands</span>
         </p>
-        <p data-geo-chunk="summary" className="text-base text-slate-500 max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
+        <p data-geo-chunk="summary" className="text-base text-muted-foreground max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
           We craft brand strategy, custom websites, and performance digital marketing that drive measurable growth.
         </p>
 
         {/* Gym owners promo */}
         <div className="max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-slate-200 text-sm font-semibold backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-foreground/90 text-sm font-semibold backdrop-blur-sm">
             <Dumbbell className="w-4 h-4 text-sky-300" />
-            Gym owners: automate ops + lead gen with <span className="text-white">Matflow</span>
+            Gym owners: automate ops + lead gen with <span className="text-foreground">Matflow</span>
             <Sparkles className="w-4 h-4 text-cyan-300" />
           </div>
-          <p className="text-slate-400 text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Member portal + backend processing + gym ops management, plus lead generation and SEO tools — built to help gyms grow and retain members.
           </p>
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -245,7 +245,7 @@ function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border border-sky-500/30 text-white font-semibold text-sm hover:bg-sky-900/20 transition-all inline-flex items-center gap-2"
+              className="px-7 py-3 rounded-full border border-sky-500/30 text-foreground font-semibold text-sm hover:bg-sky-900/20 transition-all inline-flex items-center gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               Get a Demo
@@ -259,11 +259,11 @@ function Hero() {
             {[1, 2, 3, 4, 5].map((i) => (
               <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
             ))}
-            <span className="text-slate-400 text-sm ml-1" style={{ fontFamily: "Inter, sans-serif" }}>5 Star Client & Google Reviews</span>
+            <span className="text-muted-foreground text-sm ml-1" style={{ fontFamily: "Inter, sans-serif" }}>5 Star Client & Google Reviews</span>
           </div>
           <div className="w-px h-5 bg-sky-900/50 hidden sm:block" />
-          <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            <span className="text-white font-medium">10+</span> Live Client Platforms
+          <div className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
+            <span className="text-foreground font-medium">10+</span> Live Client Platforms
           </div>
         </div>
 
@@ -272,8 +272,8 @@ function Hero() {
           <Link to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link to="/work" className="px-8 py-4 rounded-full border border-sky-500/30 text-white font-semibold text-base hover:bg-sky-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
-            <Play className="w-4 h-4 fill-white" /> See Our Work
+          <Link to="/work" className="px-8 py-4 rounded-full border border-sky-500/30 text-foreground font-semibold text-base hover:bg-sky-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <Play className="w-4 h-4 fill-current" /> See Our Work
           </Link>
         </div>
       </div>
@@ -287,10 +287,10 @@ function StatsBar() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
         {STATS.map((s) => (
           <div key={s.label} className="text-center">
-            <div className="text-4xl font-extrabold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <div className="text-4xl font-extrabold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
               <GradientText>{s.value}</GradientText>
             </div>
-            <div className="text-sm text-slate-400" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
+            <div className="text-sm text-muted-foreground" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -314,10 +314,10 @@ function GeoReportPromo() {
               <p className="text-sky-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
                 Free Tool
               </p>
-              <h2 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <h2 className="text-lg font-bold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
                 SEO & GEO Report Generator
               </h2>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
                 Analyze any URL with 45+ checks — Google, ChatGPT, Perplexity, Claude & Gemini readiness. Semrush-grade audit, instant results.
               </p>
             </div>
@@ -342,7 +342,7 @@ function ServicesSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-2xl">
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>What We Do</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
             Full-Service Digital<br /><GradientText>Agency Solutions</GradientText>
           </h2>
         </div>
@@ -355,8 +355,8 @@ function ServicesSection() {
               className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block border-blink-once"
             >
               <div className="text-3xl text-sky-400 mb-5 group-hover:text-sky-300 transition-colors">{svc.icon}</div>
-              <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
+              <h3 className="text-xl font-bold text-foreground mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
               <span className="flex items-center gap-2 text-sky-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Learn More <ArrowRight className="w-4 h-4" />
               </span>
@@ -377,7 +377,7 @@ function PortfolioSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Our Work</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
               <GradientText>Award-Winning</GradientText><br />Case Studies
             </h2>
           </div>
@@ -389,7 +389,7 @@ function PortfolioSection() {
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeTab === tab
                     ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white shadow-lg shadow-sky-900/40"
-                    : "text-slate-400 hover:text-white"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
@@ -417,8 +417,8 @@ function PortfolioSection() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.name}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{item.name}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>{item.shortDescription}</p>
                 <div className="flex gap-3">
                   <Link
                     to={getClientPath(item.slug)}
@@ -431,7 +431,7 @@ function PortfolioSection() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full border border-sky-500/30 text-slate-300 text-sm font-semibold hover:bg-sky-900/20 transition-all"
+                    className="px-5 py-2 rounded-full border border-sky-500/30 text-foreground/80 text-sm font-semibold hover:bg-sky-900/20 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Launch Website
@@ -445,7 +445,7 @@ function PortfolioSection() {
         <div className="text-center mt-12">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-sky-500/30 text-sky-300 font-semibold hover:bg-sky-900/20 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-sky-500/30 text-foreground font-semibold hover:bg-secondary transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             View All Case Studies <ArrowRight className="w-4 h-4" />
@@ -464,10 +464,10 @@ function ProcessSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our 7-Step <GradientText>Design Process</GradientText>
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-base leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Every project follows a rigorous, battle-tested process that eliminates guesswork and guarantees results from strategy through launch and beyond.
           </p>
         </div>
@@ -478,19 +478,19 @@ function ProcessSection() {
               key={step.n}
               className={`rounded-xl border transition-all duration-300 cursor-pointer ${
                 expanded === i
-                  ? "border-sky-600/50 bg-[#10163a]"
+                  ? "border-sky-600/50 bg-secondary"
                   : "border-sky-900/20 bg-card hover:border-sky-800/30"
               }`}
               onClick={() => setExpanded(expanded === i ? null : i)}
             >
               <div className="flex items-center gap-4 px-6 py-4">
                 <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
-                <span className="text-white font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
-                <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${expanded === i ? "rotate-180" : ""}`} />
+                <span className="text-foreground font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
+                <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${expanded === i ? "rotate-180" : ""}`} />
               </div>
               {expanded === i && (
                 <div className="px-6 pb-5 pl-[4.5rem]">
-                  <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{step.desc}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{step.desc}</p>
                 </div>
               )}
             </div>
@@ -509,19 +509,19 @@ function TestimonialsSection() {
     <section className="py-28 px-6 bg-card">
       <div className="max-w-4xl mx-auto text-center">
         <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Client Stories</p>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-16" style={{ fontFamily: "Manrope, sans-serif" }}>
           What Our <GradientText>Clients Say</GradientText>
         </h2>
 
         <div className="relative">
           <div className="text-[8rem] leading-none text-sky-900/30 font-serif absolute -top-4 left-0 select-none">"</div>
-          <blockquote className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-10 relative z-10" style={{ fontFamily: "Inter, sans-serif" }}>
+          <blockquote className="text-xl md:text-2xl text-foreground/90 leading-relaxed font-light mb-10 relative z-10" style={{ fontFamily: "Inter, sans-serif" }}>
             "{t.quote}"
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-sky-600/50" />
             <div className="text-left">
-              <div className="text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{t.name}</div>
+              <div className="text-foreground font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{t.name}</div>
               {t.url ? (
                 <a
                   href={t.url}
@@ -533,7 +533,7 @@ function TestimonialsSection() {
                   {t.title}
                 </a>
               ) : (
-                <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{t.title}</div>
+                <div className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>{t.title}</div>
               )}
             </div>
           </div>
@@ -561,7 +561,7 @@ function AwardsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Recognition</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Industry <GradientText>Awards & Recognition</GradientText>
           </h2>
         </div>
@@ -572,7 +572,7 @@ function AwardsSection() {
               key={t}
               onClick={() => setTab(t)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                tab === t ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-slate-400 hover:text-white"
+                tab === t ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-muted-foreground hover:text-foreground"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
@@ -586,9 +586,9 @@ function AwardsSection() {
             {AWARDS.map((award) => (
               <div key={award} className="flex items-center gap-3 p-5 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-600 to-cyan-600 flex items-center justify-center shrink-0">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-foreground" />
                 </div>
-                <span className="text-slate-200 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
+                <span className="text-foreground/90 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
               </div>
             ))}
           </div>
@@ -598,7 +598,7 @@ function AwardsSection() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {MEDIA.map((m) => (
               <div key={m} className="flex items-center justify-center p-8 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
-                <span className="text-slate-200 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
+                <span className="text-foreground/90 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
               </div>
             ))}
           </div>
@@ -625,7 +625,7 @@ function LocationsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Where We Are</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our <GradientText>Office Locations</GradientText>
           </h2>
         </div>
@@ -636,7 +636,7 @@ function LocationsSection() {
               key={l.city}
               onClick={() => setActiveCity(i)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeCity === i ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-slate-400 hover:text-white"
+                activeCity === i ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-muted-foreground hover:text-foreground"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
@@ -651,14 +651,14 @@ function LocationsSection() {
             <img src={loc.img} alt={loc.city} className="w-full h-full object-cover" />
           </div>
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>{loc.city} Office</h3>
+            <h3 className="text-3xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>{loc.city} Office</h3>
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-sky-400 mt-0.5 shrink-0" />
-              <span className="text-slate-300 text-base" style={{ fontFamily: "Inter, sans-serif" }}>{loc.address}</span>
+              <span className="text-foreground/80 text-base" style={{ fontFamily: "Inter, sans-serif" }}>{loc.address}</span>
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-sky-400 shrink-0" />
-              <a href={`tel:${loc.phone}`} className="text-slate-300 text-base hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
+              <a href={`tel:${loc.phone}`} className="text-foreground/80 text-base hover:text-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
             </div>
             <button className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
               Get Directions
@@ -678,10 +678,10 @@ function HomeFaqSection() {
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
             FAQ
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
             Frequently asked questions
           </h2>
-          <p className="text-slate-400 text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-sm mt-4" style={{ fontFamily: "Inter, sans-serif" }}>
             Clear, direct answers so Google and humans can understand what we do.
           </p>
         </div>
@@ -696,11 +696,11 @@ function HomeFaqSection() {
                 className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
-                <h2 className="text-white font-semibold text-base m-0">{item.question}</h2>
+                <h2 className="text-foreground font-semibold text-base m-0">{item.question}</h2>
                 <span className="text-sky-400 group-open:rotate-180 transition-transform">⌄</span>
               </summary>
               <div className="px-6 pb-5 -mt-1">
-                <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
+                <p className="text-muted-foreground text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
                   {item.answer}
                 </p>
               </div>
@@ -720,10 +720,10 @@ function ContactSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Get Started</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Ready to Grow <br /><GradientText>Your Business?</GradientText>
           </h2>
-          <p className="text-slate-400 text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-muted-foreground text-base leading-relaxed mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
             Tell us about your project. Our team will review your inquiry and schedule a discovery call within one business day.
           </p>
           <div className="space-y-4">
@@ -735,7 +735,7 @@ function ContactSection() {
                 <div className="w-10 h-10 rounded-full bg-sky-900/40 flex items-center justify-center">
                   <Icon className="w-4 h-4 text-sky-400" />
                 </div>
-                <span className="text-slate-300" style={{ fontFamily: "Inter, sans-serif" }}>{text}</span>
+                <span className="text-foreground/80" style={{ fontFamily: "Inter, sans-serif" }}>{text}</span>
               </div>
             ))}
           </div>
@@ -745,13 +745,13 @@ function ContactSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {(["name", "company"] as const).map((field) => (
               <div key={field}>
-                <label className="block text-sm text-slate-400 mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
+                <label className="block text-sm text-muted-foreground mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
                 <input
                   type="text"
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "name" ? "Alex Chen" : "Northgate Labs"}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
@@ -760,26 +760,26 @@ function ContactSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {(["email", "phone"] as const).map((field) => (
               <div key={field}>
-                <label className="block text-sm text-slate-400 mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
+                <label className="block text-sm text-muted-foreground mb-2 capitalize" style={{ fontFamily: "Inter, sans-serif" }}>{field}</label>
                 <input
                   type={field === "email" ? "email" : "tel"}
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "email" ? "alex@northgatelabs.com" : "(555) 000-0000"}
-                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
             ))}
           </div>
           <div className="mb-6">
-            <label className="block text-sm text-slate-400 mb-2" style={{ fontFamily: "Inter, sans-serif" }}>Project Details</label>
+            <label className="block text-sm text-muted-foreground mb-2" style={{ fontFamily: "Inter, sans-serif" }}>Project Details</label>
             <textarea
               rows={4}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder="Tell us about your project goals, timeline, and budget..."
-              className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-sky-500/60 transition-colors resize-none"
               style={{ fontFamily: "Inter, sans-serif" }}
             />
           </div>

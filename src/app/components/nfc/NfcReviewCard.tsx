@@ -72,7 +72,7 @@ function NfcWaves({ active }: { active?: boolean }) {
         />
       ))}
       <div className="relative z-10 w-9 h-9 rounded-full bg-gradient-to-br from-sky-500 to-cyan-600 flex items-center justify-center shadow-lg shadow-sky-900/50">
-        <Wifi className="w-4 h-4 text-white rotate-90" />
+        <Wifi className="w-4 h-4 text-foreground rotate-90" />
       </div>
     </div>
   );
@@ -103,10 +103,10 @@ function CardFront({ size, tapping }: { size: "sm" | "md" | "lg"; tapping?: bool
 
         <div className="flex flex-col items-center gap-2">
           <NfcWaves active={tapping} />
-          <p className={`font-bold text-white tracking-wide ${compact ? "text-sm" : "text-lg"}`} style={{ fontFamily: "Manrope, sans-serif" }}>
+          <p className={`font-bold text-foreground tracking-wide ${compact ? "text-sm" : "text-lg"}`} style={{ fontFamily: "Manrope, sans-serif" }}>
             Tap to Review
           </p>
-          <p className={`text-slate-400 text-center ${compact ? "text-[9px] max-w-[9rem]" : "text-xs max-w-[12rem]"}`}>
+          <p className={`text-muted-foreground text-center ${compact ? "text-[9px] max-w-[9rem]" : "text-xs max-w-[12rem]"}`}>
             Hold your phone near the card
           </p>
         </div>
@@ -115,7 +115,7 @@ function CardFront({ size, tapping }: { size: "sm" | "md" | "lg"; tapping?: bool
           <span className={`text-sky-400/70 font-semibold ${compact ? "text-[8px]" : "text-[10px]"} tracking-widest uppercase`}>
             Adrevnview
           </span>
-          <div className={`flex gap-1 ${compact ? "text-[8px]" : "text-[10px]"} text-slate-500`}>
+          <div className={`flex gap-1 ${compact ? "text-[8px]" : "text-[10px]"} text-muted-foreground`}>
             <span>NFC</span>
             <span>·</span>
             <span>QR</span>
@@ -135,7 +135,7 @@ function CardBack({ size }: { size: "sm" | "md" | "lg" }) {
         <div className={compact ? "w-24" : "w-32"}>
           <QrPattern />
         </div>
-        <p className={`text-slate-400 text-center ${compact ? "text-[9px]" : "text-xs"}`}>
+        <p className={`text-muted-foreground text-center ${compact ? "text-[9px]" : "text-xs"}`}>
           Scan if NFC is unavailable
         </p>
         <div className={`flex items-center gap-2 ${compact ? "text-[8px]" : "text-[10px]"} text-sky-400/60`}>
@@ -207,7 +207,7 @@ export function NfcReviewCard({
           >
             Simulate NFC tap
           </button>
-          <p className="text-slate-500 text-xs">Click card to flip · Tap button to animate</p>
+          <p className="text-muted-foreground text-xs">Click card to flip · Tap button to animate</p>
         </div>
       )}
     </div>

@@ -28,80 +28,80 @@ export default function AdminSettings() {
   return (
     <div className="p-8 max-w-3xl">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
           Settings
         </h1>
-        <p className="text-slate-400 text-sm mt-1">Company details used on invoices and billing</p>
+        <p className="text-muted-foreground text-sm mt-1">Company details used on invoices and billing</p>
       </div>
 
       <div className="rounded-xl border border-sky-900/20 bg-card p-6 space-y-6">
         <section className="space-y-4">
-          <h2 className="text-sm font-semibold text-slate-300">Company Information</h2>
+          <h2 className="text-sm font-semibold text-foreground/80">Company Information</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="sm:col-span-2">
-              <label className="block text-xs text-slate-500 mb-1">Company Name</label>
+              <label className="block text-xs text-muted-foreground mb-1">Company Name</label>
               <input
                 value={settings.name}
                 onChange={(e) => update("name", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Email</label>
+              <label className="block text-xs text-muted-foreground mb-1">Email</label>
               <input
                 value={settings.email}
                 onChange={(e) => update("email", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Phone</label>
+              <label className="block text-xs text-muted-foreground mb-1">Phone</label>
               <input
                 value={settings.phone}
                 onChange={(e) => update("phone", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs text-slate-500 mb-1">Street Address</label>
+              <label className="block text-xs text-muted-foreground mb-1">Street Address</label>
               <input
                 value={settings.streetAddress}
                 onChange={(e) => update("streetAddress", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">City</label>
+              <label className="block text-xs text-muted-foreground mb-1">City</label>
               <input
                 value={settings.city}
                 onChange={(e) => update("city", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-xs text-slate-500 mb-1">State</label>
+                <label className="block text-xs text-muted-foreground mb-1">State</label>
                 <input
                   value={settings.state}
                   onChange={(e) => update("state", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                 />
               </div>
               <div>
-                <label className="block text-xs text-slate-500 mb-1">ZIP</label>
+                <label className="block text-xs text-muted-foreground mb-1">ZIP</label>
                 <input
                   value={settings.postalCode}
                   onChange={(e) => update("postalCode", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                 />
               </div>
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Tax ID / EIN</label>
+              <label className="block text-xs text-muted-foreground mb-1">Tax ID / EIN</label>
               <input
                 value={settings.taxId}
                 onChange={(e) => update("taxId", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                 placeholder="Optional"
               />
             </div>
@@ -109,35 +109,35 @@ export default function AdminSettings() {
         </section>
 
         <section className="space-y-4 pt-4 border-t border-sky-900/20">
-          <h2 className="text-sm font-semibold text-slate-300">Invoice Defaults</h2>
+          <h2 className="text-sm font-semibold text-foreground/80">Invoice Defaults</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Invoice Prefix</label>
+              <label className="block text-xs text-muted-foreground mb-1">Invoice Prefix</label>
               <input
                 value={settings.invoicePrefix}
                 onChange={(e) => update("invoicePrefix", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
                 placeholder="INV"
               />
             </div>
             <div>
-              <label className="block text-xs text-slate-500 mb-1">Default Tax Rate (%)</label>
+              <label className="block text-xs text-muted-foreground mb-1">Default Tax Rate (%)</label>
               <input
                 type="number"
                 min={0}
                 step={0.1}
                 value={settings.defaultTaxRate}
                 onChange={(e) => update("defaultTaxRate", Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm"
               />
             </div>
             <div className="sm:col-span-2">
-              <label className="block text-xs text-slate-500 mb-1">Payment Terms</label>
+              <label className="block text-xs text-muted-foreground mb-1">Payment Terms</label>
               <textarea
                 value={settings.paymentTerms}
                 onChange={(e) => update("paymentTerms", e.target.value)}
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm resize-none"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-foreground text-sm resize-none"
               />
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function AdminSettings() {
           <button
             type="button"
             onClick={handleReset}
-            className="px-5 py-2.5 rounded-lg border border-sky-500/30 text-slate-400 text-sm hover:bg-sky-900/20 transition-colors"
+            className="px-5 py-2.5 rounded-lg border border-sky-500/30 text-muted-foreground text-sm hover:bg-sky-900/20 transition-colors"
           >
             Reset Defaults
           </button>
@@ -164,10 +164,10 @@ export default function AdminSettings() {
       </div>
 
       <div className="mt-6 rounded-xl border border-sky-900/20 bg-card p-6">
-        <h2 className="text-sm font-semibold text-slate-300 mb-2">Admin Access</h2>
-        <p className="text-slate-400 text-sm">
-          Default password: <code className="text-slate-500">adrevnview2026</code>. Override with the{" "}
-          <code className="text-slate-500">VITE_ADMIN_PASSWORD</code> environment variable in production.
+        <h2 className="text-sm font-semibold text-foreground/80 mb-2">Admin Access</h2>
+        <p className="text-muted-foreground text-sm">
+          Default password: <code className="text-muted-foreground">adrevnview2026</code>. Override with the{" "}
+          <code className="text-muted-foreground">VITE_ADMIN_PASSWORD</code> environment variable in production.
         </p>
       </div>
     </div>

@@ -115,7 +115,7 @@ export default function SeoReport() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+    <div className="min-h-screen bg-background text-foreground" style={{ fontFamily: "Inter, sans-serif" }}>
       <SeoHead
         title="Free SEO & GEO Report Generator | Adrevnview"
         description="Analyze any URL for SEO and Generative Engine Optimization. 45+ checks across Google, ChatGPT, Perplexity, Claude, and Gemini readiness."
@@ -125,7 +125,7 @@ export default function SeoReport() {
       <header className="border-b border-sky-900/20 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Logo iconClassName="h-7 w-6" textClassName="h-5 w-auto" />
-          <span className="text-xs text-slate-600">{SCAN_STEPS.length} scan phases · {report ? `${report.metrics.totalChecks} checks` : "ready"}</span>
+          <span className="text-xs text-muted-foreground">{SCAN_STEPS.length} scan phases · {report ? `${report.metrics.totalChecks} checks` : "ready"}</span>
         </div>
       </header>
 
@@ -148,9 +148,9 @@ export default function SeoReport() {
             <div className="rounded-2xl border border-sky-900/25 bg-card p-6 sm:p-8 mb-6">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div>
-                  <p className="text-slate-500 text-sm mb-1">Audit target</p>
+                  <p className="text-muted-foreground text-sm mb-1">Audit target</p>
                   <p className="font-semibold text-lg break-all">{report.targetUrl}</p>
-                  <p className="text-slate-600 text-xs mt-1">
+                  <p className="text-muted-foreground text-xs mt-1">
                     {new Date(report.generatedAt).toLocaleString()} · {report.domain}
                   </p>
                 </div>
@@ -194,7 +194,7 @@ export default function SeoReport() {
                   className={`px-4 py-2.5 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                     tab === t.id
                       ? "bg-card text-sky-300 border border-sky-900/30 border-b-transparent -mb-px"
-                      : "text-slate-500 hover:text-slate-300"
+                      : "text-muted-foreground hover:text-foreground/80"
                   }`}
                 >
                   {t.label}
@@ -230,7 +230,7 @@ export default function SeoReport() {
                       key={f}
                       onClick={() => setIssueFilter(f)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize ${
-                        issueFilter === f ? "bg-sky-600/30 text-sky-200" : "text-slate-500 hover:text-slate-300"
+                        issueFilter === f ? "bg-sky-600/30 text-sky-200" : "text-muted-foreground hover:text-foreground/80"
                       }`}
                     >
                       {f}
@@ -248,7 +248,7 @@ export default function SeoReport() {
         )}
 
         {!report && !loading && (
-          <div className="text-center py-16 text-slate-600">
+          <div className="text-center py-16 text-muted-foreground">
             <p className="text-sm">No telemetry yet. Drop a URL above to ignite the scanner.</p>
           </div>
         )}

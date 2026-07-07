@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Link } from "react-router";
 
 const BRAND = {
@@ -74,12 +76,20 @@ function LogoWordmark({
 
 export function Logo({
   variant = "full",
-  theme = "dark",
+  theme: themeProp,
   className = "",
   iconClassName = "h-9 w-8 shrink-0",
   textClassName = "h-6 w-auto",
   link = true,
 }: LogoProps) {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const theme: "dark" | "light" =
+    themeProp ?? (mounted && resolvedTheme === "dark" ? "dark" : "light");
+
   const content = (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoIcon className={iconClassName} />

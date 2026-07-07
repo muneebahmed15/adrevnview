@@ -43,16 +43,16 @@ export default function AdminLogin() {
               <Lock className="w-5 h-5 text-sky-400" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <h1 className="text-xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Admin Sign In
               </h1>
-              <p className="text-slate-400 text-sm">Enter your admin password to continue</p>
+              <p className="text-muted-foreground text-sm">Enter your admin password to continue</p>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="password" className="block text-sm text-slate-400 mb-1.5">
+              <label htmlFor="password" className="block text-sm text-muted-foreground mb-1.5">
                 Password
               </label>
               <input
@@ -63,7 +63,7 @@ export default function AdminLogin() {
                   setPassword(e.target.value);
                   setError("");
                 }}
-                className="w-full px-4 py-2.5 rounded-lg bg-background border border-sky-900/30 text-white placeholder:text-slate-600 focus:outline-none focus:border-sky-500/50"
+                className="w-full px-4 py-2.5 rounded-lg bg-background border border-sky-900/30 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-500/50"
                 placeholder="Admin password"
                 autoFocus
               />
@@ -81,8 +81,8 @@ export default function AdminLogin() {
           </form>
         </div>
 
-        <p className="text-center text-slate-600 text-xs mt-6">
-          Set <code className="text-slate-500">VITE_ADMIN_PASSWORD</code> in your environment for production.
+        <p className="text-center text-muted-foreground text-xs mt-6">
+          Set <code className="text-muted-foreground">VITE_ADMIN_PASSWORD</code> in your environment for production.
         </p>
       </div>
     </div>

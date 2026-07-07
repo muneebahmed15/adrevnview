@@ -11,7 +11,7 @@ export default function AdminInvoiceView() {
   if (!invoice) {
     return (
       <div className="p-8">
-        <p className="text-slate-400">Invoice not found.</p>
+        <p className="text-muted-foreground">Invoice not found.</p>
         <Link to="/admin/invoices" className="text-sky-400 text-sm mt-2 inline-block">
           Back to invoices
         </Link>
@@ -23,14 +23,14 @@ export default function AdminInvoiceView() {
     <div className="p-8 max-w-4xl">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
         <div className="flex items-center gap-4">
-          <Link to="/admin/invoices" className="text-slate-400 hover:text-white transition-colors">
+          <Link to="/admin/invoices" className="text-muted-foreground hover:text-foreground transition-colors">
             <ArrowLeft className="w-5 h-5" />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h1 className="text-2xl font-bold text-foreground" style={{ fontFamily: "Manrope, sans-serif" }}>
               {invoice.number}
             </h1>
-            <p className="text-slate-400 text-sm capitalize">{invoice.status} · {invoice.clientName}</p>
+            <p className="text-muted-foreground text-sm capitalize">{invoice.status} · {invoice.clientName}</p>
           </div>
         </div>
         <div className="flex gap-2">
@@ -44,7 +44,7 @@ export default function AdminInvoiceView() {
           </button>
           <Link
             to={`/admin/invoices/${invoice.id}/edit`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sky-500/30 text-slate-300 text-sm hover:bg-sky-900/20 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sky-500/30 text-foreground/80 text-sm hover:bg-sky-900/20 transition-colors"
           >
             <Pencil className="w-4 h-4" />
             Edit

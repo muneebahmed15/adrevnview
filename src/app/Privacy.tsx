@@ -10,9 +10,9 @@ export default function Privacy() {
         <h1 className="text-5xl font-extrabold tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Privacy Policy
         </h1>
-        <p className="text-slate-400 text-sm mb-10">Last updated: 2026-07-02</p>
+        <p className="text-muted-foreground text-sm mb-10">Last updated: 2026-07-02</p>
 
-        <div className="space-y-8 text-slate-300 leading-relaxed">
+        <div className="space-y-8 text-foreground/80 leading-relaxed">
           <section>
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Overview</h2>
             <p>

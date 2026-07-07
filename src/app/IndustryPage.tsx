@@ -66,11 +66,11 @@ export default function IndustryPage() {
       <SeoHead title={`${industry.title} | Adrevnview`} description={industry.description} path={path} />
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-extrabold mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>{industry.title}</h1>
-        <p data-geo-chunk="summary" className="text-slate-400 text-lg mb-10 leading-relaxed">{industry.intro}</p>
+        <p data-geo-chunk="summary" className="text-muted-foreground text-lg mb-10 leading-relaxed">{industry.intro}</p>
         <h2 className="text-2xl font-bold mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>How we help</h2>
         <ul className="space-y-2 mb-10">
           {industry.solutions.map((s) => (
-            <li key={s} className="text-slate-300 text-sm">• {s}</li>
+            <li key={s} className="text-foreground/80 text-sm">• {s}</li>
           ))}
         </ul>
         <Link to="/contact" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold">

@@ -38,7 +38,7 @@ export function ScoreGauge({ score, label, sub }: { score: number; label: string
     <div className="flex flex-col items-center">
       <div className="relative w-36 h-36">
         <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r={r} fill="none" stroke="#1e1b4b" strokeWidth="10" />
+          <circle cx="60" cy="60" r={r} fill="none" stroke="var(--muted)" strokeWidth="10" />
           <circle
             cx="60"
             cy="60"
@@ -56,11 +56,11 @@ export function ScoreGauge({ score, label, sub }: { score: number; label: string
           <span className="text-3xl font-extrabold tabular-nums" style={{ fontFamily: "Manrope, sans-serif" }}>
             {score}
           </span>
-          <span className="text-xs text-slate-500">/ 100</span>
+          <span className="text-xs text-muted-foreground">/ 100</span>
         </div>
       </div>
-      <p className="text-sm font-semibold mt-2 text-slate-200">{label}</p>
-      {sub && <p className="text-xs text-slate-500">{sub}</p>}
+      <p className="text-sm font-semibold mt-2 text-foreground/90">{label}</p>
+      {sub && <p className="text-xs text-muted-foreground">{sub}</p>}
     </div>
   );
 }
@@ -76,9 +76,9 @@ export function MetricsBar({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
       {items.map((item) => (
-        <div key={item.label} className="rounded-xl border border-sky-900/20 bg-[#0a0e22] px-4 py-3 text-center">
-          <p className="text-lg font-bold text-white">{item.value}</p>
-          <p className="text-xs text-slate-500 mt-0.5">{item.label}</p>
+        <div key={item.label} className="rounded-xl border border-sky-900/20 bg-secondary px-4 py-3 text-center">
+          <p className="text-lg font-bold text-foreground">{item.value}</p>
+          <p className="text-xs text-muted-foreground mt-0.5">{item.label}</p>
         </div>
       ))}
     </div>
@@ -96,7 +96,7 @@ export function PlatformCards({ report }: { report: SiteAuditReport }) {
             </div>
             <div>
               <p className="font-semibold text-sm">{p.label}</p>
-              <p className="text-2xl font-bold">{p.score}<span className="text-sm text-slate-500 font-normal">/100</span></p>
+              <p className="text-2xl font-bold">{p.score}<span className="text-sm text-muted-foreground font-normal">/100</span></p>
             </div>
           </div>
           <div className="h-1.5 rounded-full bg-background overflow-hidden">
@@ -105,7 +105,7 @@ export function PlatformCards({ report }: { report: SiteAuditReport }) {
               style={{ width: `${p.score}%` }}
             />
           </div>
-          <p className="text-xs text-slate-500 mt-2 leading-relaxed">{p.summary}</p>
+          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{p.summary}</p>
         </div>
       ))}
     </div>
@@ -118,7 +118,7 @@ export function PillarGrid({ report }: { report: SiteAuditReport }) {
       {(Object.entries(report.categoryScores) as [CheckCategory, number][]).map(([cat, score]) => (
         <div key={cat} className="rounded-xl border border-sky-900/20 bg-card p-4">
           <div className="flex justify-between items-start mb-2">
-            <p className="text-xs text-slate-400 leading-snug pr-2">{CATEGORY_LABELS[cat]}</p>
+            <p className="text-xs text-muted-foreground leading-snug pr-2">{CATEGORY_LABELS[cat]}</p>
             <span className="text-lg font-bold tabular-nums shrink-0">{score}</span>
           </div>
           <div className="h-1 rounded-full bg-background">
@@ -135,7 +135,7 @@ export function IssueTable({ issues, filter }: { issues: AuditCheck[]; filter: "
     () => (filter === "all" ? issues : issues.filter((i) => i.severity === filter)),
     [issues, filter],
   );
-  if (filtered.length === 0) return <p className="text-slate-500 text-sm py-8 text-center">No issues in this category.</p>;
+  if (filtered.length === 0) return <p className="text-muted-foreground text-sm py-8 text-center">No issues in this category.</p>;
   return (
     <div className="space-y-2">
       {filtered.map((issue) => (
@@ -176,7 +176,7 @@ export function IssueTable({ issues, filter }: { issues: AuditCheck[]; filter: "
 export function ActionPlanList({ report }: { report: SiteAuditReport }) {
   if (report.actionPlan.length === 0) {
     return (
-      <div className="text-center py-12 text-slate-400">
+      <div className="text-center py-12 text-muted-foreground">
         <Sparkles className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
         <p>No critical fixes needed — strong SEO/GEO foundation.</p>
       </div>
@@ -195,11 +195,11 @@ export function ActionPlanList({ report }: { report: SiteAuditReport }) {
                 <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded ${SEVERITY_STYLES[item.severity]}`}>
                   {item.severity}
                 </span>
-                <span className="text-[10px] text-slate-500 uppercase">Impact: {item.impact}</span>
-                {item.pagePath && <span className="text-[10px] font-mono text-slate-500">{item.pagePath}</span>}
+                <span className="text-[10px] text-muted-foreground uppercase">Impact: {item.impact}</span>
+                {item.pagePath && <span className="text-[10px] font-mono text-muted-foreground">{item.pagePath}</span>}
               </div>
               <h3 className="font-semibold">{item.title}</h3>
-              <p className="text-sm text-slate-400 mt-1 leading-relaxed">{item.recommendation}</p>
+              <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{item.recommendation}</p>
               {item.fixSnippet && (
                 <pre className="text-xs mt-3 p-3 rounded-lg bg-background border border-sky-900/20 font-mono text-sky-200 overflow-x-auto">
                   {item.fixSnippet}
@@ -223,14 +223,14 @@ export function PageCards({ report }: { report: SiteAuditReport }) {
           <details key={page.snapshot.path} className="rounded-xl border border-sky-900/20 bg-card group">
             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
               <div className="flex items-center gap-3 min-w-0">
-                <ChevronDown className="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform shrink-0" />
+                <ChevronDown className="w-4 h-4 text-muted-foreground group-open:rotate-180 transition-transform shrink-0" />
                 <div className="min-w-0">
                   <p className="font-semibold font-mono text-sm">{page.snapshot.path}</p>
-                  <p className="text-xs text-slate-500 truncate">{page.snapshot.title}</p>
+                  <p className="text-xs text-muted-foreground truncate">{page.snapshot.title}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 shrink-0 ml-4">
-                <span className="text-xs text-slate-500">{page.snapshot.wordCount} words</span>
+                <span className="text-xs text-muted-foreground">{page.snapshot.wordCount} words</span>
                 {fails > 0 && <span className="text-xs text-red-400">{fails} critical</span>}
                 {warns > 0 && <span className="text-xs text-amber-400">{warns} warnings</span>}
                 <span className="text-lg font-bold">{page.score}</span>
@@ -280,7 +280,7 @@ export function ScanProgress({ step, progress }: { step: number; progress: numbe
           style={{ width: `${progress}%` }}
         />
       </div>
-      <p className="text-xs text-slate-600 mt-2">{progress}% complete</p>
+      <p className="text-xs text-muted-foreground mt-2">{progress}% complete</p>
     </div>
   );
 }
@@ -337,26 +337,26 @@ export function ScannerHero({
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
           SEO & GEO Report Generator
         </h1>
-        <p className="text-slate-400 mb-6 max-w-xl text-sm leading-relaxed">
+        <p className="text-muted-foreground mb-6 max-w-xl text-sm leading-relaxed">
           Semrush-grade site audit for search engines and AI assistants. Analyze any public URL for metadata, schema,
           llms.txt, crawler access, content citability, and E-E-A-T signals.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 max-w-2xl">
           <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <input
               type="text"
               value={url}
               onChange={(e) => onUrlChange(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && !loading && onScan()}
               placeholder="Enter any URL (e.g. https://example.com)"
-              className="w-full rounded-xl bg-background border border-sky-900/40 pl-11 pr-4 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-sky-500/60"
+              className="w-full rounded-xl bg-background border border-sky-900/40 pl-11 pr-4 py-3.5 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-sky-500/60"
             />
           </div>
           <button
             onClick={onScan}
             disabled={loading || !url.trim()}
-            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold hover:from-sky-500 hover:to-cyan-500 disabled:opacity-50 transition-all shrink-0"
+            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 disabled:opacity-50 transition-all shrink-0"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             {loading ? "Scanning…" : "Run Scan"}
