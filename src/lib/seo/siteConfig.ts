@@ -6,9 +6,9 @@ export const ORG = {
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
   email: "hello@adrevnview.com",
-  phone: "+1-516-555-0147",
-  phoneDisplay: "(516) 555-0147",
-  phoneTel: "5165550147",
+  phone: "+1-516-207-863",
+  phoneDisplay: "(516) 207-863",
+  phoneTel: "516207863",
   foundingDate: "2013",
   locationLabel: "Long Island, New York",
   address: {

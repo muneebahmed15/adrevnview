@@ -43,7 +43,7 @@ export default function Contact() {
               <Phone className="w-5 h-5 text-sky-400 mt-1" />
               <div>
                 <p className="font-semibold">Phone</p>
-                <a href={`tel:${ORG.phone}`} className="text-sky-400 hover:text-sky-300">{ORG.phoneDisplay}</a>
+                <a href={`tel:${ORG.phoneTel}`} className="text-sky-400 hover:text-sky-300">{ORG.phoneDisplay}</a>
               </div>
             </div>
             <div className="flex items-start gap-3">

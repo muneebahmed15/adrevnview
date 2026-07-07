@@ -664,7 +664,7 @@ function LocationsSection() {
             </div>
             <div className="flex items-center gap-3">
               <Phone className="w-5 h-5 text-sky-400 shrink-0" />
-              <a href={`tel:${loc.phone}`} className="text-foreground/80 text-base hover:text-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
+              <a href={`tel:${ORG.phoneTel}`} className="text-foreground/80 text-base hover:text-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
             </div>
             <SpringPressable className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
               Get Directions
