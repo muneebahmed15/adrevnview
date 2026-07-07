@@ -6,17 +6,46 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/app/components/ui/utils";
 import { usePerformanceTier } from "@/lib/performance";
 
+export const springButtonHoverTransition = {
+  type: "spring" as const,
+  stiffness: 720,
+  damping: 30,
+  mass: 0.38,
+  restDelta: 0.0005,
+  restSpeed: 0.001,
+};
+
+export const springButtonTapTransition = {
+  type: "spring" as const,
+  stiffness: 680,
+  damping: 32,
+  mass: 0.4,
+};
+
 export const springButtonTransition = {
   type: "spring" as const,
-  stiffness: 400,
-  damping: 19,
-  mass: 0.75,
+  stiffness: 580,
+  damping: 28,
+  mass: 0.45,
+  restDelta: 0.0005,
+  restSpeed: 0.001,
 };
 
 export const springButtonInteraction = {
-  whileHover: { scale: 1.05, y: -2 },
-  whileTap: { scale: 0.97, y: 0 },
+  whileHover: {
+    scale: 1.05,
+    y: -2,
+    transition: springButtonHoverTransition,
+  },
+  whileTap: {
+    scale: 0.97,
+    y: 0,
+    transition: springButtonTapTransition,
+  },
 };
+
+const springColorTransition =
+  "transition-[background-color,box-shadow,border-color,color,opacity,filter] duration-200 ease-out";
 
 const pressableBaseClass =
   "inline-flex items-center justify-center disabled:pointer-events-none disabled:opacity-50 outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px]";
@@ -55,7 +84,7 @@ type SpringButtonProps = HTMLMotionProps<"button"> &
 export const SpringPressable = forwardRef<HTMLButtonElement, HTMLMotionProps<"button">>(
   ({ className, children, ...props }, ref) => {
     const { springMotion } = usePerformanceTier();
-    const classes = cn(pressableBaseClass, className);
+    const classes = cn(pressableBaseClass, className, springColorTransition);
 
     if (!springMotion) {
       return (
@@ -84,7 +113,7 @@ SpringPressable.displayName = "SpringPressable";
 export const SpringAnchor = forwardRef<HTMLAnchorElement, React.ComponentProps<"a">>(
   ({ className, children, ...props }, ref) => {
     const { springMotion } = usePerformanceTier();
-    const classes = cn(pressableBaseClass, className);
+    const classes = cn(pressableBaseClass, className, springColorTransition);
 
     if (!springMotion) {
       return (
@@ -114,7 +143,7 @@ const MotionLink = motion.create(Link);
 
 export function SpringLink({ className, children, ...props }: LinkProps & { className?: string }) {
   const { springMotion } = usePerformanceTier();
-  const classes = cn(pressableBaseClass, className);
+  const classes = cn(pressableBaseClass, className, springColorTransition);
 
   if (!springMotion) {
     return (
@@ -143,6 +172,7 @@ export const SpringButton = forwardRef<HTMLButtonElement, SpringButtonProps>(
     const classes = cn(
       springButtonVariants({ variant, size, className }),
       borderBlink && "border-blink-once",
+      springColorTransition,
     );
 
     if (asChild) {
@@ -187,6 +217,7 @@ export function SpringNavLink({ className, variant, size, children, ...props }: 
   const classes = cn(
     springButtonVariants({ variant, size, className }),
     borderBlink && "border-blink-once",
+    springColorTransition,
   );
 
   if (!springMotion) {
