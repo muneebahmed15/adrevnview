@@ -182,6 +182,44 @@
   }
 }
 
+@keyframes border-blink-hover {
+  0%,
+  100% {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: var(--card-shadow);
+  }
+  12.5%,
+  37.5% {
+    outline: 2px solid var(--brand);
+    outline-offset: 3px;
+    box-shadow:
+      var(--card-shadow),
+      0 0 0 1px color-mix(in srgb, var(--brand) 45%, transparent),
+      0 0 20px var(--brand-glow);
+  }
+  25%,
+  50% {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: var(--card-shadow);
+  }
+  62.5%,
+  87.5% {
+    outline: 2px solid var(--brand-light);
+    outline-offset: 3px;
+    box-shadow:
+      var(--card-shadow),
+      0 0 0 1px color-mix(in srgb, var(--brand-light) 55%, transparent),
+      0 0 24px var(--brand-glow);
+  }
+  75% {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    box-shadow: var(--card-shadow);
+  }
+}
+
 @layer utilities {
   .brand-gradient {
     @apply bg-gradient-to-r from-sky-500 to-cyan-500;
@@ -203,6 +241,10 @@
     animation: border-blink 2.4s ease-in-out 1;
   }
 
+  .border-blink-hover {
+    animation: border-blink-hover 1.15s ease-in-out 1;
+  }
+
   .surface-card {
     @apply bg-card border border-border;
     box-shadow: var(--card-shadow);
@@ -220,16 +262,37 @@
   :where(.bg-card[class*="rounded"][class*="border"]) {
     box-shadow: var(--card-shadow);
   }
+
+  :where([data-slot="card"]:hover),
+  :where(.surface-card:hover),
+  :where(.card-border-shadow:hover),
+  :where(.bg-card[class*="rounded"][class*="border"]:hover) {
+    animation: border-blink-hover 1.15s ease-in-out 1;
+  }
 }
 
 /* ─── Adaptive performance tiers ─── */
 [data-perf-tier="basic"] .border-blink,
 [data-perf-tier="basic"] .border-blink-once,
+[data-perf-tier="basic"] .border-blink-hover,
 [data-perf-tier="reduced"] .border-blink,
-[data-perf-tier="reduced"] .border-blink-once {
+[data-perf-tier="reduced"] .border-blink-once,
+[data-perf-tier="reduced"] .border-blink-hover {
   animation: none !important;
   outline: none !important;
   box-shadow: none !important;
+}
+
+[data-perf-tier="basic"] :where([data-slot="card"]:hover),
+[data-perf-tier="basic"] :where(.surface-card:hover),
+[data-perf-tier="basic"] :where(.card-border-shadow:hover),
+[data-perf-tier="basic"] :where(.bg-card[class*="rounded"][class*="border"]:hover),
+[data-perf-tier="reduced"] :where([data-slot="card"]:hover),
+[data-perf-tier="reduced"] :where(.surface-card:hover),
+[data-perf-tier="reduced"] :where(.card-border-shadow:hover),
+[data-perf-tier="reduced"] :where(.bg-card[class*="rounded"][class*="border"]:hover) {
+  animation: none !important;
+  outline: none !important;
 }
 
 [data-perf-tier="basic"] .perf-heavy-blur,

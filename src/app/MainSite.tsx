@@ -352,7 +352,7 @@ function ServicesSection() {
             <Link
               key={svc.title}
               to={getServicePath(HOME_SERVICE_LINKS[svc.title] ?? "custom-web-design")}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block border-blink-once"
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block"
             >
               <div className="text-3xl text-sky-400 mb-5 group-hover:text-sky-300 transition-colors">{svc.icon}</div>
               <h3 className="text-xl font-bold text-foreground mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
@@ -401,7 +401,7 @@ function PortfolioSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PORTFOLIO[activeTab].map((item) => (
-            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card border-blink-once">
+            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card">
               <div className="relative overflow-hidden h-64">
                 <img
                   src={item.image}
