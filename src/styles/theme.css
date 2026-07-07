@@ -30,6 +30,11 @@
   --brand-light: #38bdf8;
   --brand-dark: #0284c7;
   --brand-glow: rgba(56, 189, 248, 0.45);
+  --card-shadow:
+    0 0 0 1px color-mix(in srgb, var(--brand) 16%, transparent),
+    0 1px 2px color-mix(in srgb, var(--brand) 10%, transparent),
+    0 6px 20px color-mix(in srgb, var(--brand) 8%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 85%, transparent);
   --surface-deep: #041018;
   --surface-raised: #0a1628;
   --chart-1: oklch(0.72 0.14 220);
@@ -75,6 +80,11 @@
   --brand-light: #7dd3fc;
   --brand-dark: #0ea5e9;
   --brand-glow: rgba(56, 189, 248, 0.35);
+  --card-shadow:
+    0 0 0 1px color-mix(in srgb, var(--brand) 24%, transparent),
+    0 1px 3px rgba(0, 0, 0, 0.35),
+    0 8px 28px color-mix(in srgb, var(--brand-glow) 55%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--brand-light) 10%, transparent);
   --surface-deep: #020810;
   --surface-raised: #0a1628;
   --chart-1: oklch(0.72 0.14 220);
@@ -115,6 +125,7 @@
   --color-switch-background: var(--switch-background);
   --color-ring: var(--ring);
   --color-brand: var(--brand);
+  --shadow-card: var(--card-shadow);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -191,6 +202,20 @@
 
   .surface-card {
     @apply bg-card border border-border;
+    box-shadow: var(--card-shadow);
+  }
+
+  .card-border-shadow {
+    box-shadow: var(--card-shadow);
+  }
+}
+
+@layer base {
+  :where([data-slot="card"]),
+  :where(.surface-card),
+  :where(.card-border-shadow),
+  :where(.bg-card[class*="rounded"][class*="border"]) {
+    box-shadow: var(--card-shadow);
   }
 }
 
