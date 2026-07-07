@@ -12,7 +12,7 @@ export default function AdminInvoiceView() {
     return (
       <div className="p-8">
         <p className="text-slate-400">Invoice not found.</p>
-        <Link to="/admin/invoices" className="text-violet-400 text-sm mt-2 inline-block">
+        <Link to="/admin/invoices" className="text-sky-400 text-sm mt-2 inline-block">
           Back to invoices
         </Link>
       </div>
@@ -37,14 +37,14 @@ export default function AdminInvoiceView() {
           <button
             type="button"
             onClick={printInvoice}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 text-white text-sm font-semibold hover:bg-violet-500 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-600 text-white text-sm font-semibold hover:bg-sky-500 transition-colors"
           >
             <Printer className="w-4 h-4" />
             Print / PDF
           </button>
           <Link
             to={`/admin/invoices/${invoice.id}/edit`}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-violet-500/30 text-slate-300 text-sm hover:bg-violet-900/20 transition-colors"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-sky-500/30 text-slate-300 text-sm hover:bg-sky-900/20 transition-colors"
           >
             <Pencil className="w-4 h-4" />
             Edit

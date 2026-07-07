@@ -33,21 +33,21 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-10 mb-16">
           <div className="space-y-6">
             <div className="flex items-start gap-3">
-              <Mail className="w-5 h-5 text-violet-400 mt-1" />
+              <Mail className="w-5 h-5 text-sky-400 mt-1" />
               <div>
                 <p className="font-semibold">Email</p>
-                <a href={`mailto:${ORG.email}`} className="text-violet-400 hover:text-violet-300">{ORG.email}</a>
+                <a href={`mailto:${ORG.email}`} className="text-sky-400 hover:text-sky-300">{ORG.email}</a>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <Phone className="w-5 h-5 text-violet-400 mt-1" />
+              <Phone className="w-5 h-5 text-sky-400 mt-1" />
               <div>
                 <p className="font-semibold">Phone</p>
-                <a href={`tel:${ORG.phone}`} className="text-violet-400 hover:text-violet-300">{ORG.phone}</a>
+                <a href={`tel:${ORG.phone}`} className="text-sky-400 hover:text-sky-300">{ORG.phone}</a>
               </div>
             </div>
             <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-violet-400 mt-1" />
+              <MapPin className="w-5 h-5 text-sky-400 mt-1" />
               <div>
                 <p className="font-semibold">Austin Office</p>
                 <p className="text-slate-400 text-sm">{ORG.address.streetAddress}, {ORG.address.addressLocality}, {ORG.address.addressRegion} {ORG.address.postalCode}</p>
@@ -55,20 +55,20 @@ export default function Contact() {
             </div>
           </div>
 
-          <form className="rounded-2xl border border-violet-900/25 bg-[#0d1128] p-6 space-y-4" id="contact-form">
+          <form className="rounded-2xl border border-sky-900/25 bg-card p-6 space-y-4" id="contact-form">
             <div>
               <label className="text-sm text-slate-400 block mb-1">Name</label>
-              <input className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white text-sm" placeholder="Your name" />
+              <input className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white text-sm" placeholder="Your name" />
             </div>
             <div>
               <label className="text-sm text-slate-400 block mb-1">Email</label>
-              <input type="email" className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white text-sm" placeholder="you@company.com" />
+              <input type="email" className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white text-sm" placeholder="you@company.com" />
             </div>
             <div>
               <label className="text-sm text-slate-400 block mb-1">Project details</label>
-              <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white text-sm resize-none" placeholder="Goals, timeline, budget…" />
+              <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white text-sm resize-none" placeholder="Goals, timeline, budget…" />
             </div>
-            <button type="button" className="w-full py-3 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <button type="button" className="w-full py-3 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
               Send message
             </button>
           </form>
@@ -78,7 +78,7 @@ export default function Contact() {
           <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>Common questions</h2>
           <div className="space-y-4">
             {FAQ.map((item) => (
-              <div key={item.question} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5">
+              <div key={item.question} className="rounded-xl border border-sky-900/20 bg-card p-5">
                 <h3 className="font-semibold mb-2">{item.question}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.answer}</p>
               </div>

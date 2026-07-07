@@ -12,7 +12,7 @@ export default function Work() {
 
       <div className="max-w-7xl mx-auto">
         <div className="mb-14">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4">Client Work</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4">Client Work</p>
           <h1
             className="text-4xl md:text-5xl font-extrabold text-white mb-6"
             style={{ fontFamily: "Manrope, sans-serif" }}
@@ -39,7 +39,7 @@ export default function Work() {
                 {clients.map((client) => (
                   <article
                     key={client.slug}
-                    className="group rounded-2xl overflow-hidden border border-violet-900/20 hover:border-violet-600/40 transition-all bg-[#0d1128]"
+                    className="group rounded-2xl overflow-hidden border border-sky-900/20 hover:border-sky-600/40 transition-all bg-card"
                   >
                     <div className="relative overflow-hidden h-52">
                       <img
@@ -47,10 +47,10 @@ export default function Work() {
                         alt={`${client.name} — ${client.tag}`}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0d1128] via-transparent to-transparent opacity-80" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
                       <div className="absolute top-4 left-4">
                         <span
-                          className="px-3 py-1 rounded-full bg-violet-600/80 backdrop-blur-sm text-white text-xs font-semibold"
+                          className="px-3 py-1 rounded-full bg-sky-600/80 backdrop-blur-sm text-white text-xs font-semibold"
                           style={{ fontFamily: "Manrope, sans-serif" }}
                         >
                           {client.tag}
@@ -66,7 +66,7 @@ export default function Work() {
                         {client.services.slice(0, 3).map((service) => (
                           <span
                             key={service}
-                            className="px-2.5 py-1 rounded-full bg-violet-900/30 text-violet-300 text-xs"
+                            className="px-2.5 py-1 rounded-full bg-sky-900/30 text-sky-300 text-xs"
                           >
                             {service}
                           </span>
@@ -75,7 +75,7 @@ export default function Work() {
                       <div className="flex gap-3">
                         <Link
                           to={getClientPath(client.slug)}
-                          className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+                          className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
                           style={{ fontFamily: "Manrope, sans-serif" }}
                         >
                           Read Case Study <ArrowRight className="w-4 h-4" />
@@ -84,7 +84,7 @@ export default function Work() {
                           href={client.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center gap-2 px-5 py-2 rounded-full border border-violet-500/30 text-slate-300 text-sm font-semibold hover:bg-violet-900/20 transition-all"
+                          className="flex items-center gap-2 px-5 py-2 rounded-full border border-sky-500/30 text-slate-300 text-sm font-semibold hover:bg-sky-900/20 transition-all"
                           style={{ fontFamily: "Manrope, sans-serif" }}
                         >
                           Visit Site <ExternalLink className="w-3.5 h-3.5" />

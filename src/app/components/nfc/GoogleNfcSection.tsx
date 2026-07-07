@@ -4,26 +4,26 @@ import "./nfc-animations.css";
 
 export function GoogleNfcSection() {
   return (
-    <section className="py-28 px-6 bg-[#0d1128] border-y border-violet-900/20 relative overflow-hidden">
+    <section className="py-28 px-6 bg-card border-y border-sky-900/20 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-violet-700/8 blur-[120px]" />
-        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-indigo-600/8 blur-[100px]" />
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[500px] rounded-full bg-sky-700/8 blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-cyan-600/8 blur-[100px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-900/20 text-violet-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
               <Zap className="w-3.5 h-3.5" /> New Product · $99 one-time
             </div>
 
-            <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
               Google NFC Review Card
             </p>
 
             <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
               Turn Every Happy Customer Into a{" "}
-              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
                 5-Star Review
               </span>
             </h2>
@@ -49,14 +49,14 @@ export function GoogleNfcSection() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href="/googlenfc#buy"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
                 Get Your Card — $99 <ArrowRight className="w-4 h-4" />
               </a>
               <a
                 href="/googlenfc"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-violet-500/30 text-white font-semibold text-base hover:bg-violet-900/20 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-sky-500/30 text-white font-semibold text-base hover:bg-sky-900/20 transition-all"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
                 View Full Product Page

@@ -31,7 +31,7 @@ export default function AdminDashboard() {
         </div>
         <Link
           to="/admin/invoices/new"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
         >
           <Plus className="w-4 h-4" />
           New Invoice
@@ -43,11 +43,11 @@ export default function AdminDashboard() {
           <Link
             key={label}
             to={href}
-            className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5 hover:border-violet-600/30 transition-colors"
+            className="rounded-xl border border-sky-900/20 bg-card p-5 hover:border-sky-600/30 transition-colors"
           >
             <div className="flex items-center justify-between mb-3">
               <span className="text-slate-400 text-sm">{label}</span>
-              <Icon className="w-4 h-4 text-violet-400" />
+              <Icon className="w-4 h-4 text-sky-400" />
             </div>
             <p className="text-2xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
               {value}
@@ -57,7 +57,7 @@ export default function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
           <h2 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
             Recent Invoices
           </h2>
@@ -69,7 +69,7 @@ export default function AdminDashboard() {
                 <li key={inv.id}>
                   <Link
                     to={`/admin/invoices/${inv.id}`}
-                    className="flex items-center justify-between py-2 border-b border-violet-900/10 last:border-0 hover:text-violet-300 transition-colors"
+                    className="flex items-center justify-between py-2 border-b border-sky-900/10 last:border-0 hover:text-sky-300 transition-colors"
                   >
                     <div>
                       <p className="text-sm font-medium text-white">{inv.number}</p>
@@ -86,7 +86,7 @@ export default function AdminDashboard() {
           )}
         </section>
 
-        <section className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+        <section className="rounded-xl border border-sky-900/20 bg-card p-6">
           <h2 className="text-lg font-semibold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
             Quick Stats
           </h2>

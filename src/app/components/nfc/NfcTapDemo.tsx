@@ -38,15 +38,15 @@ export function NfcTapDemo() {
             phase === "review"
               ? "border-emerald-500/40 bg-emerald-900/20 text-emerald-300"
               : isActive
-                ? "border-violet-500/50 bg-violet-900/30 text-violet-200"
-                : "border-violet-900/30 bg-[#0d1128] text-slate-400"
+                ? "border-sky-500/50 bg-sky-900/30 text-sky-200"
+                : "border-sky-900/30 bg-card text-slate-400"
           }`}
           style={{ fontFamily: "Inter, sans-serif" }}
         >
           {phase === "review" ? (
             <Check className="w-3.5 h-3.5 text-emerald-400" />
           ) : (
-            <span className={`w-2 h-2 rounded-full ${isActive ? "bg-violet-400 animate-pulse" : "bg-slate-600"}`} />
+            <span className={`w-2 h-2 rounded-full ${isActive ? "bg-sky-400 animate-pulse" : "bg-slate-600"}`} />
           )}
           {PHASE_COPY[phase]}
         </div>
@@ -55,7 +55,7 @@ export function NfcTapDemo() {
       {/* Scene */}
       <div className="relative h-[22rem] flex items-end justify-center pb-4">
         {/* Counter surface */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 rounded-2xl bg-gradient-to-t from-[#0d1128] to-[#10163a] border border-violet-900/20" />
+        <div className="absolute bottom-0 left-0 right-0 h-24 rounded-2xl bg-gradient-to-t from-card to-secondary border border-sky-900/20" />
 
         {/* NFC Card */}
         <div
@@ -96,7 +96,7 @@ export function NfcTapDemo() {
         type="button"
         onClick={runDemo}
         disabled={isActive}
-        className="w-full mt-2 py-3 rounded-xl border border-violet-500/30 bg-violet-900/20 text-violet-200 text-sm font-semibold hover:bg-violet-800/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+        className="w-full mt-2 py-3 rounded-xl border border-sky-500/30 bg-sky-900/20 text-sky-200 text-sm font-semibold hover:bg-sky-800/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         style={{ fontFamily: "Manrope, sans-serif" }}
       >
         {phase === "idle" || phase === "review" ? "▶ Try the tap demo" : "Demo running…"}
@@ -146,8 +146,8 @@ function PhoneMockup({ phase, reviewCount }: { phase: DemoPhase; reviewCount: nu
           </div>
         ) : (
           <div className="h-full rounded-xl bg-[#12182e] flex flex-col items-center justify-center gap-2 p-3">
-            <div className={`w-8 h-8 rounded-full border-2 border-dashed border-violet-500/50 flex items-center justify-center ${phase === "approaching" ? "animate-pulse" : ""}`}>
-              <div className="w-3 h-3 rounded-full bg-violet-500/60" />
+            <div className={`w-8 h-8 rounded-full border-2 border-dashed border-sky-500/50 flex items-center justify-center ${phase === "approaching" ? "animate-pulse" : ""}`}>
+              <div className="w-3 h-3 rounded-full bg-sky-500/60" />
             </div>
             <p className="text-[8px] text-slate-500 text-center">
               {phase === "approaching" ? "Reading NFC…" : "Ready to tap"}
@@ -160,7 +160,7 @@ function PhoneMockup({ phase, reviewCount }: { phase: DemoPhase; reviewCount: nu
       <div className="px-2 pb-2">
         <div className="rounded-lg bg-[#12182e] px-2 py-1 flex items-center justify-between">
           <span className="text-[8px] text-slate-500">Total reviews</span>
-          <span className="text-[10px] font-bold text-violet-300 tabular-nums">{reviewCount}</span>
+          <span className="text-[10px] font-bold text-sky-300 tabular-nums">{reviewCount}</span>
         </div>
       </div>
     </div>

@@ -4,6 +4,8 @@ import { ArrowRight, Star, MapPin, Phone, Mail, Play, Check, Dumbbell, Sparkles,
 import { GoogleNfcSection } from "@/app/components/nfc/GoogleNfcSection";
 import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
+import { FxBackground } from "@/components/fx/FxBackground";
+import { SpringButton } from "@/components/SpringButton";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, PAGES } from "@/lib/seo/siteConfig";
 import { getServicePath } from "@/lib/content/services";
@@ -159,7 +161,7 @@ const LOCATIONS = [
 
 function GradientText({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <span className={`bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent ${className}`}>
+    <span className={`bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent ${className}`}>
       {children}
     </span>
   );
@@ -167,7 +169,7 @@ function GradientText({ children, className = "" }: { children: React.ReactNode;
 
 function MarqueeLogos() {
   return (
-    <div className="relative overflow-hidden py-8 border-y border-violet-900/20">
+    <div className="relative overflow-hidden py-8 border-y border-sky-900/20">
       <div className="flex animate-marquee whitespace-nowrap">
         {MARQUEE_CLIENTS.map((c, i) => (
           <span
@@ -179,8 +181,8 @@ function MarqueeLogos() {
           </span>
         ))}
       </div>
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#06091a] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#06091a] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
     </div>
   );
 }
@@ -188,25 +190,26 @@ function MarqueeLogos() {
 function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+      <FxBackground variant="hero" />
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-violet-700/10 blur-[120px]" />
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-indigo-600/8 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-purple-600/8 blur-[80px]" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-sky-700/10 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full bg-cyan-600/8 blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] rounded-full bg-sky-600/8 blur-[80px]" />
       </div>
 
       {/* Grid lines */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(124,92,252,1) 1px, transparent 1px), linear-gradient(90deg, rgba(124,92,252,1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(14,165,233,1) 1px, transparent 1px), linear-gradient(90deg, rgba(14,165,233,1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
         {/* Award badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-900/20 text-violet-300 text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
-          <Star className="w-3.5 h-3.5 fill-violet-400 text-violet-400" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-8" style={{ fontFamily: "Inter, sans-serif" }}>
+          <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
           Top Digital Agency 2025 — Clutch
-          <Star className="w-3.5 h-3.5 fill-violet-400 text-violet-400" />
+          <Star className="w-3.5 h-3.5 fill-sky-400 text-sky-400" />
         </div>
 
-        <h1 data-speakable="true" className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+        <h1 data-speakable="true" className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-foreground leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
           Premium{" "}
           <GradientText>Web Design</GradientText>
           <br />
@@ -214,7 +217,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-4 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-          For <span className="text-white font-medium">B2B, B2C & Enterprise Brands</span>
+          For <span className="text-foreground font-medium">B2B, B2C & Enterprise Brands</span>
         </p>
         <p data-geo-chunk="summary" className="text-base text-slate-500 max-w-xl mx-auto mb-12" style={{ fontFamily: "Inter, sans-serif" }}>
           We craft brand strategy, custom websites, and performance digital marketing that drive measurable growth.
@@ -222,10 +225,10 @@ function Hero() {
 
         {/* Gym owners promo */}
         <div className="max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/25 bg-[#0d1128]/60 text-slate-200 text-sm font-semibold backdrop-blur-sm">
-            <Dumbbell className="w-4 h-4 text-violet-300" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-slate-200 text-sm font-semibold backdrop-blur-sm">
+            <Dumbbell className="w-4 h-4 text-sky-300" />
             Gym owners: automate ops + lead gen with <span className="text-white">Matflow</span>
-            <Sparkles className="w-4 h-4 text-indigo-300" />
+            <Sparkles className="w-4 h-4 text-cyan-300" />
           </div>
           <p className="text-slate-400 text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Member portal + backend processing + gym ops management, plus lead generation and SEO tools — built to help gyms grow and retain members.
@@ -242,7 +245,7 @@ function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-7 py-3 rounded-full border border-violet-500/30 text-white font-semibold text-sm hover:bg-violet-900/20 transition-all inline-flex items-center gap-2"
+              className="px-7 py-3 rounded-full border border-sky-500/30 text-white font-semibold text-sm hover:bg-sky-900/20 transition-all inline-flex items-center gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               Get a Demo
@@ -258,7 +261,7 @@ function Hero() {
             ))}
             <span className="text-slate-400 text-sm ml-1" style={{ fontFamily: "Inter, sans-serif" }}>5 Star Client & Google Reviews</span>
           </div>
-          <div className="w-px h-5 bg-violet-900/50 hidden sm:block" />
+          <div className="w-px h-5 bg-sky-900/50 hidden sm:block" />
           <div className="text-slate-400 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
             <span className="text-white font-medium">10+</span> Live Client Platforms
           </div>
@@ -266,10 +269,10 @@ function Hero() {
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <Link to="/contact" className="px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50 flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote <ArrowRight className="w-4 h-4" />
           </Link>
-          <Link to="/work" className="px-8 py-4 rounded-full border border-violet-500/30 text-white font-semibold text-base hover:bg-violet-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <Link to="/work" className="px-8 py-4 rounded-full border border-sky-500/30 text-white font-semibold text-base hover:bg-sky-900/20 transition-all flex items-center gap-2" style={{ fontFamily: "Manrope, sans-serif" }}>
             <Play className="w-4 h-4 fill-white" /> See Our Work
           </Link>
         </div>
@@ -280,7 +283,7 @@ function Hero() {
 
 function StatsBar() {
   return (
-    <section className="bg-[#0d1128] border-y border-violet-900/20 py-12">
+    <section className="bg-card border-y border-sky-900/20 py-12">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
         {STATS.map((s) => (
           <div key={s.label} className="text-center">
@@ -301,14 +304,14 @@ function GeoReportPromo() {
       <div className="max-w-7xl mx-auto">
         <Link
           to="/geo-report"
-          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-violet-500/25 bg-gradient-to-r from-violet-950/50 to-indigo-950/40 px-6 py-5 hover:border-violet-400/40 transition-all"
+          className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-2xl border border-sky-500/25 bg-gradient-to-r from-sky-950/50 to-cyan-950/40 px-6 py-5 hover:border-sky-400/40 transition-all"
         >
           <div className="flex items-start gap-4">
-            <div className="w-11 h-11 rounded-xl bg-violet-600/25 border border-violet-500/30 flex items-center justify-center shrink-0">
-              <Globe className="w-5 h-5 text-violet-300" />
+            <div className="w-11 h-11 rounded-xl bg-sky-600/25 border border-sky-500/30 flex items-center justify-center shrink-0">
+              <Globe className="w-5 h-5 text-sky-300" />
             </div>
             <div>
-              <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
+              <p className="text-sky-400 text-xs font-semibold tracking-widest uppercase mb-1" style={{ fontFamily: "Inter, sans-serif" }}>
                 Free Tool
               </p>
               <h2 className="text-lg font-bold text-white mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -320,7 +323,7 @@ function GeoReportPromo() {
             </div>
           </div>
           <span
-            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold shrink-0 group-hover:from-violet-500 group-hover:to-indigo-500 transition-all"
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold shrink-0 group-hover:from-sky-500 group-hover:to-cyan-500 transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             <Search className="w-4 h-4" />
@@ -338,7 +341,7 @@ function ServicesSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-2xl">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>What We Do</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>What We Do</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight" style={{ fontFamily: "Manrope, sans-serif" }}>
             Full-Service Digital<br /><GradientText>Agency Solutions</GradientText>
           </h2>
@@ -349,12 +352,12 @@ function ServicesSection() {
             <Link
               key={svc.title}
               to={getServicePath(HOME_SERVICE_LINKS[svc.title] ?? "custom-web-design")}
-              className="group p-8 rounded-2xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/40 transition-all duration-300 hover:bg-[#10163a] block"
+              className="group p-8 rounded-2xl bg-card border border-border hover:border-sky-500/40 transition-all duration-300 hover:bg-secondary/40 block border-blink-once"
             >
-              <div className="text-3xl text-violet-400 mb-5 group-hover:text-violet-300 transition-colors">{svc.icon}</div>
+              <div className="text-3xl text-sky-400 mb-5 group-hover:text-sky-300 transition-colors">{svc.icon}</div>
               <h3 className="text-xl font-bold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>{svc.title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed mb-6" style={{ fontFamily: "Inter, sans-serif" }}>{svc.desc}</p>
-              <span className="flex items-center gap-2 text-violet-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <span className="flex items-center gap-2 text-sky-400 text-sm font-semibold group-hover:gap-3 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
                 Learn More <ArrowRight className="w-4 h-4" />
               </span>
             </Link>
@@ -369,23 +372,23 @@ function PortfolioSection() {
   const [activeTab, setActiveTab] = useState<ClientCategory>("Featured");
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Our Work</p>
+            <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Our Work</p>
             <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
               <GradientText>Award-Winning</GradientText><br />Case Studies
             </h2>
           </div>
-          <div className="flex gap-1 p-1 rounded-full border border-violet-900/30 bg-[#06091a]">
+          <div className="flex gap-1 p-1 rounded-full border border-sky-900/30 bg-background">
             {PORTFOLIO_TABS.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeTab === tab
-                    ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-900/40"
+                    ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white shadow-lg shadow-sky-900/40"
                     : "text-slate-400 hover:text-white"
                 }`}
                 style={{ fontFamily: "Manrope, sans-serif" }}
@@ -398,16 +401,16 @@ function PortfolioSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {PORTFOLIO[activeTab].map((item) => (
-            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-violet-900/20 hover:border-violet-600/40 transition-all bg-[#06091a]">
+            <div key={item.slug} className="group rounded-2xl overflow-hidden border border-border hover:border-sky-500/40 transition-all bg-card border-blink-once">
               <div className="relative overflow-hidden h-64">
                 <img
                   src={item.image}
                   alt={item.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
                 <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-violet-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.tag}</span>
+                  <span className="px-3 py-1 rounded-full bg-sky-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.tag}</span>
                 </div>
                 <div className="absolute bottom-4 right-4">
                   <span className="px-3 py-1 rounded-full bg-emerald-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.metric}</span>
@@ -419,7 +422,7 @@ function PortfolioSection() {
                 <div className="flex gap-3">
                   <Link
                     to={getClientPath(item.slug)}
-                    className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+                    className="px-5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     View Case Study
@@ -428,7 +431,7 @@ function PortfolioSection() {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2 rounded-full border border-violet-500/30 text-slate-300 text-sm font-semibold hover:bg-violet-900/20 transition-all"
+                    className="px-5 py-2 rounded-full border border-sky-500/30 text-slate-300 text-sm font-semibold hover:bg-sky-900/20 transition-all"
                     style={{ fontFamily: "Manrope, sans-serif" }}
                   >
                     Launch Website
@@ -442,7 +445,7 @@ function PortfolioSection() {
         <div className="text-center mt-12">
           <Link
             to="/work"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-violet-500/30 text-violet-300 font-semibold hover:bg-violet-900/20 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-sky-500/30 text-sky-300 font-semibold hover:bg-sky-900/20 transition-all"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             View All Case Studies <ArrowRight className="w-4 h-4" />
@@ -460,7 +463,7 @@ function ProcessSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div>
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our 7-Step <GradientText>Design Process</GradientText>
           </h2>
@@ -475,13 +478,13 @@ function ProcessSection() {
               key={step.n}
               className={`rounded-xl border transition-all duration-300 cursor-pointer ${
                 expanded === i
-                  ? "border-violet-600/50 bg-[#10163a]"
-                  : "border-violet-900/20 bg-[#0d1128] hover:border-violet-800/30"
+                  ? "border-sky-600/50 bg-[#10163a]"
+                  : "border-sky-900/20 bg-card hover:border-sky-800/30"
               }`}
               onClick={() => setExpanded(expanded === i ? null : i)}
             >
               <div className="flex items-center gap-4 px-6 py-4">
-                <span className="text-violet-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
+                <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
                 <span className="text-white font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
                 <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${expanded === i ? "rotate-180" : ""}`} />
               </div>
@@ -503,20 +506,20 @@ function TestimonialsSection() {
   const t = TESTIMONIALS[active];
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Client Stories</p>
+        <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Client Stories</p>
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-16" style={{ fontFamily: "Manrope, sans-serif" }}>
           What Our <GradientText>Clients Say</GradientText>
         </h2>
 
         <div className="relative">
-          <div className="text-[8rem] leading-none text-violet-900/30 font-serif absolute -top-4 left-0 select-none">"</div>
+          <div className="text-[8rem] leading-none text-sky-900/30 font-serif absolute -top-4 left-0 select-none">"</div>
           <blockquote className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-10 relative z-10" style={{ fontFamily: "Inter, sans-serif" }}>
             "{t.quote}"
           </blockquote>
           <div className="flex items-center justify-center gap-4">
-            <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-violet-600/50" />
+            <img src={t.avatar} alt={t.name} className="w-14 h-14 rounded-full object-cover border-2 border-sky-600/50" />
             <div className="text-left">
               <div className="text-white font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{t.name}</div>
               {t.url ? (
@@ -524,7 +527,7 @@ function TestimonialsSection() {
                   href={t.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-violet-400 text-sm hover:text-violet-300 transition-colors"
+                  className="text-sky-400 text-sm hover:text-sky-300 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 >
                   {t.title}
@@ -541,7 +544,7 @@ function TestimonialsSection() {
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`transition-all rounded-full ${i === active ? "w-8 h-2 bg-violet-500" : "w-2 h-2 bg-violet-900/60 hover:bg-violet-700/60"}`}
+              className={`transition-all rounded-full ${i === active ? "w-8 h-2 bg-sky-500" : "w-2 h-2 bg-sky-900/60 hover:bg-sky-700/60"}`}
             />
           ))}
         </div>
@@ -557,19 +560,19 @@ function AwardsSection() {
     <section className="py-28 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Recognition</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Recognition</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
             Industry <GradientText>Awards & Recognition</GradientText>
           </h2>
         </div>
 
-        <div className="flex justify-center gap-1 p-1 rounded-full border border-violet-900/30 bg-[#0d1128] w-fit mx-auto mb-12">
+        <div className="flex justify-center gap-1 p-1 rounded-full border border-sky-900/30 bg-card w-fit mx-auto mb-12">
           {(["Awards", "Media", "Expertise"] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
               className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all ${
-                tab === t ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" : "text-slate-400 hover:text-white"
+                tab === t ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-slate-400 hover:text-white"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
@@ -581,8 +584,8 @@ function AwardsSection() {
         {tab === "Awards" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {AWARDS.map((award) => (
-              <div key={award} className="flex items-center gap-3 p-5 rounded-xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/30 transition-all">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center shrink-0">
+              <div key={award} className="flex items-center gap-3 p-5 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-600 to-cyan-600 flex items-center justify-center shrink-0">
                   <Check className="w-4 h-4 text-white" />
                 </div>
                 <span className="text-slate-200 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{award}</span>
@@ -594,7 +597,7 @@ function AwardsSection() {
         {tab === "Media" && (
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {MEDIA.map((m) => (
-              <div key={m} className="flex items-center justify-center p-8 rounded-xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/30 transition-all">
+              <div key={m} className="flex items-center justify-center p-8 rounded-xl bg-card border border-sky-900/20 hover:border-sky-600/30 transition-all">
                 <span className="text-slate-200 font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{m}</span>
               </div>
             ))}
@@ -604,7 +607,7 @@ function AwardsSection() {
         {tab === "Expertise" && (
           <div className="flex flex-wrap justify-center gap-3">
             {["Custom Web Design", "UX/UI Design", "Web Development", "React Development", "eCommerce", "Shopify", "WordPress", "Webflow", "SEO", "PPC", "Social Media Marketing", "Brand Identity", "Logo Design", "Content Strategy", "Email Marketing", "Conversion Optimization", "Analytics & Reporting", "ADA Compliance", "Web Accessibility", "CRO"].map((tag) => (
-              <span key={tag} className="px-4 py-2 rounded-full border border-violet-700/30 bg-violet-900/20 text-violet-300 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
+              <span key={tag} className="px-4 py-2 rounded-full border border-sky-700/30 bg-sky-900/20 text-sky-300 text-sm font-medium" style={{ fontFamily: "Inter, sans-serif" }}>{tag}</span>
             ))}
           </div>
         )}
@@ -618,46 +621,46 @@ function LocationsSection() {
   const loc = LOCATIONS[activeCity];
 
   return (
-    <section className="py-28 px-6 bg-[#0d1128]">
+    <section className="py-28 px-6 bg-card">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Where We Are</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Where We Are</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
             Our <GradientText>Office Locations</GradientText>
           </h2>
         </div>
 
-        <div className="flex justify-center gap-1 p-1 rounded-full border border-violet-900/30 bg-[#06091a] w-fit mx-auto mb-10">
+        <div className="flex justify-center gap-1 p-1 rounded-full border border-sky-900/30 bg-background w-fit mx-auto mb-10">
           {LOCATIONS.map((l, i) => (
             <button
               key={l.city}
               onClick={() => setActiveCity(i)}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
-                activeCity === i ? "bg-gradient-to-r from-violet-600 to-indigo-600 text-white" : "text-slate-400 hover:text-white"
+                activeCity === i ? "bg-gradient-to-r from-sky-600 to-cyan-600 text-white" : "text-slate-400 hover:text-white"
               }`}
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
               {l.city}
-              {l.tag && <span className="ml-1 text-xs text-violet-300">{l.tag}</span>}
+              {l.tag && <span className="ml-1 text-xs text-sky-300">{l.tag}</span>}
             </button>
           ))}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          <div className="rounded-2xl overflow-hidden h-72 bg-violet-900/20">
+          <div className="rounded-2xl overflow-hidden h-72 bg-sky-900/20">
             <img src={loc.img} alt={loc.city} className="w-full h-full object-cover" />
           </div>
           <div className="space-y-6">
             <h3 className="text-3xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>{loc.city} Office</h3>
             <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-violet-400 mt-0.5 shrink-0" />
+              <MapPin className="w-5 h-5 text-sky-400 mt-0.5 shrink-0" />
               <span className="text-slate-300 text-base" style={{ fontFamily: "Inter, sans-serif" }}>{loc.address}</span>
             </div>
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-violet-400 shrink-0" />
+              <Phone className="w-5 h-5 text-sky-400 shrink-0" />
               <a href={`tel:${loc.phone}`} className="text-slate-300 text-base hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>{loc.phone}</a>
             </div>
-            <button className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <button className="mt-4 px-7 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all" style={{ fontFamily: "Manrope, sans-serif" }}>
               Get Directions
             </button>
           </div>
@@ -669,10 +672,10 @@ function LocationsSection() {
 
 function HomeFaqSection() {
   return (
-    <section className="py-28 px-6 bg-[#0d1128] border-y border-violet-900/20">
+    <section className="py-28 px-6 bg-card border-y border-sky-900/20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
             FAQ
           </p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -687,14 +690,14 @@ function HomeFaqSection() {
           {VISIBLE_HOME_FAQ.map((item) => (
             <details
               key={item.question}
-              className="group rounded-xl border border-violet-900/20 bg-[#06091a] hover:border-violet-600/30 transition-all"
+              className="group rounded-xl border border-sky-900/20 bg-background hover:border-sky-600/30 transition-all"
             >
               <summary
                 className="cursor-pointer list-none px-6 py-4 flex items-center justify-between gap-4"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
                 <h2 className="text-white font-semibold text-base m-0">{item.question}</h2>
-                <span className="text-violet-400 group-open:rotate-180 transition-transform">⌄</span>
+                <span className="text-sky-400 group-open:rotate-180 transition-transform">⌄</span>
               </summary>
               <div className="px-6 pb-5 -mt-1">
                 <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -716,7 +719,7 @@ function ContactSection() {
     <section id="contact" className="py-28 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
         <div>
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Get Started</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>Get Started</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Ready to Grow <br /><GradientText>Your Business?</GradientText>
           </h2>
@@ -729,8 +732,8 @@ function ContactSection() {
               { icon: Mail, text: "hello@adrevnview.com" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-violet-900/40 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-violet-400" />
+                <div className="w-10 h-10 rounded-full bg-sky-900/40 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-sky-400" />
                 </div>
                 <span className="text-slate-300" style={{ fontFamily: "Inter, sans-serif" }}>{text}</span>
               </div>
@@ -738,7 +741,7 @@ function ContactSection() {
           </div>
         </div>
 
-        <div className="bg-[#0d1128] border border-violet-900/20 rounded-2xl p-8">
+        <div className="bg-card border border-sky-900/20 rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             {(["name", "company"] as const).map((field) => (
               <div key={field}>
@@ -748,7 +751,7 @@ function ContactSection() {
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "name" ? "Alex Chen" : "Northgate Labs"}
-                  className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
@@ -763,7 +766,7 @@ function ContactSection() {
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
                   placeholder={field === "email" ? "alex@northgatelabs.com" : "(555) 000-0000"}
-                  className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors"
+                  className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
               </div>
@@ -776,11 +779,11 @@ function ContactSection() {
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               placeholder="Tell us about your project goals, timeline, and budget..."
-              className="w-full px-4 py-3 rounded-xl bg-[#06091a] border border-violet-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-violet-500/60 transition-colors resize-none"
+              className="w-full px-4 py-3 rounded-xl bg-background border border-sky-900/30 text-white placeholder-slate-600 text-sm focus:outline-none focus:border-sky-500/60 transition-colors resize-none"
               style={{ fontFamily: "Inter, sans-serif" }}
             />
           </div>
-          <button className="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
+          <button className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/40" style={{ fontFamily: "Manrope, sans-serif" }}>
             Request a Quote — Free Consultation
           </button>
         </div>
@@ -813,7 +816,7 @@ export default function App() {
         keywords={DEFAULT_SEO.keywords}
       />
       <style>{marqueeStyle}</style>
-      <div className="min-h-screen bg-background text-foreground overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden relative" style={{ fontFamily: "Inter, sans-serif" }}>
         <SiteHeader />
         <Hero />
         <MarqueeLogos />

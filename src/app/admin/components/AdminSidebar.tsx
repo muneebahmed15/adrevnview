@@ -21,7 +21,7 @@ export function AdminSidebar() {
   const { logout } = useAuth();
 
   return (
-    <aside className="w-64 shrink-0 border-r border-slate-800 bg-[#040712] flex flex-col min-h-screen">
+    <aside className="w-64 shrink-0 border-r border-slate-800 bg-muted flex flex-col min-h-screen">
       <div className="p-5 border-b border-slate-800">
         <Logo link iconClassName="h-8 w-7" textClassName="h-5 w-auto" />
         <p className="text-slate-500 text-xs mt-2">Admin Panel</p>
@@ -35,7 +35,7 @@ export function AdminSidebar() {
             className={({ isActive }) =>
               `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                 isActive
-                  ? "bg-violet-600/20 text-violet-200 border border-violet-500/30"
+                  ? "bg-sky-600/20 text-sky-200 border border-sky-500/30"
                   : "text-slate-400 hover:text-white hover:bg-slate-800/60"
               }`
             }

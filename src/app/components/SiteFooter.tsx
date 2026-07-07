@@ -5,7 +5,7 @@ import { FOOTER_INDUSTRY_LINKS } from "@/lib/content/navigation";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-[#040712] border-t border-violet-900/20 pt-20 pb-10 px-6">
+    <footer className="bg-muted border-t border-sky-900/20 pt-20 pb-10 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-10 mb-16">
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
@@ -36,7 +36,7 @@ export function SiteFooter() {
                   <li>
                     <Link
                       to="/geo-report"
-                      className="text-violet-400 text-sm hover:text-violet-300 transition-colors font-medium"
+                      className="text-sky-400 text-sm hover:text-sky-300 transition-colors font-medium"
                       style={{ fontFamily: "Inter, sans-serif" }}
                     >
                       Free GEO Report →
@@ -67,7 +67,7 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-violet-900/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-sky-900/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-600 text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
             © {new Date().getFullYear()} Adrevnview. All rights reserved.
           </p>

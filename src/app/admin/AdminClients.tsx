@@ -48,8 +48,8 @@ export default function AdminClients() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="rounded-xl border border-violet-900/20 bg-[#0d1128] overflow-hidden">
-          <div className="px-4 py-3 border-b border-violet-900/20 text-sm font-semibold text-slate-300">
+        <div className="rounded-xl border border-sky-900/20 bg-card overflow-hidden">
+          <div className="px-4 py-3 border-b border-sky-900/20 text-sm font-semibold text-slate-300">
             All Clients ({CLIENTS.length})
           </div>
           <ul className="max-h-[32rem] overflow-y-auto">
@@ -58,8 +58,8 @@ export default function AdminClients() {
                 <button
                   type="button"
                   onClick={() => selectClient(c.slug)}
-                  className={`w-full text-left px-4 py-3 border-b border-violet-900/10 transition-colors ${
-                    selectedSlug === c.slug ? "bg-violet-600/15 text-white" : "text-slate-400 hover:bg-slate-800/40"
+                  className={`w-full text-left px-4 py-3 border-b border-sky-900/10 transition-colors ${
+                    selectedSlug === c.slug ? "bg-sky-600/15 text-white" : "text-slate-400 hover:bg-slate-800/40"
                   }`}
                 >
                   <p className="font-medium text-sm">{c.name}</p>
@@ -72,7 +72,7 @@ export default function AdminClients() {
 
         {client && (
           <div className="lg:col-span-2 space-y-6">
-            <div className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+            <div className="rounded-xl border border-sky-900/20 bg-card p-6">
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <h2 className="text-xl font-bold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
@@ -83,7 +83,7 @@ export default function AdminClients() {
                 <div className="flex gap-2 shrink-0">
                   <Link
                     to={getClientPath(client.slug)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-violet-500/30 text-violet-300 text-xs hover:bg-violet-900/20"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/30 text-sky-300 text-xs hover:bg-sky-900/20"
                   >
                     Case Study
                   </Link>
@@ -91,7 +91,7 @@ export default function AdminClients() {
                     href={client.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-violet-500/30 text-violet-300 text-xs hover:bg-violet-900/20"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-sky-500/30 text-sky-300 text-xs hover:bg-sky-900/20"
                   >
                     <ExternalLink className="w-3 h-3" />
                     Site
@@ -106,7 +106,7 @@ export default function AdminClients() {
                 </div>
                 <div>
                   <dt className="text-slate-500">Website</dt>
-                  <dd className="text-violet-300 truncate">{client.url}</dd>
+                  <dd className="text-sky-300 truncate">{client.url}</dd>
                 </div>
                 <div className="col-span-2">
                   <dt className="text-slate-500">Services</dt>
@@ -115,7 +115,7 @@ export default function AdminClients() {
               </dl>
             </div>
 
-            <div className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+            <div className="rounded-xl border border-sky-900/20 bg-card p-6">
               <h3 className="text-sm font-semibold text-white mb-4">Contact & Notes</h3>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -124,7 +124,7 @@ export default function AdminClients() {
                     <input
                       value={form.contactEmail}
                       onChange={(e) => setForm({ ...form, contactEmail: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm focus:outline-none focus:border-violet-500/50"
+                      className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm focus:outline-none focus:border-sky-500/50"
                       placeholder="client@example.com"
                     />
                   </div>
@@ -133,7 +133,7 @@ export default function AdminClients() {
                     <input
                       value={form.contactPhone}
                       onChange={(e) => setForm({ ...form, contactPhone: e.target.value })}
-                      className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm focus:outline-none focus:border-violet-500/50"
+                      className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm focus:outline-none focus:border-sky-500/50"
                       placeholder="(555) 000-0000"
                     />
                   </div>
@@ -144,14 +144,14 @@ export default function AdminClients() {
                     value={form.notes}
                     onChange={(e) => setForm({ ...form, notes: e.target.value })}
                     rows={4}
-                    className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm focus:outline-none focus:border-violet-500/50 resize-none"
+                    className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm focus:outline-none focus:border-sky-500/50 resize-none"
                     placeholder="Project notes, billing preferences, etc."
                   />
                 </div>
                 <button
                   type="button"
                   onClick={handleSave}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 text-white text-sm font-semibold hover:bg-violet-500 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-600 text-white text-sm font-semibold hover:bg-sky-500 transition-colors"
                 >
                   <Save className="w-4 h-4" />
                   Save Notes

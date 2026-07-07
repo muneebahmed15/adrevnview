@@ -34,7 +34,7 @@ export default function AdminSettings() {
         <p className="text-slate-400 text-sm mt-1">Company details used on invoices and billing</p>
       </div>
 
-      <div className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-6 space-y-6">
+      <div className="rounded-xl border border-sky-900/20 bg-card p-6 space-y-6">
         <section className="space-y-4">
           <h2 className="text-sm font-semibold text-slate-300">Company Information</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -43,7 +43,7 @@ export default function AdminSettings() {
               <input
                 value={settings.name}
                 onChange={(e) => update("name", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div>
@@ -51,7 +51,7 @@ export default function AdminSettings() {
               <input
                 value={settings.email}
                 onChange={(e) => update("email", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div>
@@ -59,7 +59,7 @@ export default function AdminSettings() {
               <input
                 value={settings.phone}
                 onChange={(e) => update("phone", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div className="sm:col-span-2">
@@ -67,7 +67,7 @@ export default function AdminSettings() {
               <input
                 value={settings.streetAddress}
                 onChange={(e) => update("streetAddress", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div>
@@ -75,7 +75,7 @@ export default function AdminSettings() {
               <input
                 value={settings.city}
                 onChange={(e) => update("city", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div className="grid grid-cols-2 gap-4">
@@ -84,7 +84,7 @@ export default function AdminSettings() {
                 <input
                   value={settings.state}
                   onChange={(e) => update("state", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
                 />
               </div>
               <div>
@@ -92,7 +92,7 @@ export default function AdminSettings() {
                 <input
                   value={settings.postalCode}
                   onChange={(e) => update("postalCode", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                  className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
                 />
               </div>
             </div>
@@ -101,14 +101,14 @@ export default function AdminSettings() {
               <input
                 value={settings.taxId}
                 onChange={(e) => update("taxId", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
                 placeholder="Optional"
               />
             </div>
           </div>
         </section>
 
-        <section className="space-y-4 pt-4 border-t border-violet-900/20">
+        <section className="space-y-4 pt-4 border-t border-sky-900/20">
           <h2 className="text-sm font-semibold text-slate-300">Invoice Defaults</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
@@ -116,7 +116,7 @@ export default function AdminSettings() {
               <input
                 value={settings.invoicePrefix}
                 onChange={(e) => update("invoicePrefix", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
                 placeholder="INV"
               />
             </div>
@@ -128,7 +128,7 @@ export default function AdminSettings() {
                 step={0.1}
                 value={settings.defaultTaxRate}
                 onChange={(e) => update("defaultTaxRate", Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm"
               />
             </div>
             <div className="sm:col-span-2">
@@ -137,7 +137,7 @@ export default function AdminSettings() {
                 value={settings.paymentTerms}
                 onChange={(e) => update("paymentTerms", e.target.value)}
                 rows={2}
-                className="w-full px-3 py-2 rounded-lg bg-[#06091a] border border-violet-900/30 text-white text-sm resize-none"
+                className="w-full px-3 py-2 rounded-lg bg-background border border-sky-900/30 text-white text-sm resize-none"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function AdminSettings() {
           <button
             type="button"
             onClick={handleSave}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-violet-600 text-white text-sm font-semibold hover:bg-violet-500 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-sky-600 text-white text-sm font-semibold hover:bg-sky-500 transition-colors"
           >
             <Save className="w-4 h-4" />
             Save Settings
@@ -155,7 +155,7 @@ export default function AdminSettings() {
           <button
             type="button"
             onClick={handleReset}
-            className="px-5 py-2.5 rounded-lg border border-violet-500/30 text-slate-400 text-sm hover:bg-violet-900/20 transition-colors"
+            className="px-5 py-2.5 rounded-lg border border-sky-500/30 text-slate-400 text-sm hover:bg-sky-900/20 transition-colors"
           >
             Reset Defaults
           </button>
@@ -163,7 +163,7 @@ export default function AdminSettings() {
         </div>
       </div>
 
-      <div className="mt-6 rounded-xl border border-violet-900/20 bg-[#0d1128] p-6">
+      <div className="mt-6 rounded-xl border border-sky-900/20 bg-card p-6">
         <h2 className="text-sm font-semibold text-slate-300 mb-2">Admin Access</h2>
         <p className="text-slate-400 text-sm">
           Default password: <code className="text-slate-500">adrevnview2026</code>. Override with the{" "}

@@ -115,14 +115,14 @@ export default function SeoReport() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#06091a] text-white" style={{ fontFamily: "Inter, sans-serif" }}>
+    <div className="min-h-screen bg-background text-white" style={{ fontFamily: "Inter, sans-serif" }}>
       <SeoHead
         title="Free SEO & GEO Report Generator | Adrevnview"
         description="Analyze any URL for SEO and Generative Engine Optimization. 45+ checks across Google, ChatGPT, Perplexity, Claude, and Gemini readiness."
         path="/geo-report"
       />
 
-      <header className="border-b border-violet-900/20 px-6 py-4">
+      <header className="border-b border-sky-900/20 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <Logo iconClassName="h-7 w-6" textClassName="h-5 w-auto" />
           <span className="text-xs text-slate-600">{SCAN_STEPS.length} scan phases · {report ? `${report.metrics.totalChecks} checks` : "ready"}</span>
@@ -145,7 +145,7 @@ export default function SeoReport() {
 
         {report && (
           <>
-            <div className="rounded-2xl border border-violet-900/25 bg-[#0d1128] p-6 sm:p-8 mb-6">
+            <div className="rounded-2xl border border-sky-900/25 bg-card p-6 sm:p-8 mb-6">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div>
                   <p className="text-slate-500 text-sm mb-1">Audit target</p>
@@ -186,14 +186,14 @@ export default function SeoReport() {
               <MetricsBar report={report} />
             </div>
 
-            <div className="flex gap-1 overflow-x-auto border-b border-violet-900/20 mb-6 pb-px">
+            <div className="flex gap-1 overflow-x-auto border-b border-sky-900/20 mb-6 pb-px">
               {tabs.map((t) => (
                 <button
                   key={t.id}
                   onClick={() => setTab(t.id)}
                   className={`px-4 py-2.5 text-sm font-medium rounded-t-lg whitespace-nowrap transition-colors ${
                     tab === t.id
-                      ? "bg-[#0d1128] text-violet-300 border border-violet-900/30 border-b-transparent -mb-px"
+                      ? "bg-card text-sky-300 border border-sky-900/30 border-b-transparent -mb-px"
                       : "text-slate-500 hover:text-slate-300"
                   }`}
                 >
@@ -230,7 +230,7 @@ export default function SeoReport() {
                       key={f}
                       onClick={() => setIssueFilter(f)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-medium capitalize ${
-                        issueFilter === f ? "bg-violet-600/30 text-violet-200" : "text-slate-500 hover:text-slate-300"
+                        issueFilter === f ? "bg-sky-600/30 text-sky-200" : "text-slate-500 hover:text-slate-300"
                       }`}
                     >
                       {f}

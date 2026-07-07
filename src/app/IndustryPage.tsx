@@ -55,7 +55,7 @@ export default function IndustryPage() {
     return (
       <SiteLayout mainClassName="px-6 py-20 flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold mb-4">Industry not found</h1>
-        <Link to="/" className="text-violet-400">← Home</Link>
+        <Link to="/" className="text-sky-400">← Home</Link>
       </SiteLayout>
     );
   }
@@ -73,7 +73,7 @@ export default function IndustryPage() {
             <li key={s} className="text-slate-300 text-sm">• {s}</li>
           ))}
         </ul>
-        <Link to="/contact" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold">
+        <Link to="/contact" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold">
           Request a consultation
         </Link>
       </div>

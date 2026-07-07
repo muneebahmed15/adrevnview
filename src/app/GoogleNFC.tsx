@@ -88,15 +88,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
     <div
-      className="border border-violet-900/20 rounded-xl overflow-hidden cursor-pointer"
+      className="border border-sky-900/20 rounded-xl overflow-hidden cursor-pointer"
       onClick={() => setOpen(!open)}
     >
-      <div className="flex items-center justify-between px-6 py-4 bg-[#0d1128] hover:bg-[#10163a] transition-colors">
+      <div className="flex items-center justify-between px-6 py-4 bg-card hover:bg-[#10163a] transition-colors">
         <span className="text-white font-semibold text-sm pr-4" style={{ fontFamily: "Manrope, sans-serif" }}>{q}</span>
-        <ChevronDown className={`w-4 h-4 text-violet-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`w-4 h-4 text-sky-400 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} />
       </div>
       {open && (
-        <div className="px-6 py-4 bg-[#0a0f22] border-t border-violet-900/20">
+        <div className="px-6 py-4 bg-[#0a0f22] border-t border-sky-900/20">
           <p className="text-slate-400 text-sm leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>{a}</p>
         </div>
       )}
@@ -108,7 +108,7 @@ export default function GoogleNFC() {
   const [qty, setQty] = useState(1);
 
   return (
-    <div className="min-h-screen bg-[#06091a] text-white overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
+    <div className="min-h-screen bg-background text-white overflow-x-hidden" style={{ fontFamily: "Inter, sans-serif" }}>
       <SeoHead
         title={PAGES.googleNfc.title}
         description={PAGES.googleNfc.description}
@@ -117,11 +117,11 @@ export default function GoogleNFC() {
       />
 
       {/* ── Nav ── */}
-      <nav className="border-b border-violet-900/20 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
+      <nav className="border-b border-sky-900/20 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto">
         <Logo iconClassName="h-7 w-6" textClassName="h-5 w-auto" />
         <button
           onClick={() => document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" })}
-          className="px-5 py-2 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-sm font-semibold hover:from-violet-500 hover:to-indigo-500 transition-all"
+          className="px-5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
           style={{ fontFamily: "Manrope, sans-serif" }}
         >
           Buy Now — $99
@@ -131,13 +131,13 @@ export default function GoogleNFC() {
       {/* ── Hero ── */}
       <section className="max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-violet-500/30 bg-violet-900/20 text-violet-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-sky-500/30 bg-sky-900/20 text-sky-300 text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
             <Zap className="w-3.5 h-3.5" /> NFC + QR · Works instantly · No app needed
           </div>
 
           <h1 className="text-5xl md:text-6xl font-extrabold leading-[1.05] tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
             Get More{" "}
-            <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
               Google Reviews
             </span>{" "}
             on Autopilot
@@ -166,7 +166,7 @@ export default function GoogleNFC() {
       </section>
 
       {/* ── Social proof bar ── */}
-      <div className="bg-[#0d1128] border-y border-violet-900/20 py-8 px-6">
+      <div className="bg-card border-y border-sky-900/20 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-10 text-center">
           {[
             { val: "200+", label: "Businesses Using It" },
@@ -175,7 +175,7 @@ export default function GoogleNFC() {
             { val: "$99", label: "One-Time Price" },
           ].map(({ val, label }) => (
             <div key={label}>
-              <div className="text-3xl font-extrabold bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent" style={{ fontFamily: "Manrope, sans-serif" }}>{val}</div>
+              <div className="text-3xl font-extrabold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent" style={{ fontFamily: "Manrope, sans-serif" }}>{val}</div>
               <div className="text-slate-500 text-sm mt-1">{label}</div>
             </div>
           ))}
@@ -185,10 +185,10 @@ export default function GoogleNFC() {
       {/* ── Interactive card showcase ── */}
       <section className="max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">The Product</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">The Product</p>
           <h2 className="text-4xl font-extrabold text-white mb-4" style={{ fontFamily: "Manrope, sans-serif" }}>
             A card built for{" "}
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">real counters</span>
+            <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">real counters</span>
           </h2>
           <p className="text-slate-400 text-base leading-relaxed mb-6">
             Premium NFC chip on the front, scannable QR on the back. Waterproof, scratch-resistant, and programmed to your Google review page before it ships.
@@ -201,8 +201,8 @@ export default function GoogleNFC() {
               "Fits standard card stands and holders",
             ].map((item) => (
               <li key={item} className="flex items-center gap-3 text-sm text-slate-300">
-                <div className="w-5 h-5 rounded-full bg-violet-900/50 flex items-center justify-center shrink-0">
-                  <Check className="w-3 h-3 text-violet-400" />
+                <div className="w-5 h-5 rounded-full bg-sky-900/50 flex items-center justify-center shrink-0">
+                  <Check className="w-3 h-3 text-sky-400" />
                 </div>
                 {item}
               </li>
@@ -218,17 +218,17 @@ export default function GoogleNFC() {
       {/* ── Features ── */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-14">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">Why It Works</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">Why It Works</p>
           <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>
             The Simplest Way to Boost <br />
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">Your Online Reputation</span>
+            <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Your Online Reputation</span>
           </h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {FEATURES.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="p-7 rounded-2xl bg-[#0d1128] border border-violet-900/20 hover:border-violet-600/40 transition-all">
-              <div className="w-11 h-11 rounded-xl bg-violet-900/40 flex items-center justify-center mb-5">
-                <Icon className="w-5 h-5 text-violet-400" />
+            <div key={title} className="p-7 rounded-2xl bg-card border border-sky-900/20 hover:border-sky-600/40 transition-all">
+              <div className="w-11 h-11 rounded-xl bg-sky-900/40 flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5 text-sky-400" />
               </div>
               <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{title}</h3>
               <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
@@ -238,9 +238,9 @@ export default function GoogleNFC() {
       </section>
 
       {/* ── How it works ── */}
-      <section className="bg-[#0d1128] border-y border-violet-900/20 py-24 px-6">
+      <section className="bg-card border-y border-sky-900/20 py-24 px-6">
         <div className="max-w-4xl mx-auto text-center mb-14">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">Setup in 3 Steps</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">Setup in 3 Steps</p>
           <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>Up and Running in Minutes</h2>
         </div>
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -250,7 +250,7 @@ export default function GoogleNFC() {
             { n: "03", title: "Place & Collect", desc: "Put the card on your counter, desk, or table. Customers tap or scan and leave reviews instantly." },
           ].map(({ n, title, desc }) => (
             <div key={n} className="text-center">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center mx-auto mb-5">
+              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-sky-600 to-cyan-600 flex items-center justify-center mx-auto mb-5">
                 <span className="text-white font-bold text-lg" style={{ fontFamily: "Manrope, sans-serif" }}>{n}</span>
               </div>
               <h3 className="text-lg font-bold text-white mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>{title}</h3>
@@ -263,12 +263,12 @@ export default function GoogleNFC() {
       {/* ── Reviews ── */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-14">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">Testimonials</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">Testimonials</p>
           <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>Real Results from Real Businesses</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {REVIEWS.map(({ name, biz, stars, text }) => (
-            <div key={name} className="p-7 rounded-2xl bg-[#0d1128] border border-violet-900/20">
+            <div key={name} className="p-7 rounded-2xl bg-card border border-sky-900/20">
               <StarRow count={stars} />
               <p className="text-slate-300 text-sm leading-relaxed mt-4 mb-5">"{text}"</p>
               <div>
@@ -281,17 +281,17 @@ export default function GoogleNFC() {
       </section>
 
       {/* ── Buy Now ── */}
-      <section id="buy" className="bg-[#0d1128] border-y border-violet-900/20 py-24 px-6">
+      <section id="buy" className="bg-card border-y border-sky-900/20 py-24 px-6">
         <div className="max-w-lg mx-auto text-center">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">Get Yours Today</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">Get Yours Today</p>
           <h2 className="text-4xl font-extrabold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>
             One Card. One Payment.
             <br />
-            <span className="bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent">Reviews Forever.</span>
+            <span className="bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">Reviews Forever.</span>
           </h2>
           <p className="text-slate-400 text-sm mb-10">No subscriptions. No monthly fees. Just one smart card working for you every day.</p>
 
-          <div className="rounded-2xl border border-violet-600/40 bg-[#06091a] p-8 mb-6">
+          <div className="rounded-2xl border border-sky-600/40 bg-background p-8 mb-6">
             <div className="flex justify-center mb-4">
               <NfcReviewCard size="sm" flippable glowing={false} showControls={false} />
             </div>
@@ -302,22 +302,22 @@ export default function GoogleNFC() {
 
             <div className="flex items-center justify-center gap-4 mb-8">
               <span className="text-slate-400 text-sm">Quantity</span>
-              <div className="flex items-center gap-3 border border-violet-900/30 rounded-full px-2 py-1">
+              <div className="flex items-center gap-3 border border-sky-900/30 rounded-full px-2 py-1">
                 <button
                   onClick={() => setQty(Math.max(1, qty - 1))}
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-violet-400 hover:bg-violet-900/40 transition-colors font-bold text-lg"
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-sky-400 hover:bg-sky-900/40 transition-colors font-bold text-lg"
                 >−</button>
                 <span className="text-white font-semibold w-6 text-center" style={{ fontFamily: "Manrope, sans-serif" }}>{qty}</span>
                 <button
                   onClick={() => setQty(qty + 1)}
-                  className="w-7 h-7 rounded-full flex items-center justify-center text-violet-400 hover:bg-violet-900/40 transition-colors font-bold text-lg"
+                  className="w-7 h-7 rounded-full flex items-center justify-center text-sky-400 hover:bg-sky-900/40 transition-colors font-bold text-lg"
                 >+</button>
               </div>
               <span className="text-slate-400 text-sm font-semibold">${(99 * qty).toLocaleString()} total</span>
             </div>
 
             <button
-              className="w-full py-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-lg hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50 flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-lg hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50 flex items-center justify-center gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
               onClick={() => alert("Payment coming soon — check back shortly!")}
             >
@@ -338,7 +338,7 @@ export default function GoogleNFC() {
       {/* ── FAQ ── */}
       <section className="max-w-2xl mx-auto px-6 py-24">
         <div className="text-center mb-12">
-          <p className="text-violet-400 text-sm font-semibold tracking-widest uppercase mb-3">FAQ</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-3">FAQ</p>
           <h2 className="text-4xl font-extrabold text-white" style={{ fontFamily: "Manrope, sans-serif" }}>Common Questions</h2>
         </div>
         <div className="space-y-3">
@@ -349,21 +349,21 @@ export default function GoogleNFC() {
       </section>
 
       {/* ── Footer CTA ── */}
-      <div className="bg-gradient-to-r from-violet-900/40 to-indigo-900/40 border-t border-violet-700/30 py-16 px-6 text-center">
+      <div className="bg-gradient-to-r from-sky-900/40 to-cyan-900/40 border-t border-sky-700/30 py-16 px-6 text-center">
         <h2 className="text-3xl font-extrabold text-white mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>
           Start collecting reviews today
         </h2>
         <p className="text-slate-400 text-sm mb-8">Join 200+ businesses growing their Google reputation with one smart card.</p>
         <button
           onClick={() => document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" })}
-          className="px-10 py-4 rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-bold text-base hover:from-violet-500 hover:to-indigo-500 transition-all shadow-xl shadow-violet-900/50"
+          className="px-10 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50"
           style={{ fontFamily: "Manrope, sans-serif" }}
         >
           Get Your NFC Card — $99
         </button>
       </div>
 
-      <footer className="bg-[#040712] border-t border-violet-900/20 py-6 px-6 text-center">
+      <footer className="bg-muted border-t border-sky-900/20 py-6 px-6 text-center">
         <p className="text-slate-600 text-xs">© {new Date().getFullYear()} Adrevnview. All rights reserved.</p>
       </footer>
     </div>

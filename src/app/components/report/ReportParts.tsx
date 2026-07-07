@@ -76,7 +76,7 @@ export function MetricsBar({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
       {items.map((item) => (
-        <div key={item.label} className="rounded-xl border border-violet-900/20 bg-[#0a0e22] px-4 py-3 text-center">
+        <div key={item.label} className="rounded-xl border border-sky-900/20 bg-[#0a0e22] px-4 py-3 text-center">
           <p className="text-lg font-bold text-white">{item.value}</p>
           <p className="text-xs text-slate-500 mt-0.5">{item.label}</p>
         </div>
@@ -89,9 +89,9 @@ export function PlatformCards({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {report.platformScores.map((p) => (
-        <div key={p.platform} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5">
+        <div key={p.platform} className="rounded-xl border border-sky-900/20 bg-card p-5">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 rounded-lg bg-violet-600/20 border border-violet-500/30 flex items-center justify-center text-sm font-bold text-violet-300">
+            <div className="w-10 h-10 rounded-lg bg-sky-600/20 border border-sky-500/30 flex items-center justify-center text-sm font-bold text-sky-300">
               {PLATFORM_ICONS[p.platform]}
             </div>
             <div>
@@ -99,9 +99,9 @@ export function PlatformCards({ report }: { report: SiteAuditReport }) {
               <p className="text-2xl font-bold">{p.score}<span className="text-sm text-slate-500 font-normal">/100</span></p>
             </div>
           </div>
-          <div className="h-1.5 rounded-full bg-[#06091a] overflow-hidden">
+          <div className="h-1.5 rounded-full bg-background overflow-hidden">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-violet-600 to-indigo-500 transition-all duration-700"
+              className="h-full rounded-full bg-gradient-to-r from-sky-600 to-cyan-500 transition-all duration-700"
               style={{ width: `${p.score}%` }}
             />
           </div>
@@ -116,13 +116,13 @@ export function PillarGrid({ report }: { report: SiteAuditReport }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
       {(Object.entries(report.categoryScores) as [CheckCategory, number][]).map(([cat, score]) => (
-        <div key={cat} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-4">
+        <div key={cat} className="rounded-xl border border-sky-900/20 bg-card p-4">
           <div className="flex justify-between items-start mb-2">
             <p className="text-xs text-slate-400 leading-snug pr-2">{CATEGORY_LABELS[cat]}</p>
             <span className="text-lg font-bold tabular-nums shrink-0">{score}</span>
           </div>
-          <div className="h-1 rounded-full bg-[#06091a]">
-            <div className="h-full rounded-full bg-violet-500" style={{ width: `${score}%` }} />
+          <div className="h-1 rounded-full bg-background">
+            <div className="h-full rounded-full bg-sky-500" style={{ width: `${score}%` }} />
           </div>
         </div>
       ))}
@@ -185,9 +185,9 @@ export function ActionPlanList({ report }: { report: SiteAuditReport }) {
   return (
     <ol className="space-y-4">
       {report.actionPlan.map((item) => (
-        <li key={item.priority} className="rounded-xl border border-violet-900/20 bg-[#0d1128] p-5">
+        <li key={item.priority} className="rounded-xl border border-sky-900/20 bg-card p-5">
           <div className="flex items-start gap-4">
-            <span className="w-8 h-8 rounded-full bg-violet-600/30 border border-violet-500/40 flex items-center justify-center text-sm font-bold shrink-0">
+            <span className="w-8 h-8 rounded-full bg-sky-600/30 border border-sky-500/40 flex items-center justify-center text-sm font-bold shrink-0">
               {item.priority}
             </span>
             <div>
@@ -201,7 +201,7 @@ export function ActionPlanList({ report }: { report: SiteAuditReport }) {
               <h3 className="font-semibold">{item.title}</h3>
               <p className="text-sm text-slate-400 mt-1 leading-relaxed">{item.recommendation}</p>
               {item.fixSnippet && (
-                <pre className="text-xs mt-3 p-3 rounded-lg bg-[#06091a] border border-violet-900/20 font-mono text-violet-200 overflow-x-auto">
+                <pre className="text-xs mt-3 p-3 rounded-lg bg-background border border-sky-900/20 font-mono text-sky-200 overflow-x-auto">
                   {item.fixSnippet}
                 </pre>
               )}
@@ -220,7 +220,7 @@ export function PageCards({ report }: { report: SiteAuditReport }) {
         const fails = page.checks.filter((c) => c.status === "fail").length;
         const warns = page.checks.filter((c) => c.status === "warn").length;
         return (
-          <details key={page.snapshot.path} className="rounded-xl border border-violet-900/20 bg-[#0d1128] group">
+          <details key={page.snapshot.path} className="rounded-xl border border-sky-900/20 bg-card group">
             <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none">
               <div className="flex items-center gap-3 min-w-0">
                 <ChevronDown className="w-4 h-4 text-slate-500 group-open:rotate-180 transition-transform shrink-0" />
@@ -236,7 +236,7 @@ export function PageCards({ report }: { report: SiteAuditReport }) {
                 <span className="text-lg font-bold">{page.score}</span>
               </div>
             </summary>
-            <div className="px-5 pb-5 border-t border-violet-900/15 pt-4 space-y-2">
+            <div className="px-5 pb-5 border-t border-sky-900/15 pt-4 space-y-2">
               {page.checks
                 .filter((c) => c.status !== "pass")
                 .map((c) => (
@@ -269,14 +269,14 @@ export const SCAN_STEPS = [
 
 export function ScanProgress({ step, progress }: { step: number; progress: number }) {
   return (
-    <div className="rounded-2xl border border-violet-900/25 bg-[#0d1128] p-6">
+    <div className="rounded-2xl border border-sky-900/25 bg-card p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-5 h-5 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
-        <p className="text-sm text-violet-300">{SCAN_STEPS[step] ?? "Finalizing…"}</p>
+        <div className="w-5 h-5 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
+        <p className="text-sm text-sky-300">{SCAN_STEPS[step] ?? "Finalizing…"}</p>
       </div>
-      <div className="h-2 rounded-full bg-[#06091a] overflow-hidden">
+      <div className="h-2 rounded-full bg-background overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-violet-600 to-indigo-500 transition-all duration-500"
+          className="h-full bg-gradient-to-r from-sky-600 to-cyan-500 transition-all duration-500"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -298,13 +298,13 @@ export function ExportBar({
 }) {
   return (
     <div className="flex flex-wrap gap-2">
-      <button onClick={onExportMd} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      <button onClick={onExportMd} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <Download className="w-4 h-4" /> Markdown Report
       </button>
-      <button onClick={onExportJson} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      <button onClick={onExportJson} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <FileJson className="w-4 h-4" /> JSON Data
       </button>
-      <button onClick={onPrint} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-violet-900/30 hover:bg-white/5 text-sm">
+      <button onClick={onPrint} className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-sky-900/30 hover:bg-white/5 text-sm">
         <Printer className="w-4 h-4" /> Print / PDF
       </button>
     </div>
@@ -327,10 +327,10 @@ export function ScannerHero({
   scanProgress: number;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-violet-900/30 bg-gradient-to-br from-[#0d1128] to-[#06091a] p-8 mb-8">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+    <div className="relative overflow-hidden rounded-2xl border border-sky-900/30 bg-gradient-to-br from-card to-background p-8 mb-8">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-sky-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="relative">
-        <div className="flex items-center gap-2 text-violet-400 text-sm font-medium mb-3">
+        <div className="flex items-center gap-2 text-sky-400 text-sm font-medium mb-3">
           <Globe className="w-4 h-4" />
           45+ checks · Google · ChatGPT · Perplexity · Claude · Gemini
         </div>
@@ -350,13 +350,13 @@ export function ScannerHero({
               onChange={(e) => onUrlChange(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && !loading && onScan()}
               placeholder="Enter any URL (e.g. https://example.com)"
-              className="w-full rounded-xl bg-[#06091a] border border-violet-900/40 pl-11 pr-4 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-violet-500/60"
+              className="w-full rounded-xl bg-background border border-sky-900/40 pl-11 pr-4 py-3.5 text-white placeholder:text-slate-600 focus:outline-none focus:border-sky-500/60"
             />
           </div>
           <button
             onClick={onScan}
             disabled={loading || !url.trim()}
-            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 font-semibold hover:from-violet-500 hover:to-indigo-500 disabled:opacity-50 transition-all shrink-0"
+            className="px-8 py-3.5 rounded-xl bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold hover:from-sky-500 hover:to-cyan-500 disabled:opacity-50 transition-all shrink-0"
             style={{ fontFamily: "Manrope, sans-serif" }}
           >
             {loading ? "Scanning…" : "Run Scan"}
