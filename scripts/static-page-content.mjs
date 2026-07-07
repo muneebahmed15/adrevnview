@@ -50,7 +50,7 @@ export const HOME_BODY = `
       <h3>What is Generative Engine Optimization (GEO)?</h3>
       <p>GEO is the practice of structuring website content, metadata, and schema markup so AI assistants like ChatGPT, Perplexity, and Gemini can accurately understand, cite, and recommend your brand and services.</p>
       <h3>How do I contact Adrevnview?</h3>
-      <p>Contact Adrevnview at hello@adrevnview.com or (516) 207-863. Request a free consultation at <a href="/contact">https://www.adrevnview.com/contact</a>.</p>
+      <p>Contact Adrevnview at hello@adrevnview.com or (516) 820-7863. Request a free consultation at <a href="/contact">https://www.adrevnview.com/contact</a>.</p>
     </section>
   </article>
 </main>`;
@@ -60,7 +60,7 @@ export const STATIC_PAGES = [
     path: "/about",
     title: "About Adrevnview — Web Design, SEO & GEO Agency",
     description: "Learn about Adrevnview: a premium digital agency delivering custom web design, development, branding, SEO, and Generative Engine Optimization (GEO).",
-    body: `<main><h1>About Adrevnview</h1><p data-geo-chunk="summary">Adrevnview is a premium full-service digital agency. We design and build high-performance websites and product experiences for growth-focused brands — with SEO and Generative Engine Optimization (GEO) built in from day one.</p><h2>What we do</h2><ul><li>Custom web design and conversion-focused UX</li><li>Full-stack development and integrations</li><li>Brand identity systems</li><li>SEO strategy and implementation</li><li>GEO: schema, content structure, and AI discoverability</li></ul><h2>How we work</h2><p>We combine strategy, design, and engineering into one delivery flow. Every build ships with measurable foundations: clean information architecture, performance, analytics-ready structure, and schema markup that helps search engines and AI systems understand what you do.</p><p>Email <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a> or call <a href="tel:516207863">(516) 207-863</a>.</p></main>`,
+    body: `<main><h1>About Adrevnview</h1><p data-geo-chunk="summary">Adrevnview is a premium full-service digital agency. We design and build high-performance websites and product experiences for growth-focused brands — with SEO and Generative Engine Optimization (GEO) built in from day one.</p><h2>What we do</h2><ul><li>Custom web design and conversion-focused UX</li><li>Full-stack development and integrations</li><li>Brand identity systems</li><li>SEO strategy and implementation</li><li>GEO: schema, content structure, and AI discoverability</li></ul><h2>How we work</h2><p>We combine strategy, design, and engineering into one delivery flow. Every build ships with measurable foundations: clean information architecture, performance, analytics-ready structure, and schema markup that helps search engines and AI systems understand what you do.</p><p>Email <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a> or call <a href="tel:5168207863">(516) 820-7863</a>.</p></main>`,
   },
   {
     path: "/work",
@@ -72,7 +72,7 @@ export const STATIC_PAGES = [
     path: "/contact",
     title: "Contact Adrevnview — Request a Quote",
     description: "Contact Adrevnview for custom web design, development, SEO, and branding. Email hello@adrevnview.com or request a free consultation.",
-    body: `<main><h1>Contact Adrevnview</h1><p data-geo-chunk="summary">Tell us about your web design, development, SEO, or branding project. Our team responds within one business day with next steps and a tailored proposal.</p><p>Email: <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a><br>Phone: <a href="tel:516207863">(516) 207-863</a><br>Address: 1225 Franklin Ave, Suite 300, Garden City, NY 11530</p><h2>Request a quote</h2><p>Share your goals, timeline, and budget range. We serve B2B SaaS, eCommerce, healthcare, legal, real estate, manufacturing, and financial services organizations.</p><p>Try our free <a href="/geo-report">SEO &amp; GEO Report</a> to analyze any URL for search and AI visibility.</p></main>`,
+    body: `<main><h1>Contact Adrevnview</h1><p data-geo-chunk="summary">Tell us about your web design, development, SEO, or branding project. Our team responds within one business day with next steps and a tailored proposal.</p><p>Email: <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a><br>Phone: <a href="tel:5168207863">(516) 820-7863</a><br>Address: 1225 Franklin Ave, Suite 300, Garden City, NY 11530</p><h2>Request a quote</h2><p>Share your goals, timeline, and budget range. We serve B2B SaaS, eCommerce, healthcare, legal, real estate, manufacturing, and financial services organizations.</p><p>Try our free <a href="/geo-report">SEO &amp; GEO Report</a> to analyze any URL for search and AI visibility.</p></main>`,
   },
   {
     path: "/privacy",
