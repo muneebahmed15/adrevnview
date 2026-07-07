@@ -2,7 +2,6 @@ import { useCallback, useState } from "react";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { SpringPressable } from "@/components/SpringButton";
 import { Logo } from "@/components/Logo";
-import { MusicToggle } from "@/components/MusicToggle";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import type { IssueSeverity, SiteAuditReport } from "@/lib/seo/report/types";
 import { downloadText, formatReportHtml, formatReportJson, formatReportMarkdown } from "@/lib/seo/report/formatReport";
@@ -129,7 +128,6 @@ export default function SeoReport() {
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
           <Logo iconClassName="h-7 w-6" textClassName="h-5 w-auto" />
           <div className="flex items-center gap-2">
-            <MusicToggle />
             <ThemeToggle />
             <span className="text-xs text-muted-foreground hidden sm:inline">{SCAN_STEPS.length} scan phases · {report ? `${report.metrics.totalChecks} checks` : "ready"}</span>
           </div>

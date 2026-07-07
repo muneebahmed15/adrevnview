@@ -4,7 +4,6 @@ import { NfcReviewCard } from "@/app/components/nfc/NfcReviewCard";
 import { NfcTapDemo } from "@/app/components/nfc/NfcTapDemo";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { Logo } from "@/components/Logo";
-import { MusicToggle } from "@/components/MusicToggle";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { SpringCard } from "@/components/SpringCard";
 import { SpringPressable } from "@/components/SpringButton";
@@ -124,7 +123,6 @@ export default function GoogleNFC() {
       <nav className="border-b border-sky-900/20 px-6 py-4 flex items-center justify-between max-w-6xl mx-auto gap-3">
         <Logo iconClassName="h-7 w-6" textClassName="h-5 w-auto" />
         <div className="flex items-center gap-2">
-          <MusicToggle />
           <ThemeToggle />
           <SpringPressable
           onClick={() => document.getElementById("buy")?.scrollIntoView({ behavior: "smooth" })}
