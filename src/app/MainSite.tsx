@@ -6,6 +6,7 @@ import { SiteFooter } from "@/app/components/SiteFooter";
 import { SiteHeader } from "@/app/components/SiteHeader";
 import { FxBackground } from "@/components/fx/FxBackground";
 import { SpringAnchor, SpringLink, SpringPressable } from "@/components/SpringButton";
+import { AnimatedNumberText, CountUp } from "@/components/CountUp";
 import { SpringCard, SpringCardLink } from "@/components/SpringCard";
 import { SeoHead } from "@/components/seo/SeoHead";
 import { DEFAULT_SEO, ORG, PAGES } from "@/lib/seo/siteConfig";
@@ -257,7 +258,7 @@ function Hero() {
           </div>
           <div className="w-px h-5 bg-sky-900/50 hidden sm:block" />
           <div className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            <span className="text-foreground font-medium">10+</span> Live Client Platforms
+            <CountUp value="10+" className="text-foreground font-medium" /> Live Client Platforms
           </div>
         </div>
 
@@ -282,7 +283,9 @@ function StatsBar() {
         {STATS.map((s) => (
           <div key={s.label} className="text-center">
             <div className="text-4xl font-extrabold text-foreground mb-1" style={{ fontFamily: "Manrope, sans-serif" }}>
-              <GradientText>{s.value}</GradientText>
+              <GradientText>
+                <CountUp value={s.value} />
+              </GradientText>
             </div>
             <div className="text-sm text-muted-foreground" style={{ fontFamily: "Inter, sans-serif" }}>{s.label}</div>
           </div>
@@ -312,7 +315,9 @@ function GeoReportPromo() {
                 SEO & GEO Report Generator
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-xl" style={{ fontFamily: "Inter, sans-serif" }}>
-                Analyze any URL with 45+ checks — Google, ChatGPT, Perplexity, Claude & Gemini readiness. Semrush-grade audit, instant results.
+                <AnimatedNumberText>
+                  Analyze any URL with 45+ checks — Google, ChatGPT, Perplexity, Claude & Gemini readiness. Semrush-grade audit, instant results.
+                </AnimatedNumberText>
               </p>
             </div>
           </div>
@@ -410,7 +415,9 @@ function PortfolioSection() {
                   <span className="px-3 py-1 rounded-full bg-sky-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.tag}</span>
                 </div>
                 <div className="absolute bottom-4 right-4">
-                  <span className="px-3 py-1 rounded-full bg-emerald-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>{item.metric}</span>
+                  <span className="px-3 py-1 rounded-full bg-emerald-600/80 backdrop-blur-sm text-white text-xs font-semibold" style={{ fontFamily: "Manrope, sans-serif" }}>
+                    <AnimatedNumberText>{item.metric}</AnimatedNumberText>
+                  </span>
                 </div>
               </div>
               <div className="p-6">
@@ -462,7 +469,7 @@ function ProcessSection() {
         <div>
           <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>How We Work</p>
           <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
-            Our 7-Step <GradientText>Design Process</GradientText>
+            Our <AnimatedNumberText>7-Step</AnimatedNumberText> <GradientText>Design Process</GradientText>
           </h2>
           <p className="text-muted-foreground text-base leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
             Every project follows a rigorous, battle-tested process that eliminates guesswork and guarantees results from strategy through launch and beyond.
@@ -489,7 +496,9 @@ function ProcessSection() {
               }}
             >
               <div className="flex items-center gap-4 px-6 py-4">
-                <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>{step.n}</span>
+                <span className="text-sky-500 font-bold text-sm w-8 shrink-0" style={{ fontFamily: "Manrope, sans-serif" }}>
+                  <CountUp value={step.n} />
+                </span>
                 <span className="text-foreground font-semibold flex-1" style={{ fontFamily: "Manrope, sans-serif" }}>{step.title}</span>
                 <ChevronDown className={`w-4 h-4 text-muted-foreground transition-transform ${expanded === i ? "rotate-180" : ""}`} />
               </div>

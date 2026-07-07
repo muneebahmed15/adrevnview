@@ -1,4 +1,3 @@
-import { spawn } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
 import http from "node:http";
@@ -10,6 +9,23 @@ import { ROUTES } from "./prerender-routes.mjs";
 
 const PROJECT_ROOT = process.cwd();
 const DIST_DIR = path.join(PROJECT_ROOT, "dist");
+
+const MIME = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "application/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".svg": "image/svg+xml",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".webp": "image/webp",
+  ".ico": "image/x-icon",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+  ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+};
 
 async function getFreePort() {
   return await new Promise((resolve, reject) => {
@@ -27,17 +43,51 @@ async function getFreePort() {
   });
 }
 
-function spawnPreview(port) {
-  const viteBin = path.join(PROJECT_ROOT, "node_modules", ".bin", "vite");
-  const cmd = process.platform === "win32" ? `${viteBin}.cmd` : viteBin;
-  const args = ["preview", "--host", "127.0.0.1", "--port", String(port), "--strictPort"];
+async function fileExists(filePath) {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
 
-  const child =
-    process.platform === "win32"
-      ? spawn("cmd.exe", ["/c", cmd, ...args], { cwd: PROJECT_ROOT, stdio: "pipe", shell: false })
-      : spawn(cmd, args, { cwd: PROJECT_ROOT, stdio: "pipe", shell: false });
+function createStaticServer(port) {
+  const server = http.createServer(async (req, res) => {
+    try {
+      const url = new URL(req.url ?? "/", "http://127.0.0.1");
+      let pathname = decodeURIComponent(url.pathname);
+      if (pathname.endsWith("/")) pathname += "index.html";
 
-  return child;
+      let filePath = path.join(DIST_DIR, pathname);
+      if (!(await fileExists(filePath))) {
+        const withHtml = `${filePath}.html`;
+        if (await fileExists(withHtml)) {
+          filePath = withHtml;
+        } else {
+          filePath = path.join(DIST_DIR, "index.html");
+        }
+      }
+
+      const stat = await fs.stat(filePath);
+      if (stat.isDirectory()) {
+        filePath = path.join(filePath, "index.html");
+      }
+
+      const content = await fs.readFile(filePath);
+      const ext = path.extname(filePath).toLowerCase();
+      res.writeHead(200, { "Content-Type": MIME[ext] ?? "application/octet-stream" });
+      res.end(content);
+    } catch {
+      res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+      res.end("Not found");
+    }
+  });
+
+  return new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(port, "127.0.0.1", () => resolve(server));
+  });
 }
 
 function isServerUp(port) {
@@ -58,23 +108,13 @@ function isServerUp(port) {
   });
 }
 
-async function waitForServer(child, port, timeoutMs = 60_000) {
+async function waitForServer(port, timeoutMs = 15_000) {
   const start = Date.now();
-  let exitCode = null;
-
-  child.on("exit", (code) => {
-    exitCode = code ?? null;
-  });
-
   while (Date.now() - start < timeoutMs) {
-    if (exitCode !== null) {
-      throw new Error(`vite preview exited early (${exitCode})`);
-    }
     if (await isServerUp(port)) return;
-    await new Promise((r) => setTimeout(r, 200));
+    await new Promise((r) => setTimeout(r, 100));
   }
-
-  throw new Error(`Timed out waiting for vite preview (${timeoutMs}ms)`);
+  throw new Error(`Timed out waiting for static server (${timeoutMs}ms)`);
 }
 
 async function writeHtml(route, html) {
@@ -87,24 +127,15 @@ async function writeHtml(route, html) {
   await fs.writeFile(outFile, normalized, "utf8");
 }
 
-function killPreview(child) {
-  if (!child || child.killed) return;
-  if (process.platform === "win32") {
-    spawn("taskkill", ["/pid", String(child.pid), "/f", "/t"], { stdio: "ignore" });
-  } else {
-    child.kill("SIGTERM");
-  }
-}
-
 async function main() {
   await fs.access(DIST_DIR);
 
   const port = await getFreePort();
   const baseUrl = `http://127.0.0.1:${port}`;
-  const preview = spawnPreview(port);
+  const server = await createStaticServer(port);
 
   try {
-    await waitForServer(preview, port);
+    await waitForServer(port);
 
     const browser = await chromium.launch({ headless: true });
     const context = await browser.newContext();
@@ -126,7 +157,7 @@ async function main() {
     await browser.close();
     console.log("[prerender] Done — all routes pre-rendered.");
   } finally {
-    killPreview(preview);
+    await new Promise((resolve) => server.close(resolve));
   }
 }
 

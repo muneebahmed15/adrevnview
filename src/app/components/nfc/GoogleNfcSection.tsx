@@ -1,4 +1,5 @@
 import { ArrowRight, Check, Zap } from "lucide-react";
+import { AnimatedNumberText } from "@/components/CountUp";
 import { SpringAnchor } from "@/components/SpringButton";
 import { NfcTapDemo } from "./NfcTapDemo";
 import "./nfc-animations.css";
@@ -15,7 +16,7 @@ export function GoogleNfcSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-secondary text-secondary-foreground text-xs font-medium mb-6" style={{ fontFamily: "Inter, sans-serif" }}>
-              <Zap className="w-3.5 h-3.5" /> New Product · $99 one-time
+              <Zap className="w-3.5 h-3.5" /> New Product · <AnimatedNumberText>$99 one-time</AnimatedNumberText>
             </div>
 
             <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -25,7 +26,7 @@ export function GoogleNfcSection() {
             <h2 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
               Turn Every Happy Customer Into a{" "}
               <span className="bg-gradient-to-r from-sky-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                5-Star Review
+                <AnimatedNumberText>5-Star</AnimatedNumberText> Review
               </span>
             </h2>
 
@@ -53,7 +54,7 @@ export function GoogleNfcSection() {
                 className="gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white font-bold text-base hover:from-sky-500 hover:to-cyan-500 transition-all shadow-xl shadow-sky-900/50"
                 style={{ fontFamily: "Manrope, sans-serif" }}
               >
-                Get Your Card — $99 <ArrowRight className="w-4 h-4" />
+                Get Your Card — <AnimatedNumberText>$99</AnimatedNumberText> <ArrowRight className="w-4 h-4" />
               </SpringAnchor>
               <SpringAnchor
                 href="/googlenfc"
