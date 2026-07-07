@@ -8,9 +8,9 @@ import { usePerformanceTier } from "@/lib/performance";
 
 export const springButtonTransition = {
   type: "spring" as const,
-  stiffness: 260,
-  damping: 16,
-  mass: 1.05,
+  stiffness: 400,
+  damping: 19,
+  mass: 0.75,
 };
 
 export const springButtonInteraction = {
