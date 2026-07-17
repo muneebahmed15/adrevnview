@@ -222,7 +222,7 @@ function Hero() {
         <div className="max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-foreground/90 text-sm font-semibold backdrop-blur-sm">
             <Dumbbell className="w-4 h-4 text-sky-300" />
-            Gym owners: automate ops + lead gen with <span className="text-foreground">Matflow</span>
+            Gym owners: automate ops + lead gen with <span className="text-foreground">Matzop</span>
             <Sparkles className="w-4 h-4 text-cyan-300" />
           </div>
           <p className="text-muted-foreground text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
@@ -230,13 +230,13 @@ function Hero() {
           </p>
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
             <SpringAnchor
-              href="https://mymatflow.com"
+              href="https://matzop.com"
               target="_blank"
               rel="noopener noreferrer"
               className="px-7 py-3 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm hover:from-emerald-400 hover:to-teal-400 transition-all shadow-xl shadow-emerald-900/30 gap-2"
               style={{ fontFamily: "Manrope, sans-serif" }}
             >
-              See Matflow <ArrowRight className="w-4 h-4" />
+              See Matzop <ArrowRight className="w-4 h-4" />
             </SpringAnchor>
             <SpringAnchor
               href="#contact"
