@@ -218,15 +218,15 @@ function Hero() {
           We craft brand strategy, custom websites, and performance digital marketing that drive measurable growth.
         </p>
 
-        {/* Gym owners promo */}
+        {/* Gym & academy management promo */}
         <div className="max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-sky-500/25 bg-card/60 text-foreground/90 text-sm font-semibold backdrop-blur-sm">
             <Dumbbell className="w-4 h-4 text-sky-300" />
-            Gym owners: automate ops + lead gen with <span className="text-foreground">Matzop</span>
+            Gym & academy owners: automate ops + lead gen with <span className="text-foreground">Matzop</span>
             <Sparkles className="w-4 h-4 text-cyan-300" />
           </div>
           <p className="text-muted-foreground text-sm mt-3 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-            Member portal + backend processing + gym ops management, plus lead generation and SEO tools — built to help gyms grow and retain members.
+            Gym or academy management for ops, member portal, and backend processing — plus lead generation and SEO tools to grow and retain members.
           </p>
           <div className="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
             <SpringAnchor
