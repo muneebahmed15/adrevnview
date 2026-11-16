@@ -80,7 +80,7 @@ function replaceJsonLd(html, data) {
 
 function organizationNode() {
   return {
-    "@type": ["Organization", "ProfessionalService"],
+    "@type": "Organization",
     "@id": `${SITE}/#organization`,
     name: "Adrevnview",
     url: `${SITE}/`,
@@ -181,9 +181,9 @@ async function main() {
     baseHtml,
     "/",
     {
-      title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
+      title: "Adrevnview — Websites, SEO & Brand Design | Long Island",
       description:
-        "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing on Long Island.",
+        "Explore Adrevnview’s website and product work. Custom web design, development, SEO, and branding from Long Island, New York.",
     },
     HOME_BODY,
   );

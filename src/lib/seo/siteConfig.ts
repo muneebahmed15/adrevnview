@@ -2,7 +2,7 @@ export const SITE_URL = "https://www.adrevnview.com";
 
 export const ORG = {
   name: "Adrevnview",
-  legalName: "Adrevnview",
+  legalName: "Adrevnview LLC",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
   email: "hello@adrevnview.com",

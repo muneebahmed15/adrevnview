@@ -69,7 +69,7 @@ export const CONTACT_FAQ: FaqItem[] = [
   {
     question: "How do I request a project quote?",
     answer:
-      "Fill out the contact form below or email hello@adrevnview.com with your project scope, timeline, and budget range. Include print formats and quantities if you need menus, cards, or banners. We respond within one business day.",
+      "Use the contact form to prepare an email, then send it from your email app, or email hello@adrevnview.com directly with your project scope, timeline, and budget range. Include print formats and quantities if you need menus, cards, or banners. We respond within one business day.",
   },
   {
     question: "Can I request a quote for printing and signage?",
@@ -109,7 +109,7 @@ export const VISIBLE_HOME_FAQ: FaqItem[] = HOME_FAQ;
 function organizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
+    "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: ORG.name,
     legalName: ORG.legalName,
@@ -121,10 +121,6 @@ function organizationSchema() {
     email: ORG.email,
     telephone: ORG.phone,
     foundingDate: ORG.foundingDate,
-    address: {
-      "@type": "PostalAddress",
-      ...ORG.address,
-    },
     areaServed: ["United States", "Europe", "Global"],
     sameAs: ORG.sameAs,
     knowsAbout: ORG.knowsAbout,
@@ -310,9 +306,6 @@ export function getStructuredData(path: string, title: string, description: stri
     portfolioSchema(),
   ];
 
-  if (path === "/") {
-    graphs.push(faqSchema(HOME_FAQ));
-  }
 
   if (path === "/googlenfc") {
     graphs.push(faqSchema(NFC_FAQ));

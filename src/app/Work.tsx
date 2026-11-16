@@ -5,7 +5,12 @@ import { SeoHead } from "@/components/seo/SeoHead";
 import { SpringCard } from "@/components/SpringCard";
 import { SpringLink } from "@/components/SpringButton";
 import { PAGES } from "@/lib/seo/siteConfig";
-import { CLIENTS, getClientPath, PORTFOLIO_TABS, type ClientCategory } from "@/lib/content/clients";
+import {
+  CLIENTS,
+  getClientPath,
+  PORTFOLIO_TABS,
+  type ClientCategory,
+} from "@/lib/content/clients";
 import {
   WORK_CATEGORY_META,
   WORK_CATEGORY_SLUGS,
@@ -13,22 +18,30 @@ import {
   type WorkCategorySlug,
 } from "@/lib/content/workCategories";
 
-function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | null }) {
+function WorkPortfolio({
+  categoryFilter,
+}: {
+  categoryFilter: ClientCategory | null;
+}) {
   const tabs = categoryFilter ? [categoryFilter] : PORTFOLIO_TABS;
 
   return (
     <>
       {!categoryFilter ? (
         <div className="flex flex-wrap gap-2 mb-12">
-          {(Object.keys(WORK_CATEGORY_SLUGS) as WorkCategorySlug[]).map((slug) => (
-            <SpringLink
-              key={slug}
-              to={slug === "featured" ? "/work" : `/work/${slug}`}
-              className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:text-foreground hover:border-sky-500/40"
-            >
-              {WORK_CATEGORY_META[slug].headline.replace(" Client Projects", "").replace("Featured ", "Featured")}
-            </SpringLink>
-          ))}
+          {(Object.keys(WORK_CATEGORY_SLUGS) as WorkCategorySlug[]).map(
+            (slug) => (
+              <SpringLink
+                key={slug}
+                to={slug === "featured" ? "/work" : `/work/${slug}`}
+                className="px-4 py-2 rounded-full border border-border text-sm text-muted-foreground hover:text-foreground hover:border-sky-500/40"
+              >
+                {WORK_CATEGORY_META[slug].headline
+                  .replace(" Client Projects", "")
+                  .replace("Featured ", "Featured")}
+              </SpringLink>
+            ),
+          )}
         </div>
       ) : null}
 
@@ -39,8 +52,13 @@ function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | nu
         return (
           <section key={category} className="mb-16" id={category.toLowerCase()}>
             {!categoryFilter ? (
-              <h2 className="text-2xl font-bold text-foreground mb-8" style={{ fontFamily: "Manrope, sans-serif" }}>
-                {category === "Featured" ? "Featured Projects" : `${category} Projects`}
+              <h2
+                className="text-2xl font-bold text-foreground mb-8"
+                style={{ fontFamily: "Manrope, sans-serif" }}
+              >
+                {category === "Featured"
+                  ? "Featured Projects"
+                  : `${category} Projects`}
               </h2>
             ) : null}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -53,7 +71,10 @@ function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | nu
                     <img
                       src={client.image}
                       alt={`${client.name} — ${client.tag}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      width="1440"
+                      height="1000"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
                     <div className="absolute top-4 left-4">
@@ -66,10 +87,15 @@ function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | nu
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold text-foreground mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>
+                    <h3
+                      className="text-xl font-bold text-foreground mb-2"
+                      style={{ fontFamily: "Manrope, sans-serif" }}
+                    >
                       {client.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">{client.shortDescription}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {client.shortDescription}
+                    </p>
                     <div className="flex flex-wrap gap-2 mb-5">
                       {client.services.slice(0, 3).map((service) => (
                         <span
@@ -80,7 +106,7 @@ function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | nu
                         </span>
                       ))}
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex flex-wrap gap-3">
                       <Link
                         to={getClientPath(client.slug)}
                         className="flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 text-white text-sm font-semibold hover:from-sky-500 hover:to-cyan-500 transition-all"
@@ -111,12 +137,16 @@ function WorkPortfolio({ categoryFilter }: { categoryFilter: ClientCategory | nu
 
 export default function Work() {
   const { category: categorySlug } = useParams<{ category?: string }>();
-  const categoryFilter = categorySlug ? workCategoryFromSlug(categorySlug) : null;
+  const categoryFilter = categorySlug
+    ? workCategoryFromSlug(categorySlug)
+    : null;
 
   if (categorySlug && !categoryFilter) {
     return (
       <SiteLayout mainClassName="px-6 py-20 flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-bold mb-4">Portfolio category not found</h1>
+        <h1 className="text-2xl font-bold mb-4">
+          Portfolio category not found
+        </h1>
         <Link to="/work" className="text-sky-400 hover:text-sky-300">
           View all case studies
         </Link>
@@ -124,13 +154,14 @@ export default function Work() {
     );
   }
 
-  const meta = categorySlug && categoryFilter
-    ? WORK_CATEGORY_META[categorySlug as WorkCategorySlug]
-    : {
-        title: PAGES.work.title,
-        description: PAGES.work.description,
-        headline: "Case Studies & Client Projects",
-      };
+  const meta =
+    categorySlug && categoryFilter
+      ? WORK_CATEGORY_META[categorySlug as WorkCategorySlug]
+      : {
+          title: PAGES.work.title,
+          description: PAGES.work.description,
+          headline: "Case Studies & Client Projects",
+        };
 
   const path = categorySlug ? `/work/${categorySlug}` : PAGES.work.path;
 
@@ -140,7 +171,9 @@ export default function Work() {
 
       <div className="max-w-7xl mx-auto">
         <div className="mb-14">
-          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4">Client Work</p>
+          <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4">
+            Client Work
+          </p>
           <h1
             className="text-4xl md:text-5xl font-extrabold text-foreground mb-6"
             style={{ fontFamily: "Manrope, sans-serif" }}
@@ -148,13 +181,19 @@ export default function Work() {
           >
             {meta.headline}
           </h1>
-          <p className="text-foreground/80 text-lg leading-relaxed max-w-3xl" data-speakable="true">
+          <p
+            className="text-foreground/80 text-lg leading-relaxed max-w-3xl"
+            data-speakable="true"
+          >
             {categoryFilter
               ? meta.description
               : "Explore the websites, platforms, and digital experiences Adrevnview has designed and built for B2B SaaS, eCommerce, and enterprise brands. Each project ships with SEO and GEO foundations built in from day one."}
           </p>
           {categoryFilter ? (
-            <Link to="/work" className="inline-block mt-4 text-sky-400 text-sm hover:text-sky-300">
+            <Link
+              to="/work"
+              className="inline-block mt-4 text-sky-400 text-sm hover:text-sky-300"
+            >
               ← View all case studies
             </Link>
           ) : null}

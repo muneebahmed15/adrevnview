@@ -34,7 +34,7 @@ export const CLIENTS: Client[] = [
     shortDescription:
       "AI-powered video intelligence SaaS with interactive shoppable players, GEO optimization, and LLM-discoverable video experiences.",
     metric: "Full SaaS platform launch",
-    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=520&fit=crop&auto=format",
+    image: "/project-previews/tagizo.png",
     services: ["Custom Web Design", "SaaS Development", "GEO Optimization", "Brand Identity"],
     seoTitle: "Tagizo Case Study — AI Video Intelligence Platform | Adrevnview",
     seoDescription:
@@ -68,7 +68,7 @@ export const CLIENTS: Client[] = [
     shortDescription:
       "Brand ecosystem and product hub for an innovation lab building SaaS tools, AI products, and digital platforms at scale.",
     metric: "150+ products delivered",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=520&fit=crop&auto=format",
+    image: "/project-previews/axstart.png",
     services: ["Brand Identity", "Web Design", "Product Pages", "SaaS Launch"],
     seoTitle: "Axstart Case Study — Innovation Lab Brand Ecosystem | Adrevnview",
     seoDescription:
@@ -102,7 +102,7 @@ export const CLIENTS: Client[] = [
     shortDescription:
       "Multi-agent AI workspace with voice bot builders, Pipecat export, and self-hosted LLM orchestration for engineering teams.",
     metric: "Live in under 15 minutes",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=520&fit=crop&auto=format",
+    image: "/project-previews/cizher.png",
     services: ["UX Design", "Web Development", "Technical Documentation", "SEO"],
     seoTitle: "Cizher Case Study — Multi-Agent AI Workspace | Adrevnview",
     seoDescription:
@@ -272,7 +272,7 @@ export const CLIENTS: Client[] = [
     shortDescription:
       "Boutique online shop for handmade crochet wearables, home decor, and plushies — artisanal collections with a warm brand story.",
     metric: "Hand-stitched collections",
-    image: "https://images.unsplash.com/photo-1582794543139-8ac9cb0f7b11?w=800&h=520&fit=crop&auto=format",
+    image: "/project-previews/crocherish.png",
     services: ["eCommerce Design", "Brand Identity", "Product Photography Layout", "SEO"],
     seoTitle: "Crocherish Case Study — Handmade Crochet eCommerce | Adrevnview",
     seoDescription:

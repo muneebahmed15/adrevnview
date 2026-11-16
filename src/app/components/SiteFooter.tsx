@@ -9,15 +9,25 @@ export function SiteFooter() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-7 gap-10 mb-16">
           <div className="col-span-2 md:col-span-1">
-            <Logo className="mb-4" iconClassName="h-8 w-7" textClassName="h-5 w-auto" />
-            <p className="text-muted-foreground text-sm leading-relaxed mb-5" style={{ fontFamily: "Inter, sans-serif" }}>
-              Premium web design agency for B2B, B2C & enterprise brands.
+            <Logo
+              className="mb-4"
+              iconClassName="h-8 w-7"
+              textClassName="h-5 w-auto"
+            />
+            <p
+              className="text-muted-foreground text-sm leading-relaxed mb-5"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              Websites, search strategy, and brand design for your next chapter.
             </p>
           </div>
 
           {Object.entries(FOOTER_LINKS).map(([title, links]) => (
             <div key={title}>
-              <h4 className="text-foreground font-bold text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif" }}>
+              <h4
+                className="text-foreground font-bold text-sm mb-4 uppercase tracking-wider"
+                style={{ fontFamily: "Manrope, sans-serif" }}
+              >
                 {title}
               </h4>
               <ul className="space-y-2.5">
@@ -48,7 +58,10 @@ export function SiteFooter() {
           ))}
 
           <div>
-            <h4 className="text-foreground font-bold text-sm mb-4 uppercase tracking-wider" style={{ fontFamily: "Manrope, sans-serif" }}>
+            <h4
+              className="text-foreground font-bold text-sm mb-4 uppercase tracking-wider"
+              style={{ fontFamily: "Manrope, sans-serif" }}
+            >
               Industries
             </h4>
             <ul className="space-y-2.5">
@@ -68,26 +81,53 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-sky-900/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-muted-foreground text-sm" style={{ fontFamily: "Inter, sans-serif" }}>
-            © {new Date().getFullYear()} Adrevnview. All rights reserved.
+          <p
+            className="text-muted-foreground text-sm"
+            style={{ fontFamily: "Inter, sans-serif" }}
+          >
+            © {new Date().getFullYear()} Adrevnview LLC. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Link to="/work" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <Link
+              to="/work"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               Case Studies
             </Link>
-            <Link to="/privacy" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <Link
+              to="/privacy"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               Privacy Policy
             </Link>
-            <Link to="/accessibility" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <Link
+              to="/accessibility"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               Accessibility
             </Link>
-            <Link to="/contact" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <Link
+              to="/contact"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               Contact
             </Link>
-            <Link to="/geo-report" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <Link
+              to="/geo-report"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               GEO Report
             </Link>
-            <a href="/sitemap.xml" className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors" style={{ fontFamily: "Inter, sans-serif" }}>
+            <a
+              href="/sitemap.xml"
+              className="text-muted-foreground text-sm hover:text-muted-foreground transition-colors"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
               Sitemap
             </a>
           </div>
