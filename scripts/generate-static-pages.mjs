@@ -11,6 +11,7 @@ import {
   BLOG_PAGES,
   CLIENT_PAGES,
   HOME_BODY,
+  MARKETING_BODIES,
   INDUSTRY_PAGES,
   PRINT_SERVICE_SLUGS,
   SERVICE_PAGES,
@@ -186,6 +187,7 @@ async function main() {
         "Explore Adrevnview’s website and product work. Custom web design, development, SEO, and branding from Long Island, New York.",
     },
     HOME_BODY,
+  MARKETING_BODIES,
   );
 
   for (const page of STATIC_PAGES) {
@@ -232,7 +234,7 @@ async function main() {
       baseHtml,
       route,
       { title: page.title, description: page.description },
-      serviceBody(page),
+      MARKETING_BODIES[page.slug] ?? serviceBody(page),
       serviceJsonLd(page, canonical),
     );
   }

@@ -1,3 +1,4 @@
+import { ProductShowcase } from "./components/ProductShowcase";
 import { Link } from "react-router";
 import { ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "./components/SiteLayout";
@@ -6,6 +7,28 @@ import { CLIENTS, getClientPath } from "@/lib/content/clients";
 import "./agency.css";
 
 const services = [
+  {
+    title: "Creative, campaigns, and the page after the click.",
+    label: "Paid advertising",
+    href: "/services/ppc-advertising",
+    text: "Connect your offer, ad creative, landing page, and measurement. We plan campaigns, review performance, and refine the experience around qualified inquiries.",
+    details: [
+      "Campaign planning and optimization",
+      "Creative and landing pages",
+      "Lead and conversion measurement",
+    ],
+  },
+  {
+    title: "Give people a reason to follow, watch, and act.",
+    label: "Social media & video clipping",
+    href: "/services/social-media-marketing",
+    text: "Turn your expertise and long-form videos into a consistent presence. Content planning, branded posts, short-form editing, captions, and channel-ready clips.",
+    details: [
+      "Social content and publishing plans",
+      "YouTube, podcast, and stream clips",
+      "Hooks, captions, and vertical edits",
+    ],
+  },
   {
     title: "A website that earns the next conversation.",
     label: "Web design & development",
@@ -57,9 +80,9 @@ export default function MainSite() {
           Independent thinking. Connected digital experiences.
         </p>
         <h1>
-          Your next chapter.
+          Built to get noticed.
           <br />
-          <span>Built for the web.</span>
+          <span>Made to move business.</span>
         </h1>
         <div className="agency-hero-bottom">
           <p>
@@ -71,7 +94,7 @@ export default function MainSite() {
             <Link className="agency-button" to="/contact">
               Let’s talk about your project <ArrowUpRight size={18} />
             </Link>
-            <a className="agency-text-link" href="#selected-work">
+            <a className="agency-text-link" href="#in-house">
               Explore our work <ArrowRight size={17} />
             </a>
           </div>
@@ -89,6 +112,7 @@ export default function MainSite() {
         <a href="#capabilities">Find your service</a>
         <a href="#approach">Understand our approach</a>
       </nav>
+      <ProductShowcase />
       <section id="selected-work" className="agency-section agency-wrap">
         <div className="agency-heading">
           <div>

@@ -66,6 +66,38 @@ export default function Services() {
             </span>
           </Link>
         </div>
+        <div className="service-overview">
+          <Link to="/services/ppc-advertising">
+            <h2>Run better campaigns</h2>
+            <p>
+              Paid search and social creative, landing pages, conversion
+              tracking, and ongoing campaign optimization.
+            </p>
+            <span className="agency-text-link">
+              Paid advertising <ArrowRight size={17} />
+            </span>
+          </Link>
+          <Link to="/services/social-media-marketing">
+            <h2>Build your social presence</h2>
+            <p>
+              Content planning, branded creative, publishing schedules, and
+              performance reviews for your channels.
+            </p>
+            <span className="agency-text-link">
+              Social media <ArrowRight size={17} />
+            </span>
+          </Link>
+          <Link to="/services/social-media-marketing">
+            <h2>Get more from your videos</h2>
+            <p>
+              Turn YouTube videos, podcasts, and streams into short clips with
+              clear hooks, captions, and vertical edits.
+            </p>
+            <span className="agency-text-link">
+              Video clipping <ArrowRight size={17} />
+            </span>
+          </Link>
+        </div>
         <h2 className="text-3xl font-bold mb-10">Explore our capabilities</h2>
         {Object.entries(FOOTER_LINKS).map(([category, links]) => (
           <section key={category} className="mb-14">

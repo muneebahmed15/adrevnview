@@ -5,6 +5,7 @@ import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
+  { label: "Our products", to: "/#in-house" },
   { label: "Our work", to: "/work" },
   { label: "Services", to: "/services" },
   { label: "SEO", to: "/services/seo-services" },

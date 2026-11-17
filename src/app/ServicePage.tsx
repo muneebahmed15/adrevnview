@@ -1,3 +1,4 @@
+import { MarketingDetails } from "./components/MarketingDetails";
 import { Link, useParams } from "react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/app/components/SiteLayout";
@@ -70,6 +71,7 @@ export default function ServicePage() {
           />
         ) : null}
 
+        <MarketingDetails key={slug} slug={slug} />
         <section className="mb-12">
           <h2
             className="text-2xl font-bold mb-4"
