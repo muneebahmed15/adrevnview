@@ -182,12 +182,11 @@ async function main() {
     baseHtml,
     "/",
     {
-      title: "Adrevnview — Websites, SEO & Brand Design | Long Island",
+      title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
       description:
-        "Explore Adrevnview’s website and product work. Custom web design, development, SEO, and branding from Long Island, New York.",
+        "Adrevnview builds custom websites and runs SEO, paid ads, and social campaigns. See live client work and our in-house Bagelzop ordering platform.",
     },
     HOME_BODY,
-  MARKETING_BODIES,
   );
 
   for (const page of STATIC_PAGES) {

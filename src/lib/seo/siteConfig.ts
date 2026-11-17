@@ -42,7 +42,7 @@ export const ORG = {
 };
 
 export const DEFAULT_SEO = {
-  title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
+  title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
   description:
     "Adrevnview is a premium web design agency for B2B, B2C, and enterprise brands. Custom websites, branding, SEO, and Generative Engine Optimization (GEO) that drive measurable growth.",
   keywords:
@@ -52,9 +52,9 @@ export const DEFAULT_SEO = {
 export const PAGES = {
   home: {
     path: "/",
-    title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
+    title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
     description:
-      "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing.",
+      "Adrevnview builds custom websites and runs SEO, paid ads, and social campaigns. See live client work and our in-house Bagelzop ordering platform.",
   },
   googleNfc: {
     path: "/googlenfc",

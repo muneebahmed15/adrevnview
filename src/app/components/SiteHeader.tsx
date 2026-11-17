@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLocation } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
-  { label: "Our products", to: "/#in-house" },
   { label: "Our work", to: "/work" },
   { label: "Services", to: "/services" },
   { label: "SEO", to: "/services/seo-services" },
+  { label: "Bagelzop", to: "/#in-house" },
   { label: "About", to: "/about" },
   { label: "Insights", to: "/blog" },
 ];
@@ -39,7 +39,9 @@ export function SiteHeader() {
       <div className="site-header-inner">
         <Logo />
         <nav className="site-desktop-nav" aria-label="Main navigation">
-          {links.map((link) => (
+          {links.map((link) => link.to.includes("#") ? (
+            <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>
+          ) : (
             <NavLink key={link.to} to={link.to} end={link.to === "/services"}>
               {link.label}
             </NavLink>
@@ -68,7 +70,9 @@ export function SiteHeader() {
           className="site-mobile-nav"
           aria-label="Mobile navigation"
         >
-          {links.map((link) => (
+          {links.map((link) => link.to.includes("#") ? (
+            <Link key={link.to} to={link.to} onClick={() => setOpen(false)}>{link.label}</Link>
+          ) : (
             <NavLink key={link.to} to={link.to} onClick={() => setOpen(false)}>
               {link.label}
               <ArrowUpRight size={20} />

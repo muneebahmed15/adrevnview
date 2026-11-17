@@ -26,6 +26,52 @@ export type Client = {
 
 export const CLIENTS: Client[] = [
   {
+    slug: "chocolate-connects",
+    name: "Chocolate Connects",
+    url: "https://www.chocolateconnects.us/",
+    tag: "Dessert retail",
+    category: "Featured",
+    shortDescription: "A multi-location dessert storefront with customizable online ordering and a menu built around what customers crave.",
+    metric: "Multi-location storefront",
+    image: "/project-previews/chocolate-connects.jpg",
+    services: ["Web Design", "Online Ordering", "Location Pages"],
+    seoTitle: "Chocolate Connects Website Case Study | Adrevnview",
+    seoDescription: "Explore the Chocolate Connects storefront, with customizable online ordering, location pages, and interactive dessert discovery.",
+    content: {
+      overview: "Chocolate Connects sells Belgian chocolate desserts, crepes, and shakes across multiple stores. Its website brings together the brand, menu, and pickup ordering.",
+      challenge: "Customers discovering desserts on social media need a quick way to find the same item, see the options, and order from the right store.",
+      solution: "The storefront gives popular items their own product pages and offers both category browsing and an interactive craving finder. Customers can customize items and choose a pickup location.",
+      results: [
+        "Public menu with product pages and customization options",
+        "Location pages with individual store details",
+        "Interactive filters for exploring the dessert menu",
+      ],
+    },
+  },
+  {
+    slug: "addys-pizzeria",
+    name: "Addy’s Pizzeria",
+    url: "https://www.addyspizzeria.com/",
+    tag: "Restaurant",
+    category: "Featured",
+    shortDescription: "A neighborhood pizzeria website that brings its menu, restaurant story, and ordering options into one place.",
+    metric: "Restaurant website",
+    image: "/project-previews/addys-pizzeria.jpg",
+    services: ["Web Design", "Menu Design", "Online Ordering"],
+    seoTitle: "Addy’s Pizzeria Website Case Study | Adrevnview",
+    seoDescription: "See the Addy’s Pizzeria website for its Huntington restaurant, with a digital menu, ordering options, and restaurant information.",
+    content: {
+      overview: "Addy’s Pizzeria is a neighborhood restaurant in Huntington, New York. Its site gives customers one place to get familiar with the restaurant and make their next order.",
+      challenge: "Someone visiting on a phone needs to get from the homepage to the menu and ordering options without digging for basic restaurant details.",
+      solution: "The homepage pairs the restaurant’s visual identity with prominent menu and ordering links. Food photography and neighborhood details add context for first-time customers.",
+      results: [
+        "A responsive restaurant homepage",
+        "A browsable digital menu and prominent ordering links",
+        "Restaurant and location details in one place",
+      ],
+    },
+  },
+  {
     slug: "tagizo",
     name: "Tagizo",
     url: "https://tagizo.com",
@@ -306,7 +352,7 @@ export const CLIENTS: Client[] = [
     shortDescription:
       "Premier martial arts and fitness facility in Hicksville and Syosset, NY — MMA, kickboxing, kids self-defense, and competition training.",
     metric: "2 NY locations",
-    image: "https://images.unsplash.com/photo-1599058945522-28d584b6f53f?w=800&h=520&fit=crop&auto=format",
+    image: "/project-previews/ecmmaandfitness.jpg",
     services: ["Web Design", "Local SEO", "Lead Generation", "Multi-Location Site"],
     seoTitle: "East Coast MMA & Fitness Case Study — Martial Arts Website | Adrevnview",
     seoDescription:

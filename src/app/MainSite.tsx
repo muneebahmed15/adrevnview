@@ -65,111 +65,85 @@ const services = [
 ];
 
 export default function MainSite() {
-  const projects = CLIENTS.filter((client) =>
-    ["tagizo", "axstart", "crocherish"].includes(client.slug),
-  );
+  const projects = ["chocolate-connects", "addys-pizzeria", "ecmmaandfitness", "tagizo"]
+    .map((slug) => CLIENTS.find((client) => client.slug === slug))
+    .filter((client) => client !== undefined);
+  const featured = projects[0];
+
   return (
     <SiteLayout fx={false} mainClassName="agency">
       <SeoHead
-        title="Adrevnview — Websites, SEO & Brand Design | Long Island"
-        description="Explore Adrevnview’s website and product work. Custom web design, development, SEO, and branding from Long Island, New York."
+        title="Adrevnview — Web Design, SEO & Paid Ads | Long Island"
+        description="Adrevnview builds custom websites and runs SEO, paid ads, and social campaigns. See live client work and our in-house Bagelzop ordering platform."
         path="/"
       />
-      <section className="agency-hero agency-wrap">
-        <p className="agency-eyebrow">
-          Independent thinking. Connected digital experiences.
-        </p>
-        <h1>
-          Built to get noticed.
-          <br />
-          <span>Made to move business.</span>
-        </h1>
-        <div className="agency-hero-bottom">
-          <p>
-            We bring websites, search strategy, and brand design together to
-            help ambitious businesses get discovered and turn interest into
-            conversations.
-          </p>
-          <div className="agency-actions">
-            <Link className="agency-button" to="/contact">
-              Let’s talk about your project <ArrowUpRight size={18} />
-            </Link>
-            <a className="agency-text-link" href="#in-house">
-              Explore our work <ArrowRight size={17} />
-            </a>
+      <section className="agency-masthead">
+        <div className="agency-wrap agency-masthead-grid">
+          <div>
+            <p className="agency-eyebrow">Long Island digital agency</p>
+            <h1>Websites built<br /> for <span>business.</span></h1>
+            <p className="agency-masthead-copy">
+              We design and build websites, then help people find them with
+              SEO, paid ads, and social content.
+            </p>
+            <div className="agency-masthead-actions">
+              <Link className="agency-button" to="/contact">
+                Start a project <ArrowUpRight size={18} />
+              </Link>
+              <a className="agency-text-link" href="#selected-work">
+                See our work <ArrowRight size={18} />
+              </a>
+            </div>
           </div>
-        </div>
-        <div className="agency-location">
-          Adrevnview · Long Island, New York{" "}
-          <span>Websites · SEO · Branding</span>
+          {featured && (
+            <Link to={getClientPath(featured.slug)} className="agency-feature">
+              <div className="agency-feature-bar">
+                <span>Featured project</span>
+                <ArrowUpRight size={19} />
+              </div>
+              <img src={featured.image} alt="Chocolate Connects online storefront" width="1440" height="950" fetchPriority="high" />
+              <div className="agency-feature-caption">
+                <strong>{featured.name}</strong>
+                <span>Website & online ordering</span>
+              </div>
+            </Link>
+          )}
         </div>
       </section>
-      <nav
-        className="agency-jump agency-wrap"
-        aria-label="Explore our capabilities"
-      >
-        <a href="#selected-work">See what we build</a>
-        <a href="#capabilities">Find your service</a>
-        <a href="#approach">Understand our approach</a>
-      </nav>
-      <ProductShowcase />
       <section id="selected-work" className="agency-section agency-wrap">
         <div className="agency-heading">
-          <div>
-            <p className="agency-eyebrow">Selected work</p>
-            <h2>Ideas made tangible.</h2>
-          </div>
+          <h2>Selected projects</h2>
           <Link className="agency-text-link" to="/work">
-            All projects <ArrowUpRight size={18} />
+            View all work <ArrowUpRight size={18} />
           </Link>
         </div>
         <div className="agency-projects">
-          {projects.map((project, i) => (
-            <Link
-              to={getClientPath(project.slug)}
-              className={`agency-project project-${i}`}
-              key={project.slug}
-            >
-              <div className="agency-project-art">
-                <img
-                  src={`/project-previews/${project.slug}.png`}
-                  alt={`${project.name} website preview`}
-                  width="1440"
-                  height="1000"
-                  loading="lazy"
-                />
-                <span>{project.tag}</span>
-                <strong>{project.name}</strong>
-                <div className="agency-project-services">
-                  {project.services.slice(0, 3).map((service) => (
-                    <span key={service}>{service}</span>
-                  ))}
-                </div>
-              </div>
+          {projects.map((project) => (
+            <article className="agency-project" key={project.slug}>
+              <Link to={getClientPath(project.slug)} className="agency-project-preview" aria-label={`Read the ${project.name} case study`}>
+                <img src={project.image} alt={`${project.name} website screenshot`} width="1440" height="950" loading="lazy" />
+              </Link>
               <div className="agency-project-caption">
                 <div>
-                  <h3>{project.name}</h3>
+                  <p className="agency-eyebrow">{project.tag}</p>
+                  <h3><Link to={getClientPath(project.slug)}>{project.name}</Link></h3>
                   <p>{project.shortDescription}</p>
+                  <div className="agency-project-links">
+                    <Link className="agency-text-link" to={getClientPath(project.slug)}>Case study <ArrowRight size={15} /></Link>
+                    <a className="agency-text-link" href={project.url} target="_blank" rel="noopener noreferrer">Live site <ArrowUpRight size={15} /></a>
+                  </div>
                 </div>
-                <ArrowUpRight size={22} />
               </div>
-            </Link>
+            </article>
           ))}
         </div>
-        <p className="agency-note">
-          Explore each project for its brief, delivery scope, and a link to the
-          live website.
-        </p>
       </section>
+      <ProductShowcase />
       <section id="capabilities" className="agency-section agency-wrap">
         <div className="agency-heading">
           <div>
             <p className="agency-eyebrow">How we can help</p>
-            <h2>
-              Build it well.
-              <br />
-              Help it get found.
-            </h2>
+            <h2>Design, search & advertising</h2>
           </div>
           <p>
             One connected approach to how your business looks, works, and
