@@ -61,7 +61,7 @@ const HOME_FAQ: FaqItem[] = [
   {
     question: "How do I contact Adrevnview?",
     answer:
-      "Contact Adrevnview at hello@adrevnview.com or (516) 820-7863. Request a free consultation at https://www.adrevnview.com/contact.",
+      "Contact Adrevnview at inquiry@adrevnview.com or (516) 820-7863. Request a free consultation at https://www.adrevnview.com/contact.",
   },
 ];
 
@@ -69,7 +69,7 @@ export const CONTACT_FAQ: FaqItem[] = [
   {
     question: "How do I request a project quote?",
     answer:
-      "Use the contact form to prepare an email, then send it from your email app, or email hello@adrevnview.com directly with your project scope, timeline, and budget range. Include print formats and quantities if you need menus, cards, or banners. We respond within one business day.",
+      "Use the contact form to prepare an email, then send it from your email app, or email inquiry@adrevnview.com directly with your project scope, timeline, and budget range. Include print formats and quantities if you need menus, cards, or banners. We respond within one business day.",
   },
   {
     question: "Can I request a quote for printing and signage?",

@@ -46,6 +46,16 @@ export default function Contact() {
                 >
                   {ORG.email}
                 </a>
+                <p className="text-sm text-muted-foreground mt-3">
+                  Alternatively, email{" "}
+                  <a
+                    href={`mailto:${ORG.fallbackEmail}`}
+                    className="underline underline-offset-4"
+                  >
+                    {ORG.fallbackEmail}
+                  </a>
+                  .
+                </p>
               </div>
             </div>
             <div className="flex items-start gap-3">
@@ -147,7 +157,7 @@ export default function Contact() {
             </SpringPressable>
             <p className="text-sm text-muted-foreground">
               Opens your email app with your project details. Review the message
-              and send it to hello@adrevnview.com.
+              and send it to inquiry@adrevnview.com.
             </p>
           </form>
         </div>

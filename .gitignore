@@ -6,3 +6,5 @@ reports/
 .DS_Store
 Thumbs.db
 *.code-workspace
+.vercel
+.env*

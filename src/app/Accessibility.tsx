@@ -35,8 +35,8 @@ export default function Accessibility() {
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Feedback</h2>
             <p>
               If you experience any accessibility issues on this site, please contact us at{" "}
-              <a className="text-sky-300 hover:text-sky-200" href="mailto:hello@adrevnview.com">
-                hello@adrevnview.com
+              <a className="text-sky-300 hover:text-sky-200" href="mailto:inquiry@adrevnview.com">
+                inquiry@adrevnview.com
               </a>{" "}
               and we’ll work to address the issue.
             </p>

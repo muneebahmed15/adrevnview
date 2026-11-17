@@ -86,7 +86,7 @@ function organizationNode() {
     name: "Adrevnview",
     url: `${SITE}/`,
     logo: `${SITE}/logo.svg`,
-    email: "hello@adrevnview.com",
+    email: "inquiry@adrevnview.com",
     telephone: "+1-516-820-7863",
   };
 }
@@ -198,7 +198,7 @@ async function main() {
           {
             question: "How do I request a project quote?",
             answer:
-              "Fill out the contact form or email hello@adrevnview.com with your project scope, timeline, and budget range. We respond within one business day.",
+              "Fill out the contact form or email inquiry@adrevnview.com with your project scope, timeline, and budget range. We respond within one business day.",
           },
           {
             question: "Can I request a quote for printing and signage?",

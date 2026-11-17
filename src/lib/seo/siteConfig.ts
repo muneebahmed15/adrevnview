@@ -5,7 +5,8 @@ export const ORG = {
   legalName: "Adrevnview LLC",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
-  email: "hello@adrevnview.com",
+  email: "inquiry@adrevnview.com",
+  fallbackEmail: "adrevnview@gmail.com",
   phone: "+1-516-820-7863",
   phoneDisplay: "(516) 820-7863",
   phoneTel: "5168207863",
@@ -95,7 +96,7 @@ export const PAGES = {
     path: "/contact",
     title: "Contact Adrevnview — Request a Quote",
     description:
-      "Contact Adrevnview for custom web design, development, SEO, branding, and printing. Email hello@adrevnview.com or request a free consultation.",
+      "Contact Adrevnview for custom web design, development, SEO, branding, and printing. Email inquiry@adrevnview.com or request a free consultation.",
   },
   services: {
     path: "/services",
