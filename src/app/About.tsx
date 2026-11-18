@@ -1,77 +1,56 @@
 import { Link } from "react-router";
-import { ArrowUpRight } from "lucide-react";
-import { SiteLayout } from "./components/SiteLayout";
+import { SiteLayout } from "@/app/components/SiteLayout";
 import { SeoHead } from "@/components/seo/SeoHead";
+import { ORG, PAGES } from "@/lib/seo/siteConfig";
 
 export default function About() {
   return (
     <SiteLayout mainClassName="px-6 py-12">
-      <SeoHead
-        title="About Adrevnview LLC — Design, Development & SEO"
-        description="Meet Adrevnview’s approach to building connected websites, brands, and search strategies. Explore our work and how we collaborate remotely."
-        path="/about"
-      />
-      <div className="max-w-6xl mx-auto">
-        <p className="agency-eyebrow">Adrevnview LLC</p>
-        <h1>
-          Good design opens doors.
-          <br />
-          Good execution keeps them open.
+      <SeoHead title={PAGES.about.title} description={PAGES.about.description} path={PAGES.about.path} />
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-5xl font-extrabold tracking-tight mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          About Adrevnview
         </h1>
-        <div className="about-story">
-          <h2>A more connected way to build your business online.</h2>
-          <p>
-            We bring design, development, and search strategy into the same
-            conversation. Your website should explain what makes your business
-            valuable, help people find what they need, and give them a clear way
-            to act.
-          </p>
-        </div>
-        <div className="agency-process">
-          <article>
-            <h3>Start with your customers</h3>
-            <p>
-              We shape the structure and message around the people you want to
-              reach and the decisions they need to make.
+        <p className="text-foreground/80 text-lg leading-relaxed mb-10">
+          Adrevnview is a premium full-service digital agency. We design and build high-performance websites and product experiences for
+          growth-focused brands — with SEO and Generative Engine Optimization (GEO) built in from day one.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="rounded-2xl border border-sky-900/20 bg-card p-7">
+            <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>What we do</h2>
+            <ul className="space-y-2 text-foreground/80 text-sm leading-relaxed">
+              <li>Custom web design and conversion-focused UX</li>
+              <li>Full-stack development and integrations</li>
+              <li>Brand identity systems</li>
+              <li>SEO strategy and implementation</li>
+              <li>GEO: schema, content structure, and AI discoverability</li>
+              <li>Print and signage: menus, cards, letterheads, panaflex banners</li>
+            </ul>
+          </div>
+          <div className="rounded-2xl border border-sky-900/20 bg-card p-7">
+            <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>How we work</h2>
+            <p className="text-foreground/80 text-sm leading-relaxed">
+              We combine strategy, design, and engineering into one delivery flow. Every build ships with measurable foundations: clean
+              information architecture, performance, analytics-ready structure, and schema markup that helps search engines and AI systems
+              understand what you do.
             </p>
-          </article>
-          <article>
-            <h3>Make the work visible</h3>
-            <p>
-              Review the direction and designs as your project develops.
-              Understand the choices behind the experience.
-            </p>
-          </article>
-          <article>
-            <h3>Build for what comes next</h3>
-            <p>
-              Plan for mobile use, search discovery, and the content your
-              business will need as it grows.
-            </p>
-          </article>
-        </div>
-        <div className="about-story">
-          <h2>From a business website to a digital product.</h2>
-          <div>
-            <p>
-              Our portfolio spans service businesses, online stores, and
-              software platforms. Explore the project briefs and live websites
-              to see the scope of the work.
-            </p>
-            <Link className="agency-text-link mt-6" to="/work">
-              Explore our projects <ArrowUpRight size={18} />
-            </Link>
           </div>
         </div>
-        <div className="agency-cta">
-          <p className="agency-eyebrow">Working together, wherever you are</p>
-          <h2>Tell us where you want to go.</h2>
-          <p>
-            We collaborate remotely on website, SEO, branding, and print
-            projects.
+
+        <div className="mt-10 rounded-2xl border border-sky-900/20 bg-card p-7">
+          <h2 className="text-xl font-bold mb-3" style={{ fontFamily: "Manrope, sans-serif" }}>Contact</h2>
+          <p className="text-foreground/80 text-sm leading-relaxed">
+            Email: <a className="text-sky-300 hover:text-sky-200" href="mailto:hello@adrevnview.com">hello@adrevnview.com</a>
+            <br />
+            Phone: <a className="text-sky-300 hover:text-sky-200" href={`tel:${ORG.phoneTel}`}>{ORG.phoneDisplay}</a>
           </p>
-          <Link className="agency-button" to="/contact">
-            Start a conversation <ArrowUpRight size={18} />
+          <Link
+            to="/contact"
+            className="inline-block mt-4 px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-600 font-semibold text-sm"
+            style={{ fontFamily: "Manrope, sans-serif" }}
+          >
+            Request a consultation
           </Link>
         </div>
       </div>

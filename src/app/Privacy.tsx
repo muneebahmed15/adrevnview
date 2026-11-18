@@ -49,8 +49,8 @@ export default function Privacy() {
             <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "Manrope, sans-serif" }}>Contact</h2>
             <p>
               Privacy questions:{" "}
-              <a className="text-sky-300 hover:text-sky-200" href="mailto:inquiry@adrevnview.com">
-                inquiry@adrevnview.com
+              <a className="text-sky-300 hover:text-sky-200" href="mailto:hello@adrevnview.com">
+                hello@adrevnview.com
               </a>
             </p>
           </section>

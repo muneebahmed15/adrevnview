@@ -2,11 +2,10 @@ export const SITE_URL = "https://www.adrevnview.com";
 
 export const ORG = {
   name: "Adrevnview",
-  legalName: "Adrevnview LLC",
+  legalName: "Adrevnview",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.svg`,
-  email: "inquiry@adrevnview.com",
-  fallbackEmail: "adrevnview@gmail.com",
+  email: "hello@adrevnview.com",
   phone: "+1-516-820-7863",
   phoneDisplay: "(516) 820-7863",
   phoneTel: "5168207863",
@@ -42,7 +41,7 @@ export const ORG = {
 };
 
 export const DEFAULT_SEO = {
-  title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
+  title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
   description:
     "Adrevnview is a premium web design agency for B2B, B2C, and enterprise brands. Custom websites, branding, SEO, and Generative Engine Optimization (GEO) that drive measurable growth.",
   keywords:
@@ -52,9 +51,9 @@ export const DEFAULT_SEO = {
 export const PAGES = {
   home: {
     path: "/",
-    title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
+    title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
     description:
-      "Adrevnview builds custom websites and runs SEO, paid ads, and social campaigns. See live client work and our in-house Bagelzop ordering platform.",
+      "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing.",
   },
   googleNfc: {
     path: "/googlenfc",
@@ -96,7 +95,7 @@ export const PAGES = {
     path: "/contact",
     title: "Contact Adrevnview — Request a Quote",
     description:
-      "Contact Adrevnview for custom web design, development, SEO, branding, and printing. Email inquiry@adrevnview.com or request a free consultation.",
+      "Contact Adrevnview for custom web design, development, SEO, branding, and printing. Email hello@adrevnview.com or request a free consultation.",
   },
   services: {
     path: "/services",

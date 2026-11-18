@@ -11,7 +11,6 @@ import {
   BLOG_PAGES,
   CLIENT_PAGES,
   HOME_BODY,
-  MARKETING_BODIES,
   INDUSTRY_PAGES,
   PRINT_SERVICE_SLUGS,
   SERVICE_PAGES,
@@ -81,12 +80,12 @@ function replaceJsonLd(html, data) {
 
 function organizationNode() {
   return {
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": `${SITE}/#organization`,
     name: "Adrevnview",
     url: `${SITE}/`,
     logo: `${SITE}/logo.svg`,
-    email: "inquiry@adrevnview.com",
+    email: "hello@adrevnview.com",
     telephone: "+1-516-820-7863",
   };
 }
@@ -182,9 +181,9 @@ async function main() {
     baseHtml,
     "/",
     {
-      title: "Adrevnview — Web Design, SEO & Paid Ads | Long Island",
+      title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
       description:
-        "Adrevnview builds custom websites and runs SEO, paid ads, and social campaigns. See live client work and our in-house Bagelzop ordering platform.",
+        "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing on Long Island.",
     },
     HOME_BODY,
   );
@@ -197,7 +196,7 @@ async function main() {
           {
             question: "How do I request a project quote?",
             answer:
-              "Fill out the contact form or email inquiry@adrevnview.com with your project scope, timeline, and budget range. We respond within one business day.",
+              "Fill out the contact form or email hello@adrevnview.com with your project scope, timeline, and budget range. We respond within one business day.",
           },
           {
             question: "Can I request a quote for printing and signage?",
@@ -233,7 +232,7 @@ async function main() {
       baseHtml,
       route,
       { title: page.title, description: page.description },
-      MARKETING_BODIES[page.slug] ?? serviceBody(page),
+      serviceBody(page),
       serviceJsonLd(page, canonical),
     );
   }
