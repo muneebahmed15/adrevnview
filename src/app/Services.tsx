@@ -10,18 +10,17 @@ export default function Services() {
   return (
     <SiteLayout mainClassName="px-6 py-12">
       <SeoHead
-        title="Digital Agency Services | Adrevnview"
-        description="Full-service web design, development, SEO, GEO, branding, printing, and digital marketing for B2B, B2C, and enterprise brands on Long Island and nationwide."
+        title="Services: Websites, Print, Ads and Software | Adrevnview"
+        description="Everything a local business shows the public: website, Google listing, ads, print, signs and software. Based on Long Island, New York, working across the United States."
         path="/services"
       />
 
       <div className="max-w-7xl mx-auto">
-        <p className="text-sky-400 text-sm font-semibold tracking-widest uppercase mb-4">What We Do</p>
-        <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
-          Our Services
+                <h1 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6" style={{ fontFamily: "Manrope, sans-serif" }}>
+          Everything we make
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed mb-14 max-w-3xl" data-geo-chunk="summary">
-          Adrevnview is a full-service digital and print agency based on Long Island, New York. From custom web design and React development to SEO, GEO, brand identity, and printing — menus, business cards, letterheads, brochures, and panaflex banners — every engagement ships with brand consistency across screens and paper.
+          Adrevnview is one shop for a local business, based on Long Island, New York. We make the website, look after the Google listing, run the ads, and design and print the menus, cards, flyers and banners, so everything matches on screen and on paper.
         </p>
 
         {Object.entries(FOOTER_LINKS).map(([category, links]) => (
@@ -61,8 +60,8 @@ export default function Services() {
 
         <p className="text-muted-foreground text-sm">
           Not sure where to start?{" "}
-          <Link to="/contact" className="text-sky-400 hover:text-sky-300">
-            Request a free consultation
+          <Link to="/#quote" className="text-sky-400 hover:text-sky-300">
+            Get a quote
           </Link>
         </p>
       </div>

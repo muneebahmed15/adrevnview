@@ -117,7 +117,7 @@ export default function SeoReport() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground" style={{ fontFamily: "Inter, sans-serif" }}>
+    <div className="min-h-screen bg-background text-foreground">
       <SeoHead
         title="Free SEO & GEO Report Generator | Adrevnview"
         description="Analyze any URL for SEO and Generative Engine Optimization. 45+ checks across Google, ChatGPT, Perplexity, Claude, and Gemini readiness."

@@ -19,7 +19,6 @@ export const ORG = {
     addressCountry: "US",
   },
   sameAs: [
-    "https://github.com/muneebahmed15/adrevnview",
     "https://www.linkedin.com/company/adrevnview",
     "https://twitter.com/adrevnview",
   ],
@@ -66,9 +65,9 @@ export const PAGES = {
   },
   about: {
     path: "/about",
-    title: "About Adrevnview — Web Design, SEO & GEO Agency",
+    title: "About Adrevnview | One Shop for Local Businesses",
     description:
-      "Learn about Adrevnview: a premium agency delivering custom web design, development, branding, SEO, GEO, and printing.",
+      "Adrevnview makes websites, print, ads, motion video and software for local businesses. Based in Garden City, Long Island, New York.",
   },
   privacy: {
     path: "/privacy",

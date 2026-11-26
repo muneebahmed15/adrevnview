@@ -1,0 +1,431 @@
+/* Shared look for the inner pages (services, about, contact, blog and the rest).
+   It matches the homepage: paper background, ink text, night header, sign-yellow buttons. */
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap");
+
+.nxi {
+  --nxi-paper: #f3f6f9;
+  --nxi-ink: #0a1b2e;
+  --nxi-night: #050d17;
+  --nxi-soft: #44576b;
+  --nxi-mist: #a9bccf;
+  --nxi-line: #cfd8e2;
+  --nxi-rule: #24384d;
+  --nxi-blue: #0b6fd0;
+  --nxi-blue-deep: #084f96;
+  --nxi-sign: #ffcb1f;
+  --nxi-display: "Bricolage Grotesque", "Arial Narrow", sans-serif;
+  --nxi-body: "Hanken Grotesk", system-ui, sans-serif;
+  --nxi-pad: clamp(1.25rem, 4vw, 3.5rem);
+
+  /* The older pages read these names, so the new colours flow through. */
+  --background: var(--nxi-paper);
+  --foreground: var(--nxi-ink);
+  --card: #ffffff;
+  --card-foreground: var(--nxi-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--nxi-ink);
+  --primary: var(--nxi-blue);
+  --primary-foreground: #ffffff;
+  --secondary: #e6edf4;
+  --secondary-foreground: var(--nxi-ink);
+  --muted: #e6edf4;
+  --muted-foreground: var(--nxi-soft);
+  --accent: var(--nxi-sign);
+  --accent-foreground: var(--nxi-ink);
+  --border: var(--nxi-line);
+  --input: #ffffff;
+  --input-background: #ffffff;
+  --ring: var(--nxi-blue);
+  --brand: var(--nxi-blue);
+  --brand-light: #3b8fe0;
+  --brand-dark: var(--nxi-blue-deep);
+  --brand-glow: rgba(11, 111, 208, 0.18);
+  --card-shadow: 0 1px 0 rgba(10, 27, 46, 0.04), 0 14px 32px -20px rgba(10, 27, 46, 0.28);
+
+  min-height: 100vh;
+  background: var(--nxi-paper);
+  color: var(--nxi-ink);
+  font-family: var(--nxi-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.nxi,
+.nxi [style*="Inter"] {
+  font-family: var(--nxi-body) !important;
+}
+
+.nxi h1,
+.nxi h2,
+.nxi h3,
+.nxi h4,
+.nxi [style*="Manrope"] {
+  font-family: var(--nxi-display) !important;
+  letter-spacing: -0.02em;
+}
+
+.nxi main h1 {
+  font-weight: 800;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.nxi main h1,
+.nxi main h2,
+.nxi main h3 {
+  color: var(--nxi-ink);
+}
+
+/* Small labels above headings: plain case, not shouted. */
+.nxi main .uppercase {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* Old sky-blue classes, pointed at the new colours. */
+.nxi main [class*="text-sky-"] {
+  color: var(--nxi-blue-deep);
+}
+.nxi main a[class*="text-sky-"]:hover {
+  color: var(--nxi-blue);
+  text-decoration: underline;
+}
+.nxi main [class*="text-emerald-"] {
+  color: #0f7a4d;
+}
+.nxi main [class*="text-amber-"] {
+  color: #9a6400;
+}
+.nxi main [class*="border-sky-"] {
+  border-color: var(--nxi-line);
+}
+.nxi main [class*="bg-sky-9"],
+.nxi main [class*="from-sky-9"] {
+  background-image: none;
+  background-color: #e6edf4;
+}
+.nxi main [class*="bg-sky-6"] {
+  background-color: var(--nxi-blue);
+  color: #fff;
+}
+.nxi main .bg-card {
+  box-shadow: var(--card-shadow);
+}
+
+/* Main buttons: sign yellow with ink text, like the homepage. */
+.nxi main [class*="from-sky-6"],
+.nxi main [class*="from-sky-5"],
+.nxi main [class*="from-sky-4"]:not(.bg-clip-text),
+.nxi main .brand-gradient {
+  background-image: none;
+  background-color: var(--nxi-sign);
+  color: var(--nxi-ink) !important;
+  border-radius: 0.5rem;
+  font-family: var(--nxi-body) !important;
+  font-weight: 700;
+  letter-spacing: 0;
+  box-shadow: none;
+}
+.nxi main [class*="from-sky-6"]:hover,
+.nxi main [class*="from-sky-5"]:hover,
+.nxi main .brand-gradient:hover {
+  background-color: #ffd84d;
+}
+.nxi main .brand-gradient-text {
+  background-image: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--nxi-blue-deep);
+}
+
+.nxi main input,
+.nxi main textarea,
+.nxi main select {
+  background: #fff;
+  border: 1.5px solid var(--nxi-line);
+  border-radius: 0.5rem;
+  color: var(--nxi-ink);
+  font: 500 1rem var(--nxi-body);
+}
+.nxi main input:focus-visible,
+.nxi main textarea:focus-visible,
+.nxi main select:focus-visible,
+.nxi a:focus-visible,
+.nxi button:focus-visible {
+  outline: 3px solid var(--nxi-blue);
+  outline-offset: 2px;
+}
+
+/* ---------- Header ---------- */
+.nxi-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.7rem var(--nxi-pad);
+  background: color-mix(in srgb, var(--nxi-night) 92%, transparent);
+  backdrop-filter: blur(14px);
+  color: #fff;
+}
+.nxi-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #fff;
+  font: 800 1.25rem var(--nxi-display);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+.nxi-header nav {
+  display: flex;
+  gap: 1.6rem;
+  margin-left: auto;
+}
+.nxi-header nav a,
+.nxi-header-phone {
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.98rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nxi-header nav a:hover,
+.nxi-header nav a[aria-current="page"],
+.nxi-header-phone:hover {
+  color: var(--nxi-sign);
+}
+.nxi-header-phone {
+  font-weight: 700;
+}
+.nxi-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.6rem;
+  padding: 0 1.1rem;
+  border-radius: 0.5rem;
+  background: var(--nxi-sign);
+  color: var(--nxi-ink);
+  font: 700 0.98rem var(--nxi-body);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nxi-cta:hover {
+  background: #ffd84d;
+}
+.nxi-menu-button {
+  display: none;
+  margin-left: auto;
+  min-height: 2.6rem;
+  padding: 0 0.9rem;
+  border: 1.5px solid var(--nxi-rule);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: #fff;
+  font: 700 0.95rem var(--nxi-body);
+  cursor: pointer;
+}
+
+/* ---------- Page body ---------- */
+.nxi-main {
+  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+  min-height: 60vh;
+}
+
+/* ---------- Closing band and footer ---------- */
+.nxi-band {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--nxi-pad);
+  background: var(--nxi-sign);
+  color: var(--nxi-ink);
+}
+.nxi-band h2 {
+  margin: 0;
+  font: 800 clamp(1.6rem, 3.4vw, 2.6rem) / 1.05 var(--nxi-display);
+  max-width: 22ch;
+}
+.nxi-band p {
+  margin: 0.5rem 0 0;
+  max-width: 46ch;
+}
+.nxi-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.nxi-band-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--nxi-ink);
+  font: 700 1.05rem var(--nxi-body);
+  color: var(--nxi-ink);
+  text-decoration: none;
+}
+.nxi-band-actions a:first-child {
+  background: var(--nxi-ink);
+  color: #fff;
+}
+
+.nxi-footer {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 2rem;
+  padding: 3rem var(--nxi-pad) 2rem;
+  background: var(--nxi-night);
+  color: var(--nxi-mist);
+  font-size: 0.98rem;
+}
+.nxi-footer strong {
+  display: block;
+  margin-bottom: 0.6rem;
+  color: #fff;
+  font: 800 1.2rem var(--nxi-display);
+}
+.nxi-footer h2 {
+  margin: 0 0 0.7rem;
+  color: #fff;
+  font: 700 1rem var(--nxi-body) !important;
+  letter-spacing: 0;
+}
+.nxi-footer address {
+  font-style: normal;
+}
+.nxi-footer a {
+  display: block;
+  padding: 0.2rem 0;
+  color: var(--nxi-mist);
+  text-decoration: none;
+}
+.nxi-footer a:hover {
+  color: var(--nxi-sign);
+}
+.nxi-footer-end {
+  grid-column: 1 / -1;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--nxi-rule);
+  font-size: 0.9rem;
+}
+
+/* ---------- Contact form ---------- */
+.nxi-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1.5px solid var(--nxi-line);
+  border-radius: 0.75rem;
+  box-shadow: var(--card-shadow);
+}
+.nxi-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+.nxi-form input,
+.nxi-form textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+}
+.nxi-form-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.nxi-form button {
+  min-height: 3.25rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: var(--nxi-sign);
+  color: var(--nxi-ink);
+  font: 700 1.05rem var(--nxi-body);
+  cursor: pointer;
+}
+.nxi-form button:hover {
+  background: #ffd84d;
+}
+.nxi-form button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.nxi-form-problem {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  background: #fde8e6;
+  color: #8a1c12;
+  font-weight: 600;
+}
+.nxi-form-done {
+  padding: 1.5rem;
+  background: var(--nxi-ink);
+  color: #fff;
+  border-radius: 0.75rem;
+}
+.nxi-form-done h2 {
+  margin: 0 0 0.5rem;
+  color: #fff !important;
+}
+.nxi-hide {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  .nxi-header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .nxi-header nav,
+  .nxi-header-phone,
+  .nxi-header .nxi-cta {
+    display: none;
+  }
+  .nxi-menu-button {
+    display: inline-flex;
+    align-items: center;
+  }
+  .nxi-header.is-open nav {
+    display: grid;
+    width: 100%;
+    margin: 0;
+    gap: 0;
+    order: 5;
+  }
+  .nxi-header.is-open nav a {
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--nxi-rule);
+    font-size: 1.1rem;
+  }
+  .nxi-header.is-open .nxi-header-phone,
+  .nxi-header.is-open .nxi-cta {
+    display: inline-flex;
+    order: 6;
+  }
+  .nxi-footer {
+    grid-template-columns: 1fr 1fr;
+  }
+  .nxi-form-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nxi * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

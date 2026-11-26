@@ -138,6 +138,14 @@ export default function NextHome() {
     return () => document.documentElement.classList.remove("nx-root");
   }, []);
 
+  // Arriving from another page with a link like /#quote: go to that part of the page.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+    const timer = window.setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "instant" as ScrollBehavior }), 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   // Count taps on the phone number and the email address, so ads can be judged by calls.
   useEffect(() => {
     function onClick(event: MouseEvent) {
