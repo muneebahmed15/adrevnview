@@ -1,65 +1,95 @@
+import { readFileSync } from "node:fs";
 /** Static HTML bodies for crawlers — mirrors React page content for SEO/GEO. */
+
+export const HOME_FAQ = JSON.parse(
+  readFileSync(new URL("../src/app/next/faq.json", import.meta.url), "utf8"),
+).map((item) => ({ question: item.q, answer: item.a }));
+
+export const HOME_TITLE = "Adrevnview | Websites, Print, Ads and Software for Local Businesses";
+export const HOME_DESCRIPTION =
+  "One shop for your website, Google listing, print, TV boards, ads, motion video and software. Based on Long Island, New York, working across the United States.";
+
+function esc(value) {
+  return value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
 
 export const HOME_BODY = `
 <main>
   <nav aria-label="Primary">
-    <a href="/">Home</a> · <a href="/about">About</a> · <a href="/work">Work</a> ·
-    <a href="/contact">Contact</a> · <a href="/services">Services</a> ·
-    <a href="/services/printing-services">Print &amp; Signage</a> ·
-    <a href="/geo-report">GEO Report</a>
+    <a href="/">Home</a> · <a href="/services">Services</a> ·
+    <a href="/services/printing-services">Print</a> · <a href="/about">About</a> ·
+    <a href="/blog">Blog</a> · <a href="/contact">Contact</a> ·
+    <a href="/geo-report">Free website check</a>
   </nav>
   <article>
-    <h1>Premium Web Design Agency</h1>
-    <p>Long Island custom websites, SEO, and print &amp; signage for B2B, B2C, and enterprise brands.</p>
-    <p data-geo-chunk="summary">Adrevnview is a Long Island, New York agency that designs custom websites and produces print and signage — restaurant menus, business cards, and panaflex banners — alongside branding, SEO, and Generative Engine Optimization (GEO) for B2B, B2C, and enterprise brands. We craft brand strategy, conversion-focused sites, and physical brand materials that drive measurable growth.</p>
+    <h1 data-speakable="true">Everything your business shows the street.</h1>
+    <p data-geo-chunk="summary" data-speakable="true">Adrevnview is one shop for a local business. We make the website, the Google listing, the menus and print, the TV boards, the ads, the motion videos and the software. Our shop is in Garden City, on Long Island, New York. Most of our work is in New York, and we work with businesses across the United States.</p>
+    <p>Call <a href="tel:5168207863">(516) 820-7863</a> or email <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a>. Address: 1225 Franklin Ave, Suite 300, Garden City, NY 11530.</p>
     <section>
-      <h2>Our Services</h2>
-      <p>Adrevnview delivers end-to-end digital and print services designed to help growth-focused brands win in search engines, AI assistants, and the real world.</p>
+      <h2>Who we work with</h2>
       <ul>
-        <li><a href="/services/custom-web-design">Custom Web Design</a> — Bespoke, conversion-focused designs built around your brand strategy.</li>
-        <li><a href="/services/react-development">Web Development &amp; Integrations</a> — Full-stack development with CRM, ERP, and API integrations.</li>
-        <li><a href="/services/shopify-development">eCommerce Design &amp; Development</a> — High-performance online stores that convert browsers into buyers.</li>
-        <li><a href="/services/brand-identity">Branding &amp; Brand Identity</a> — Logos, visual systems, and brand guidelines for enterprise brands.</li>
-        <li><a href="/services/seo-services">SEO &amp; Digital Marketing</a> — Data-driven campaigns that compound organic traffic and maximize ROI.</li>
-        <li><a href="/services/printing-services">Print &amp; Signage</a> — Restaurant menus, business cards, letterheads, brochures, and panaflex banners.</li>
-        <li><a href="/services/website-redesign">Website Redesign</a> — Strategic redesigns that modernize your presence without losing SEO equity.</li>
-      </ul>
-      <p>Print URLs: <a href="/services/printing-services">printing services</a> · <a href="/services/business-card-printing">business cards</a> · <a href="/services/letterhead-printing">letterhead</a> · <a href="/services/restaurant-menu-printing">restaurant menus</a> · <a href="/services/brochure-and-flyer-printing">brochures &amp; flyers</a> · <a href="/services/panaflex-and-banner-advertising">panaflex &amp; banners</a></p>
-    </section>
-    <section>
-      <h2>Industries We Serve</h2>
-      <p>We design and build for regulated and competitive verticals where trust, clarity, and performance matter.</p>
-      <ul>
-        <li><a href="/industries/healthcare">Healthcare</a></li>
-        <li><a href="/industries/ecommerce">eCommerce &amp; Retail</a></li>
-        <li><a href="/industries/manufacturing">Manufacturing</a></li>
-        <li><a href="/industries/real-estate">Real Estate</a></li>
-        <li><a href="/industries/legal">Legal Services</a></li>
-        <li><a href="/industries/financial">Financial Services</a></li>
-        <li><a href="/industries/technology">Technology &amp; SaaS</a></li>
+        <li>Restaurants</li>
+        <li>Bagel shops and delis</li>
+        <li>Dessert shops and cafés</li>
+        <li>Gyms and academies</li>
+        <li>Barbershops and salons</li>
+        <li>Clinics and med spas</li>
+        <li>Stores</li>
       </ul>
     </section>
     <section>
-      <h2>Why Adrevnview</h2>
-      <p>With 12+ years in business and 10+ live client platforms, Adrevnview combines strategy, design, and engineering into one delivery flow. Every build ships with clean information architecture, performance optimization, analytics-ready structure, and schema markup that helps search engines and AI systems understand what you do. We maintain a 5-star client rating.</p>
-      <p>Our process covers web strategy, planning and information architecture, messaging, wireframes, design and development, QA and testing, and launch with ongoing SEO and GEO optimization. Contact us at <a href="mailto:hello@adrevnview.com">hello@adrevnview.com</a> or visit <a href="/contact">our contact page</a> to request a free consultation.</p>
+      <h2>What we do</h2>
+      <h3>Websites</h3>
+      <ul>
+        <li><a href="/services/custom-web-design">Business website</a>: a site designed around your business, built to load fast on a phone.</li>
+        <li><a href="/services/website-redesign">Website rebuild</a>: a new site that keeps the Google traffic the old one earned.</li>
+        <li><a href="/services/landing-page-design">Landing page</a>: one page for one offer, made to pair with an ad.</li>
+        <li><a href="/services/shopify-development">Online store</a>: sell and take payment online.</li>
+      </ul>
+      <h3>Google and AI search</h3>
+      <ul>
+        <li><a href="/services/seo-services">Search engine work</a>: help Google show your pages to people nearby.</li>
+        <li>Google listing care: the box that shows your hours, photos and reviews on Google and Maps.</li>
+        <li>AI search setup: make sure ChatGPT, Gemini and others read your business correctly.</li>
+        <li><a href="/geo-report">Free website check</a>: type your address and see what Google and AI tools can read.</li>
+      </ul>
+      <h3>Ads and social</h3>
+      <ul>
+        <li><a href="/services/ppc-advertising">Paid ads</a>: Google, Facebook and Instagram ads, each with its own page.</li>
+        <li><a href="/services/social-media-marketing">Social media</a>: posts and short videos made from your real work.</li>
+        <li>Motion videos: animated ads, moving menu boards and logo animations.</li>
+        <li><a href="/services/email-marketing">Email</a>: keep past customers coming back.</li>
+      </ul>
+      <h3>Print and screens</h3>
+      <ul>
+        <li>TV menu boards: your menu or prices on the screens behind the counter.</li>
+        <li><a href="/services/restaurant-menu-printing">Restaurant menus</a>: dine-in and takeout, designed and printed.</li>
+        <li><a href="/services/business-card-printing">Business cards</a>: printed and delivered.</li>
+        <li><a href="/services/brochure-and-flyer-printing">Flyers</a> and <a href="/services/panaflex-and-banner-advertising">banners</a>: designed, printed and ready to hang.</li>
+        <li><a href="/services/letterhead-printing">Letterheads</a>, stickers, labels and packaging.</li>
+        <li><a href="/services/brand-identity">Logo and brand</a>: a logo, colors and lettering that match on screen and on paper.</li>
+      </ul>
+      <h3>Software we built</h3>
+      <ul>
+        <li><a href="https://matzop.com">Matzop</a> for gyms and academies: memberships, payments, class schedule and attendance.</li>
+        <li><a href="https://cutzop.com">Cutzop</a> for barbershops and salons: walk-in check-in on a kiosk and a live chair queue.</li>
+        <li><a href="https://doczop.com">Doczop</a> for clinics: one board for several doctors, front desk and rooms.</li>
+        <li><a href="https://taxzop.com">Taxzop</a> for small US businesses: sales tax books by state, payroll and pay stubs.</li>
+        <li>Bagelzop for bagel shops: a customer ordering page, a kitchen screen and an owner dashboard.</li>
+      </ul>
     </section>
     <section>
-      <h2>Frequently Asked Questions</h2>
-      <h3>What is Adrevnview?</h3>
-      <p>Adrevnview is a premium full-service agency specializing in custom web design, web development, branding, SEO, Generative Engine Optimization (GEO), and printing for B2B, B2C, and enterprise brands.</p>
-      <h3>What is Generative Engine Optimization (GEO)?</h3>
-      <p>GEO is the practice of structuring website content, metadata, and schema markup so AI assistants like ChatGPT, Perplexity, and Gemini can accurately understand, cite, and recommend your brand and services.</p>
-      <h3>What services does Adrevnview offer?</h3>
-      <p>Adrevnview offers custom web design, full-stack development, eCommerce design, brand identity systems, SEO, digital marketing, website redesigns, GEO, and printing — including restaurant menus, business cards, letterheads, brochures, and panaflex outdoor banners.</p>
-      <h3>Does Adrevnview design websites and print menus on Long Island?</h3>
-      <p>Yes. Adrevnview is based on Long Island, New York. We design custom websites and produce restaurant menus, business cards, letterheads, brochures, and panaflex banners for local shops and national brands.</p>
-      <h3>How long does a custom website take, and what do projects cost?</h3>
-      <p>Most custom website design projects run 4–8 weeks depending on scope, page count, and feedback cycles. Website, branding, and print work is quoted from a brief. The Google NFC Review Card is a $99 one-time product. Request a quote at <a href="/contact">/contact</a>.</p>
-      <h3>Do you build Shopify stores and React websites?</h3>
-      <p>Yes. We design and develop Shopify and Shopify Plus storefronts, and we build React marketing sites and applications (Vite or Next.js when the project needs it) with SEO-friendly rendering.</p>
-      <h3>How do I contact Adrevnview?</h3>
-      <p>Contact Adrevnview at hello@adrevnview.com or (516) 820-7863. Request a free consultation at <a href="/contact">https://www.adrevnview.com/contact</a>.</p>
+      <h2>Packages</h2>
+      <ul>
+        <li>Open the doors: from $1,500, one time. For a new business, or one starting over.</li>
+        <li>Get found: from $500 a month. For a business that is open and wants more people to find it.</li>
+        <li>Fill the room: from $1,000 a month, plus your ad budget. For a business ready to pay for more customers.</li>
+      </ul>
+      <p>Your exact price comes in writing after a short talk, before any work starts. <a href="/#quote">Build your order</a>.</p>
+    </section>
+    <section>
+      <h2>Questions people ask</h2>
+      ${HOME_FAQ.map((item) => `<h3>${esc(item.question)}</h3>\n      <p>${esc(item.answer)}</p>`).join("\n      ")}
     </section>
   </article>
 </main>`;

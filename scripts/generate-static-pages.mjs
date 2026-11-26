@@ -11,6 +11,9 @@ import {
   BLOG_PAGES,
   CLIENT_PAGES,
   HOME_BODY,
+  HOME_DESCRIPTION,
+  HOME_FAQ,
+  HOME_TITLE,
   INDUSTRY_PAGES,
   PRINT_SERVICE_SLUGS,
   SERVICE_PAGES,
@@ -85,8 +88,53 @@ function organizationNode() {
     name: "Adrevnview",
     url: `${SITE}/`,
     logo: `${SITE}/logo.svg`,
+    image: `${SITE}/og-cover.svg`,
+    description:
+      "One shop for a local business: websites, Google listing, print, TV menu boards, ads, motion video and software.",
     email: "hello@adrevnview.com",
     telephone: "+1-516-820-7863",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1225 Franklin Ave, Suite 300",
+      addressLocality: "Garden City",
+      addressRegion: "NY",
+      postalCode: "11530",
+      addressCountry: "US",
+    },
+    areaServed: ["Long Island", "New York", "United States"],
+  };
+}
+
+function homeJsonLd() {
+  const canonical = `${SITE}/`;
+  const service = (name, description) => ({
+    "@type": "Service",
+    name,
+    description,
+    provider: { "@id": `${SITE}/#organization` },
+    areaServed: ["Long Island", "New York", "United States"],
+  });
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE}/#website`,
+        name: "Adrevnview",
+        url: canonical,
+        description: HOME_DESCRIPTION,
+        inLanguage: "en-US",
+        publisher: { "@id": `${SITE}/#organization` },
+      },
+      organizationNode(),
+      webpageNode(canonical, HOME_TITLE, HOME_DESCRIPTION),
+      service("Websites", "Business websites, rebuilds, landing pages and online stores, built to load fast on a phone."),
+      service("Google and AI search", "Search engine work, Google Business Profile care and setup so AI tools read the business correctly."),
+      service("Ads and social media", "Google, Facebook and Instagram ads, social posts, short videos, motion videos and email."),
+      service("Print and screens", "TV menu boards, restaurant menus, business cards, flyers, banners, letterheads, stickers, labels and packaging."),
+      service("Software", "Ordering, booking, check-in and membership software for restaurants, gyms, barbershops and clinics."),
+      faqNode(HOME_FAQ),
+    ],
   };
 }
 
@@ -180,12 +228,9 @@ async function main() {
   await writeRoute(
     baseHtml,
     "/",
-    {
-      title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
-      description:
-        "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing on Long Island.",
-    },
+    { title: HOME_TITLE, description: HOME_DESCRIPTION },
     HOME_BODY,
+    homeJsonLd(),
   );
 
   for (const page of STATIC_PAGES) {

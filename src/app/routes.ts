@@ -1,7 +1,6 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
 import { lazy } from "react";
 
-const MainSite = lazy(() => import("./MainSite"));
 const GoogleNFC = lazy(() => import("./GoogleNFC"));
 const About = lazy(() => import("./About"));
 const Privacy = lazy(() => import("./Privacy"));
@@ -16,6 +15,7 @@ const BlogPost = lazy(() => import("./BlogPost"));
 const Contact = lazy(() => import("./Contact"));
 const IndustryPage = lazy(() => import("./IndustryPage"));
 const ClientDetail = lazy(() => import("./ClientDetail"));
+const NextHome = lazy(() => import("./next/NextHome"));
 
 const AdminLayout = lazy(() => import("./admin/AdminLayout"));
 const AdminIndexRedirect = lazy(() =>
@@ -32,7 +32,12 @@ const AdminSettings = lazy(() => import("./admin/AdminSettings"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: MainSite,
+    Component: NextHome,
+  },
+  {
+    // Old preview address. Send anyone who saved it to the real homepage.
+    path: "/next",
+    loader: ({ request }) => redirect(`/${new URL(request.url).search}`),
   },
   {
     path: "/googlenfc",

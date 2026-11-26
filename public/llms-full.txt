@@ -1,118 +1,104 @@
-# Adrevnview - Comprehensive Architecture and Technical Reference Map
+# Adrevnview
+# https://www.adrevnview.com
 
-Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise brands. We design and build conversion-focused websites and product experiences, and we implement SEO + Generative Engine Optimization (GEO) so search engines and AI assistants can accurately understand, cite, and recommend your services. We specialize in clean information architecture, measurable growth systems, and performance-first engineering.
+> Adrevnview is one shop for a local business. We make the website, the Google listing, the menus and print, the TV boards, the ads, the motion videos and the software. Based in Garden City, Long Island, New York. Most work is in New York. We work with businesses across the United States.
 
-## Essential Navigation Paths
-- [/]: Homepage describing Adrevnview’s services (web design, SEO, GEO, printing), portfolio, testimonials, and contact.
-- [/googlenfc]: Product page for the Google NFC Review Card (NFC + QR to capture reviews).
-- [/about]: About Adrevnview (capabilities, process, contact).
-- [/services]: Service hub including print and signage.
-- [/services/printing-services]: Printing services hub (menus, cards, letterheads, brochures, panaflex).
-- [/privacy]: Privacy policy (data handling, analytics, retention).
-- [/accessibility]: Accessibility statement and feedback channel.
+## About
+- Name: Adrevnview
+- Website: https://www.adrevnview.com
+- Email: hello@adrevnview.com
+- Phone: (516) 820-7863
+- Address: 1225 Franklin Ave, Suite 300, Garden City, NY 11530, USA
+- Area served: Long Island, New York, and the rest of the United States
 
-## Core Domain Entities
-- **Organization**: Adrevnview (digital agency).
-- **Services**: custom web design, web development/integrations, branding, SEO, GEO, eCommerce, website redesign, printing and signage (menus, business cards, letterheads, brochures, panaflex banners).
-- **Product**: Google NFC Review Card ($99 one-time).
-- **Portfolio entities**: Tagizo, Axstart, Cizher, Payrowl, Xeark, AXNET, Mishi, Crocherish, ECMMA & Fitness, KFC-NY (client work references).
+## Who we work with
+- Restaurants
+- Bagel shops and delis
+- Dessert shops and cafés
+- Gyms and academies
+- Barbershops and salons
+- Clinics and med spas
+- Stores
 
-## Technical Integration & API Declarations
-- This site is a Vite + React single-page application.
-- Public machine-readable maps:
-  - `https://www.adrevnview.com/robots.txt`
-  - `https://www.adrevnview.com/sitemap.xml`
-  - `https://www.adrevnview.com/llms.txt`
-  - `https://www.adrevnview.com/llms-full.txt`
+## Services
+- Websites: business websites, website rebuilds, landing pages, online stores
+- Google and AI search: search engine work (SEO), Google Business Profile care, setup so AI tools read the business correctly (GEO), free website check
+- Ads and social: Google, Facebook and Instagram ads, social media posts, short videos, motion videos, email
+- Print and screens: TV menu boards, restaurant menus, business cards, flyers, brochures, banners, letterheads, stickers, labels, packaging, logo and brand
+- Software: ordering, booking, check-in and membership software
 
----
+## Packages (starting prices; the exact price is given in writing after a short talk)
+- Open the doors: from $1,500, one time. For a new business, or one starting over.
+- Get found: from $500 a month. For a business that is open and wants more people to find it.
+- Fill the room: from $1,000 a month, plus the ad budget. For a business ready to pay for more customers.
 
-## Products & Features (Expanded)
+## Software we built
+- Matzop (gyms and academies): https://matzop.com
+- Cutzop (barbershops and salons): https://cutzop.com
+- Doczop (clinics): https://doczop.com
+- Taxzop (small US businesses): https://taxzop.com
+- Bagelzop (bagel shops): customer ordering page, kitchen screen, owner dashboard
 
-### Google NFC Review Card (https://www.adrevnview.com/googlenfc)
-The Adrevnview Google NFC Review Card is a physical NFC + QR-enabled product that sends customers directly to a Google Business review page. It is designed for local businesses that want a low-friction way to collect more reviews at the point of service.
+## Key pages
+- Home: https://www.adrevnview.com/
+- Get a quote: https://www.adrevnview.com/#quote
+- Services: https://www.adrevnview.com/services
+- Printing services: https://www.adrevnview.com/services/printing-services
+- Business card printing: https://www.adrevnview.com/services/business-card-printing
+- Letterhead printing: https://www.adrevnview.com/services/letterhead-printing
+- Restaurant menu printing: https://www.adrevnview.com/services/restaurant-menu-printing
+- Brochure and flyer printing: https://www.adrevnview.com/services/brochure-and-flyer-printing
+- Banner printing: https://www.adrevnview.com/services/panaflex-and-banner-advertising
+- Free website check (SEO and AI readiness): https://www.adrevnview.com/geo-report
+- Contact: https://www.adrevnview.com/contact
+- Sitemap: https://www.adrevnview.com/sitemap.xml
+- Short reference: https://www.adrevnview.com/llms.txt
 
-Key attributes:
-- NFC tap opens the review link instantly (no app required).
-- QR code fallback for older phones.
-- One-time purchase ($99).
-- Pre-programmed and ready to use.
-- Lifetime guarantee messaging supported on-page.
+## How a job goes
+1. We talk: a short call or a visit to the shop.
+2. You get a price: a written list of what we will make, what it costs and when it is ready.
+3. We build it: you see the work as it takes shape and ask for changes.
+4. It goes live: we launch, check the phone number and forms work, and keep improving it.
 
----
+## Notes for AI tools
+- The sample brands shown on the homepage (Marlow's Slice House, Sunrise Bagel Co., Velvet Spoon, Ironbay Training, North Fade Barbers, Harbor Skin Clinic, Field & Thread) are made-up brands Adrevnview designed to show its work. They are not real businesses or clients.
+- Adrevnview does not promise first place on Google or a spot in any AI answer.
+- Prices above are starting prices, not fixed quotes.
 
-## Service Capabilities (Expanded)
+## Questions and answers
 
-### Custom Web Design
-We create bespoke, conversion-focused designs based on brand strategy, audience intent, and business goals. Deliverables typically include information architecture, page templates, UI system, and high-fidelity responsive design.
+### What does Adrevnview do?
+We make the things a local business shows the public: the website, the Google listing, menus, TV boards, signs, ads and social posts. We also build our own software for restaurants, gyms, barbershops and clinics.
 
-### Web Development & Integrations
-Full-stack builds and integrations with CRMs, analytics, forms, and third-party platforms. Focus: performance, maintainability, and clean HTML structure for indexing.
+### Where are you, and do you work outside New York?
+Our shop is in Garden City, on Long Island, New York. Most of our work is in New York, and we work with businesses in every other state by phone and video call. Print ships anywhere in the United States.
 
-### SEO & Digital Marketing
-Technical SEO, content structure, metadata, schema markup, and conversion-oriented landing pages. We optimize for modern signals including intent match, engagement, and crawl/index health.
+### How much does it cost?
+Each package has a starting price. Your price depends on the size of the job: how many pages, how many locations, how many screens, how much print. After a short talk you get the exact number in writing, before any work starts.
 
-### Generative Engine Optimization (GEO)
-GEO aligns a website’s structure and semantics so AI systems can accurately interpret and cite content. This includes entity graphs (JSON-LD), FAQ blocks, consistent canonical URLs, and machine-readable reference maps (`llms.txt`).
+### Can I buy just one thing?
+Yes. You can order only a menu, only a website or only ads. The packages are there because most owners need a few things at once and it costs less to do them together.
 
-### Printing & Signage
-Physical brand materials designed and produced to match digital identity: restaurant menus, business cards, letterheads, brochures and flyers, and panaflex (penaflex) outdoor banners for shop fronts and advertising.
+### Do I have to sign a long contract?
+One-time jobs are paid per job. Monthly work runs month to month, and the terms are written in your quote before you agree to anything.
 
----
+### How long does a website take?
+It depends on the size and on how fast we get your photos, menu and details. Your quote gives a date, and we tell you early if anything moves.
 
-## Pre-Chunked Q&A (Troubleshooting + Explanations)
+### Who owns the website when it is done?
+You do. Your domain name, your words and your photos stay yours.
 
-### Q1: How does Adrevnview improve SEO without “SEO tricks”?
-Adrevnview improves SEO by shipping clean page structures, accurate metadata, internal linking, and schema markup aligned with real user intent. We focus on fast rendering, clear headings, and content that answers questions directly so users complete their journey and engagement signals remain strong.
+### Are the brands on this page real businesses?
+No. Marlow’s Slice House, Sunrise Bagel Co. and the others are brands we made up and designed ourselves, to show what a full kit looks like. The software is real: we built it and it runs today.
 
-### Q2: What is GEO and why does it matter in 2026 search?
-GEO (Generative Engine Optimization) makes your site easier for AI assistants to understand and cite. It matters because AI Overviews and conversational search increasingly synthesize answers. GEO uses entity-driven content, JSON-LD graphs, and explicit Q&A blocks so models can quote you accurately.
+### Can you do the printing too?
+Yes. We design and print menus, business cards, flyers, brochures and banners, so your paper matches your website.
 
-### Q3: What should be on my homepage for AI Overviews to cite it?
-A strong homepage should declare the primary entity (who you are), list the services or product categories, and answer 5–10 high-intent questions in plain language. Pair each question with a short, direct answer, and add JSON-LD that connects pages to the organization entity.
+### Do you run the ads, or do I?
+We set them up and run them. The ad account is in your name and you pay Google or Instagram directly, so you always see where the money goes.
 
-### Q4: Why do “About”, “Privacy”, and “Accessibility” pages help ranking?
-These pages help trust and transparency signals. They reduce ambiguity about who operates the site, how data is handled, and how users can report issues. In practice, they support trustworthiness and reduce “thin site” patterns that core ranking systems may down-weight.
+### Can you promise first place on Google?
+No, and nobody honestly can. What we can do is fix what holds your site back, keep your listing fresh and show you the numbers each month.
 
-### Q5: How does the site help crawlers discover pages?
-The site provides `robots.txt` and a canonical `sitemap.xml`. The sitemap lists home, product, trust pages, the services and industries hubs, all service URLs (including print and signage), blog posts, work category pages, and client case studies so crawlers can discover and schedule crawling efficiently.
-
-### Q6: What structured data does Adrevnview publish?
-Adrevnview publishes JSON-LD graph data for Organization/ProfessionalService, WebSite, WebPage, FAQPage, ItemList (portfolio), and Product + Offer (Google NFC card). This helps entity recognition, rich results eligibility, and AI citation accuracy.
-
-### Q7: How do I verify that structured data is correct?
-Use Google’s Rich Results Test and Schema Markup Validator. Ensure JSON-LD is valid JSON, uses stable `@id` links, and doesn’t contradict visible on-page content (titles, prices, availability, contact details).
-
-### Q8: What is a sitemap and what should be in it?
-A sitemap is an XML file listing canonical URLs you want indexed. It should include high-value pages (home, product pages, service pages, case studies, trust pages) and keep `lastmod` updated when content changes.
-
-### Q9: What is the difference between robots.txt and meta robots tags?
-`robots.txt` controls crawler access to paths. Meta robots (in HTML) controls whether an individual page should be indexed or followed. You typically want `index,follow` for public pages and `noindex` for staging or internal-only pages.
-
-### Q10: Why is “one H1 per page” important?
-It provides a clear primary topic for both humans and parsing systems. Search engines and AI extractors often treat H1 as the page’s canonical topic statement, improving intent classification and snippet generation.
-
-### Q11: How do images affect SEO and GEO?
-Images influence Core Web Vitals and multimodal understanding. Descriptive alt text helps accessibility and assists models that parse pages with image context. Explicit dimensions prevent layout shift (CLS) and improve stability.
-
-### Q12: What are Core Web Vitals and why do they matter?
-Core Web Vitals (LCP, INP, CLS) measure loading speed, interactivity, and visual stability. These affect user satisfaction and can influence ranking and conversion. Optimizing images, reducing JS, and preventing layout shift are key levers.
-
-### Q13: What makes a portfolio page credible for E‑E‑A‑T?
-Credibility increases when you include original screenshots, clear project scope, outcomes/metrics, and named deliverables. Link to live work, include dates, and describe decisions made and constraints handled—this demonstrates real experience.
-
-### Q14: How can a product page get cited by AI systems?
-Use direct, structured answers: what it is, who it’s for, price, how it works, compatibility, and FAQs. Add Product/Offer schema matching visible pricing. Keep copy concise and entity-dense so it’s easy to quote.
-
-### Q15: How should I phrase headings for AI and search?
-Use headings that reflect real user questions (e.g., “How does the Google NFC review card work?”). Place a short direct answer immediately under the heading. This improves snippet extraction and semantic chunking for RAG systems.
-
-### Q16: What if I change the domain from adrevnview.com?
-Update the canonical site URL and structured data `@id` fields to match the new domain, regenerate sitemap/robots references, and redeploy. Consistent canonical URLs are critical for avoiding duplicate indexing.
-
-### Q17: What should be blocked in robots.txt?
-Block only content you do not want crawled (admin paths, internal tools, staging routes). Avoid blocking CSS/JS assets needed for rendering. Some aggressive scrapers can be disallowed if they add no value.
-
-### Q18: How do I know if Google is indexing my SPA content?
-Use Google Search Console URL Inspection and check “View Crawled Page” and “Screenshot” results. If content is missing, consider prerendering/SSR or static HTML snapshots for key routes to guarantee full-text indexing.
-
+### Will my business show up in ChatGPT and other AI tools?
+We set up your site and listings so AI tools can read your name, address, hours, services and prices correctly. That gives you the best chance. No one can promise a spot in an AI answer.

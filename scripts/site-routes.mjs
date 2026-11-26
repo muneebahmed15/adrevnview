@@ -38,7 +38,10 @@ const CHANGED_EXACT = new Set([
   "/work/ecommerce",
 ]);
 
+const LASTMOD_HOME = "2026-11-26";
+
 function lastmodFor(routePath) {
+  if (routePath === "/") return LASTMOD_HOME;
   if (CHANGED_EXACT.has(routePath)) return LASTMOD_CHANGED;
   if (routePath.startsWith("/services/")) return LASTMOD_CHANGED;
   if (routePath.startsWith("/blog/")) return LASTMOD_CHANGED;

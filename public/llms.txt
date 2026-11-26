@@ -1,56 +1,55 @@
-# Adrevnview — LLM / GEO reference
+# Adrevnview
 # https://www.adrevnview.com
 
-> Adrevnview is a premium full-service digital agency for B2B, B2C, and enterprise brands.
+> Adrevnview is one shop for a local business. We make the website, the Google listing, the menus and print, the TV boards, the ads, the motion videos and the software. Based in Garden City, Long Island, New York. Most work is in New York. We work with businesses across the United States.
 
 ## About
 - Name: Adrevnview
 - Website: https://www.adrevnview.com
 - Email: hello@adrevnview.com
 - Phone: (516) 820-7863
-- Location: Long Island, New York, USA
+- Address: 1225 Franklin Ave, Suite 300, Garden City, NY 11530, USA
+- Area served: Long Island, New York, and the rest of the United States
+
+## Who we work with
+- Restaurants
+- Bagel shops and delis
+- Dessert shops and cafés
+- Gyms and academies
+- Barbershops and salons
+- Clinics and med spas
+- Stores
 
 ## Services
-- Custom web design
-- Web development and integrations
-- eCommerce design and development
-- Branding and brand identity
-- SEO and digital marketing
-- Generative Engine Optimization (GEO)
-- Website redesign
-- Printing and signage: business cards, letterheads, restaurant menus, brochures and flyers, panaflex (penaflex) outdoor banners
+- Websites: business websites, website rebuilds, landing pages, online stores
+- Google and AI search: search engine work (SEO), Google Business Profile care, setup so AI tools read the business correctly (GEO), free website check
+- Ads and social: Google, Facebook and Instagram ads, social media posts, short videos, motion videos, email
+- Print and screens: TV menu boards, restaurant menus, business cards, flyers, brochures, banners, letterheads, stickers, labels, packaging, logo and brand
+- Software: ordering, booking, check-in and membership software
 
-## Products
-- Google NFC Review Card ($99): https://www.adrevnview.com/googlenfc
-  - NFC + QR card that sends customers to Google review page
-  - No app required, pre-programmed, lifetime guarantee
+## Packages (starting prices; the exact price is given in writing after a short talk)
+- Open the doors: from $1,500, one time. For a new business, or one starting over.
+- Get found: from $500 a month. For a business that is open and wants more people to find it.
+- Fill the room: from $1,000 a month, plus the ad budget. For a business ready to pay for more customers.
 
-## Client Work
-- Tagizo (video intelligence SaaS): https://tagizo.com — case study: https://www.adrevnview.com/tagizo
-- Axstart (innovation lab): https://axstart.com — case study: https://www.adrevnview.com/axstart
-- Cizher (AI workspace): https://cizher.com — case study: https://www.adrevnview.com/cizher
-- Payrowl (operations platform): https://payrowl.com — case study: https://www.adrevnview.com/payrowl
-- Xeark (knowledge engine): https://www.xeark.com — case study: https://www.adrevnview.com/xeark
-- AXNET (mesh network): https://axearth.com — case study: https://www.adrevnview.com/axnet
-- Mishi (artisan eCommerce): https://mishi.es — case study: https://www.adrevnview.com/mishi
-- Crocherish (handmade crafts): https://crocherish.com — case study: https://www.adrevnview.com/crocherish
-- East Coast MMA & Fitness (martial arts): https://ecmmaandfitness.com — case study: https://www.adrevnview.com/ecmmaandfitness
-- Kennedy Fried Chicken (halal restaurant): https://kfc-ny.com — case study: https://www.adrevnview.com/kfc-ny
+## Software we built
+- Matzop (gyms and academies): https://matzop.com
+- Cutzop (barbershops and salons): https://cutzop.com
+- Doczop (clinics): https://doczop.com
+- Taxzop (small US businesses): https://taxzop.com
+- Bagelzop (bagel shops): customer ordering page, kitchen screen, owner dashboard
 
-## Partner Product (Gym & Academy Management)
-- Matzop gym or academy management: https://matzop.com
-  - Ops, member portal, lead generation, and retention tools for gyms and academies
-
-## Key Pages
+## Key pages
 - Home: https://www.adrevnview.com/
-- Client case studies: https://www.adrevnview.com/work
+- Get a quote: https://www.adrevnview.com/#quote
 - Services: https://www.adrevnview.com/services
 - Printing services: https://www.adrevnview.com/services/printing-services
 - Business card printing: https://www.adrevnview.com/services/business-card-printing
 - Letterhead printing: https://www.adrevnview.com/services/letterhead-printing
 - Restaurant menu printing: https://www.adrevnview.com/services/restaurant-menu-printing
 - Brochure and flyer printing: https://www.adrevnview.com/services/brochure-and-flyer-printing
-- Panaflex and banner advertising: https://www.adrevnview.com/services/panaflex-and-banner-advertising
-- Google NFC product: https://www.adrevnview.com/googlenfc
-- Free SEO & GEO Report Generator: https://www.adrevnview.com/geo-report
+- Banner printing: https://www.adrevnview.com/services/panaflex-and-banner-advertising
+- Free website check (SEO and AI readiness): https://www.adrevnview.com/geo-report
+- Contact: https://www.adrevnview.com/contact
 - Sitemap: https://www.adrevnview.com/sitemap.xml
+- Longer reference: https://www.adrevnview.com/llms-full.txt

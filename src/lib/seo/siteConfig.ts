@@ -31,8 +31,11 @@ export const ORG = {
     "SEO",
     "Generative Engine Optimization",
     "Digital marketing",
-    "SaaS product design",
-    "Google NFC review cards",
+    "Google Business Profile",
+    "Google and Instagram ads",
+    "Motion video",
+    "TV menu boards",
+    "Restaurant, gym, barbershop and clinic software",
     "Printing services",
     "Business card printing",
     "Restaurant menu printing",
@@ -41,9 +44,9 @@ export const ORG = {
 };
 
 export const DEFAULT_SEO = {
-  title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
+  title: "Adrevnview | Websites, Print, Ads and Software for Local Businesses",
   description:
-    "Adrevnview is a premium web design agency for B2B, B2C, and enterprise brands. Custom websites, branding, SEO, and Generative Engine Optimization (GEO) that drive measurable growth.",
+    "One shop for your website, Google listing, print, TV boards, ads, motion video and software. Based on Long Island, New York, working across the United States.",
   keywords:
     "web design agency, custom web design, SEO agency, GEO optimization, digital marketing, eCommerce design, printing services, business cards, restaurant menus, panaflex, Long Island web agency, New York web design, B2B web design",
 };
@@ -51,9 +54,9 @@ export const DEFAULT_SEO = {
 export const PAGES = {
   home: {
     path: "/",
-    title: "Adrevnview — Premium Web Design Agency | SEO & GEO",
+    title: "Adrevnview | Websites, Print, Ads and Software for Local Businesses",
     description:
-      "Full-service digital and print agency for B2B, B2C, and enterprise brands. Custom web design, development, SEO, GEO, branding, and printing.",
+      "One shop for your website, Google listing, print, TV boards, ads, motion video and software. Based on Long Island, New York, working across the United States.",
   },
   googleNfc: {
     path: "/googlenfc",

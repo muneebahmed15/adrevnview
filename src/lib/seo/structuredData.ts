@@ -1,23 +1,27 @@
 import { CLIENTS, getClientPath, isClientPath } from "@/lib/content/clients";
 import { SERVICE_BY_SLUG } from "@/lib/content/services";
 import { ORG, SITE_URL } from "./siteConfig";
+import homeFaq from "@/app/next/faq.json";
 
 type FaqItem = { question: string; answer: string };
 
 const SERVICE_OFFERS = [
-  { name: "Custom Web Design", url: `${SITE_URL}/services/custom-web-design` },
-  { name: "Web Development & Integrations", url: `${SITE_URL}/services/react-development` },
-  { name: "eCommerce Design & Development", url: `${SITE_URL}/services/shopify-development` },
-  { name: "Branding & Brand Identity", url: `${SITE_URL}/services/brand-identity` },
-  { name: "SEO & Digital Marketing", url: `${SITE_URL}/services/seo-services` },
-  { name: "Generative Engine Optimization (GEO)", url: `${SITE_URL}/services/seo-services` },
+  { name: "Website Design", url: `${SITE_URL}/services/custom-web-design` },
   { name: "Website Redesign", url: `${SITE_URL}/services/website-redesign` },
-  { name: "Printing & Signage", url: `${SITE_URL}/services/printing-services` },
-  { name: "Business Card Printing", url: `${SITE_URL}/services/business-card-printing` },
-  { name: "Letterhead Printing", url: `${SITE_URL}/services/letterhead-printing` },
+  { name: "Online Store Design", url: `${SITE_URL}/services/shopify-development` },
+  { name: "Google Search and Google Business Profile", url: `${SITE_URL}/services/seo-services` },
+  { name: "AI Search Setup (GEO)", url: `${SITE_URL}/services/seo-services` },
+  { name: "Google, Instagram and Facebook Ads", url: `${SITE_URL}/#ads` },
+  { name: "Social Media Posts and Motion Video", url: `${SITE_URL}/#ads` },
+  { name: "Logo and Brand Identity", url: `${SITE_URL}/services/brand-identity` },
+  { name: "Printing and Signs", url: `${SITE_URL}/services/printing-services` },
   { name: "Restaurant Menu Printing", url: `${SITE_URL}/services/restaurant-menu-printing` },
+  { name: "Business Card Printing", url: `${SITE_URL}/services/business-card-printing` },
   { name: "Brochure and Flyer Printing", url: `${SITE_URL}/services/brochure-and-flyer-printing` },
-  { name: "Panaflex & Flex Banner Advertising", url: `${SITE_URL}/services/panaflex-and-banner-advertising` },
+  { name: "Letterhead Printing", url: `${SITE_URL}/services/letterhead-printing` },
+  { name: "Banner Printing", url: `${SITE_URL}/services/panaflex-and-banner-advertising` },
+  { name: "TV Menu Boards", url: `${SITE_URL}/#print` },
+  { name: "Software for Restaurants, Gyms, Barbers and Clinics", url: `${SITE_URL}/#software` },
 ];
 
 const CLIENT_PROJECTS = CLIENTS.map((client) => ({
@@ -27,43 +31,7 @@ const CLIENT_PROJECTS = CLIENTS.map((client) => ({
   caseStudyUrl: `${SITE_URL}${getClientPath(client.slug)}`,
 }));
 
-const HOME_FAQ: FaqItem[] = [
-  {
-    question: "What is Adrevnview?",
-    answer:
-      "Adrevnview is a premium full-service agency specializing in custom web design, web development, branding, SEO, Generative Engine Optimization (GEO), and printing for B2B, B2C, and enterprise brands.",
-  },
-  {
-    question: "What is Generative Engine Optimization (GEO)?",
-    answer:
-      "GEO is the practice of structuring website content, metadata, and schema markup so AI assistants (ChatGPT, Perplexity, Gemini) can accurately understand, cite, and recommend your brand and services.",
-  },
-  {
-    question: "What services does Adrevnview offer?",
-    answer:
-      "Adrevnview offers custom web design, full-stack development, eCommerce design, brand identity systems, SEO, digital marketing, website redesigns, GEO, and printing — including restaurant menus, business cards, letterheads, brochures, and panaflex outdoor banners.",
-  },
-  {
-    question: "Does Adrevnview design websites and print menus on Long Island?",
-    answer:
-      "Yes. Adrevnview is based on Long Island, New York. We design custom websites and produce restaurant menus, business cards, letterheads, brochures, and panaflex banners for local shops and national brands.",
-  },
-  {
-    question: "How long does a custom website take, and what do projects cost?",
-    answer:
-      "Most custom website design projects run 4–8 weeks depending on scope, page count, and feedback cycles. Website, branding, and print work is quoted from a brief. The Google NFC Review Card is a $99 one-time product. Request a quote at https://www.adrevnview.com/contact.",
-  },
-  {
-    question: "Do you build Shopify stores and React websites?",
-    answer:
-      "Yes. We design and develop Shopify and Shopify Plus storefronts, and we build React marketing sites and applications (Vite or Next.js when the project needs it) with SEO-friendly rendering.",
-  },
-  {
-    question: "How do I contact Adrevnview?",
-    answer:
-      "Contact Adrevnview at hello@adrevnview.com or (516) 820-7863. Request a free consultation at https://www.adrevnview.com/contact.",
-  },
-];
+const HOME_FAQ: FaqItem[] = homeFaq.map((item) => ({ question: item.q, answer: item.a }));
 
 export const CONTACT_FAQ: FaqItem[] = [
   {
@@ -117,7 +85,7 @@ function organizationSchema() {
     logo: ORG.logo,
     image: ORG.logo,
     description:
-      "Premium web design and print agency delivering custom websites, branding, SEO, Generative Engine Optimization, and printing for B2B, B2C, and enterprise brands.",
+      "One shop for a local business: websites, Google listing, print, TV menu boards, ads, motion video and software. Based in Garden City, Long Island, New York, working across the United States.",
     email: ORG.email,
     telephone: ORG.phone,
     foundingDate: ORG.foundingDate,
@@ -125,7 +93,7 @@ function organizationSchema() {
       "@type": "PostalAddress",
       ...ORG.address,
     },
-    areaServed: ["United States", "Europe", "Global"],
+    areaServed: ["Long Island", "New York", "United States"],
     sameAs: ORG.sameAs,
     knowsAbout: ORG.knowsAbout,
     founder: {
@@ -143,7 +111,7 @@ function organizationSchema() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Digital Agency Services",
+      name: "Adrevnview services",
       itemListElement: SERVICE_OFFERS.map((offer, i) => ({
         "@type": "Offer",
         position: i + 1,
@@ -166,7 +134,7 @@ function websiteSchema() {
     "@id": `${SITE_URL}/#website`,
     name: ORG.name,
     url: SITE_URL,
-    description: "Premium web design and print agency — custom websites, SEO, GEO, and printing.",
+    description: "Websites, Google listing, print, TV boards, ads, motion video and software for local businesses.",
     publisher: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-US",
   };
